@@ -1,8 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { siteConfig } from "@/lib/site-config";
 import Hero from "@/components/homepage/Hero";
+import { DiamondClubVacations } from "@/components/homepage/DiamondClubVacations";
 
 // Below-the-fold sections are code-split into their own chunks so the initial
 // route bundle (and hydration cost) stays small. Content is still fully
@@ -95,7 +95,9 @@ export default function HomePage() {
       />
       {/* 1. Hero Section */}
       <Hero />
-      <div className="h-screen bg-red-500"></div>
+
+      {/* 2. Diamond Club Vacations Section */}
+      <DiamondClubVacations />
     </div>
   );
 }

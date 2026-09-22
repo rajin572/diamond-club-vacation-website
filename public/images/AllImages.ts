@@ -8,6 +8,8 @@ import menuImage from "./menuImage.png";
 // Home
 import homeAbout1 from "./homepage/homeAbout1.jpg";
 import homeAbout2 from "./homepage/homeAbout2.jpg";
+import aboutPoolLeft from "./about/about_pool_left.png";
+import aboutPoolRight from "./about/about_pool_right.png";
 
 export const AllImages = {
   logo,
@@ -19,4 +21,6 @@ export const AllImages = {
 
   homeAbout1,
   homeAbout2,
+  aboutPoolLeft,
+  aboutPoolRight,
 };

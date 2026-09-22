@@ -570,5 +570,73 @@ export const FormTimePicker: FormControlFunc<{
     );
   };
 
+// Segmented button choice -- Yes/No and other short single-select questions
+// rendered as full-width bordered options rather than a native select.
+export const FormToggleGroup: FormControlFunc<{
+  options: Array<{ value: string; label: string }>;
+}> = ({ options, ...props }) => {
+  return (
+    <FormBase {...props}>
+      {({ onChange, value }) => (
+        <div className="grid grid-cols-2 gap-4">
+          {options.map((option) => {
+            const selected = value === option.value;
+            return (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => onChange(option.value)}
+                aria-pressed={selected}
+                className={cn(
+                  "rounded-md border px-5 py-4 text-center text-base font-outfit transition-colors",
+                  selected
+                    ? "border-secondary-color bg-secondary-color/10 text-secondary-color"
+                    : "border-base-color/20 text-base-color hover:border-base-color/40"
+                )}
+              >
+                {option.label}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </FormBase>
+  );
+};
+
+// Pill/chip single-select -- for short tag-style choices (referral source,
+// community style) where a native select would undersell the options.
+export const FormTagSelect: FormControlFunc<{
+  options: string[];
+}> = ({ options, ...props }) => {
+  return (
+    <FormBase {...props}>
+      {({ onChange, value }) => (
+        <div className="flex flex-wrap gap-2.5">
+          {options.map((option) => {
+            const selected = value === option;
+            return (
+              <button
+                key={option}
+                type="button"
+                onClick={() => onChange(option)}
+                aria-pressed={selected}
+                className={cn(
+                  "rounded-full border px-4 py-2 text-sm font-outfit transition-colors",
+                  selected
+                    ? "border-secondary-color bg-secondary-color text-white"
+                    : "border-base-color/20 text-base-color hover:border-base-color/40"
+                )}
+              >
+                {option}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </FormBase>
+  );
+};
+
 export { default as ReuseableForm } from "./ReuseableForm";
 export { SelectItem } from "../../select";
