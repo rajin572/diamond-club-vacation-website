@@ -4,12 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Bell,
-  Compass,
+  CreditCard,
+  FileText,
   Home,
-  MessageCircle,
+  History,
+  IdCard,
+  LifeBuoy,
   Plus,
-  Store,
   User,
 } from "lucide-react";
 import { AllImages } from "../../../public/images/AllImages";
@@ -24,11 +25,12 @@ import {
 } from "@/components/ui/sidebar";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/", icon: Home },
-  { label: "Explore", href: "/explore", icon: Compass },
-  { label: "Marketplace", href: "/marketplace", icon: Store },
-  { label: "Chat", href: "/chat", icon: MessageCircle },
-  { label: "Notifications", href: "/notifications", icon: Bell },
+  { label: "Dashboard", href: "/dashboard", icon: Home },
+  { label: "My Membership", href: "/my-membership", icon: IdCard },
+  { label: "Billing", href: "/billing", icon: CreditCard },
+  { label: "Stay History", href: "/stay-history", icon: History },
+  { label: "Quotes", href: "/quotes", icon: FileText },
+  { label: "Support Requests", href: "/service-request", icon: LifeBuoy },
   { label: "Profile", href: "/profile", icon: User },
 ] as const;
 
@@ -41,13 +43,13 @@ export function Sidebar() {
         <Link href="/" className="flex items-center justify-center">
           <Image
             src={AllImages.logo}
-            alt="purepool"
+            alt="Diamond Club Vacation"
             className="h-auto w-[90%] group-data-[collapsible=icon]:hidden"
             priority
           />
           <Image
             src={AllImages.logo}
-            alt="purepool"
+            alt="Diamond Club Vacation"
             className="hidden h-auto w-7 shrink-0 group-data-[collapsible=icon]:block"
             priority
           />
@@ -86,7 +88,7 @@ export function Sidebar() {
           className="flex items-center justify-center gap-2 rounded-xl bg-secondary-color px-4 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-secondary-color/90 group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:rounded-md group-data-[collapsible=icon]:p-0"
         >
           <Plus className="hidden size-4 group-data-[collapsible=icon]:block" />
-          <span className="group-data-[collapsible=icon]:hidden">Create</span>
+          <span className="group-data-[collapsible=icon]:hidden">New Request</span>
         </button>
       </SidebarFooter>
     </SidebarPrimitive>

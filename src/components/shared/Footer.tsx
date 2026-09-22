@@ -10,17 +10,17 @@ import { AllImages } from "../../../public/images/AllImages";
 import Container from "../ui/CustomUi/Container";
 
 const ACCOUNT_LINKS = [
-    { label: "My pool specifications", href: "/my-pool-specifications" },
-    { label: "Service history & visits", href: "/service-history" },
+    { label: "My membership details", href: "/my-membership" },
+    { label: "Stay history", href: "/stay-history" },
     { label: "Invoices & payment", href: "/billing" },
     { label: "Contracts & renewals", href: "/contracts-renewals" },
-    { label: "Equipment manuals & warranties", href: "/equipment-manuals-warranties" },
+    { label: "Membership benefits & perks", href: "/membership-benefits" },
     { label: "Documents", href: "/documents" },
 ] as const;
 
 const SUPPORT_LINKS = [
     { label: "Help center & FAQ", href: "/help-center" },
-    { label: "Water safety standards (RD 742/2013)", href: "/water-safety-standards" },
+    { label: "Membership terms & disclosures", href: "/membership-disclosures" },
 ] as const;
 
 const SOCIAL_LINKS = [
@@ -65,15 +65,15 @@ const Footer = () => {
                         <Link href="/" className="inline-block">
                             <Image
                                 src={AllImages.logoSecondary}
-                                alt="Pure Pool"
+                                alt="Diamond Club Vacation"
                                 width={240}
                                 height={80}
                                 className="h-16 sm:h-18 w-auto object-contain"
                             />
                         </Link>
                         <p className="text-sm leading-relaxed text-primary-color/85 max-w-sm">
-                            Pure Pool provides premium, stress-free pool maintenance, diagnostic
-                            chemistry, and warranty protection across Greater Madrid.
+                            Diamond Club Vacation gives members effortless access to premium resort
+                            stays, flexible points, and dedicated concierge support worldwide.
                         </p>
                     </div>
 
@@ -96,25 +96,25 @@ const Footer = () => {
                             <li className="flex items-start gap-2.5 min-w-0">
                                 <HiOutlineLocationMarker className="mt-0.5 size-5 shrink-0 text-sky-400" />
                                 <span className="leading-snug break-words">
-                                    Calle de Velázquez 94, 1º Izq, 28006 Madrid, Spain
+                                    100 Ocean Vista Drive, Suite 200, Miami, FL 33131
                                 </span>
                             </li>
                             <li className="flex items-center gap-2.5 min-w-0">
                                 <HiOutlinePhone className="size-5 shrink-0 text-sky-400" />
                                 <a
-                                    href="tel:+34910882140"
+                                    href="tel:+15550100142"
                                     className="hover:text-primary-color transition-colors"
                                 >
-                                    +34 910 882 140
+                                    +1 (555) 010-0142
                                 </a>
                             </li>
                             <li className="flex items-center gap-2.5 min-w-0">
                                 <HiOutlineMail className="size-5 shrink-0 text-sky-400" />
                                 <a
-                                    href="mailto:support@purepool.es"
+                                    href="mailto:support@diamondclubvacation.com"
                                     className="hover:text-primary-color transition-colors truncate"
                                 >
-                                    support@purepool.es
+                                    support@diamondclubvacation.com
                                 </a>
                             </li>
                         </ul>
@@ -124,7 +124,7 @@ const Footer = () => {
                 {/* Bottom bar */}
                 <div className="flex flex-col items-center gap-5 pt-8 border-t border-white/10 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-xs sm:text-sm text-primary-color/75 text-center sm:text-left">
-                        © {new Date().getFullYear()} Pure Pool. All rights reserved.
+                        © {new Date().getFullYear()} Diamond Club Vacation. All rights reserved.
                     </p>
                     <div className="flex items-center gap-5">
                         {SOCIAL_LINKS.map(({ label, href, Icon }) => (

@@ -10,7 +10,7 @@ export const getServerUrl = () => {
 // robots, Open Graph and JSON-LD. Set NEXT_PUBLIC_SITE_URL to the production
 // domain before deploying; falls back to localhost in development.
 export const getSiteUrl = () => {
-  const url = process.env.NEXT_PUBLIC_SITE_URL || "https://beyondstyles.co.uk";
+  const url = process.env.NEXT_PUBLIC_SITE_URL || "https://www.diamondclubvacation.com";
   return url.replace(/\/$/, "");
 };
 

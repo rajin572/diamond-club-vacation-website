@@ -6,23 +6,21 @@ import { AllImages } from "../../../public/images/AllImages";
 import Link from "next/link";
 import Container from "../ui/CustomUi/Container";
 
-// Single-page portfolio, so these are in-page anchors rather than routes — the
-// app has exactly one route (`/`), and the previous /services, /features, /faq
-// links all 404'd. The target sections still need matching ids as they're built.
+// Single-page marketing site, so these are in-page anchors rather than routes —
+// the app has exactly one route (`/`). The target sections still need matching
+// ids as they're built.
 const NAV_ITEMS = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Services", href: "#services" },
-    { label: "Projects", href: "#projects" },
-    { label: "Experience", href: "#experience" },
+    { label: "Membership", href: "#membership" },
+    { label: "Resorts", href: "#resorts" },
     { label: "Contact", href: "#contact" },
 ] as const;
 
 const socials = [
-    { label: "github", href: "https://github.com/rajin572" },
-    { label: "instagram", href: "https://www.instagram.com/dir_razin_572" },
-    { label: "linkedin", href: "https://linkedin.com/in/din-islam-rajin" },
+    { label: "facebook", href: "#" },
+    { label: "instagram", href: "#" },
+    { label: "youtube", href: "#" },
 ] as const;
 const Navbar = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -199,14 +197,14 @@ const Navbar = () => {
                     <div className="font-light">
                         <p className="tracking-wider text-white/50">E-mail</p>
                         <p className="text-xl tracking-widest lowercase text-pretty">
-                            din.islam.rajin572@gmail.com
+                            support@diamondclubvacation.com
                         </p>
                     </div>
 
                     <div className="font-light">
                         <p className="tracking-wider text-white/50">Phone</p>
                         <p className="text-xl tracking-widest text-pretty">
-                            +8801647742754
+                            +1 (555) 010-0142
                         </p>
                     </div>
 

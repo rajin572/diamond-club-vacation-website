@@ -15,20 +15,20 @@ export default function Error({
 }) {
   useEffect(() => {
     // Log the error to an error reporting service if needed
-    console.error("Pure Pool runtime error:", error);
+    console.error("Diamond Club Vacation runtime error:", error);
   }, [error]);
 
   const handleContact = () => {
-    const subject = encodeURIComponent("Pure Pool Website Error Report");
+    const subject = encodeURIComponent("Diamond Club Vacation Website Error Report");
     const body = encodeURIComponent(
-      `Hi Pure Pool Support,\n\nI encountered an error on the website.\n\nError Message: ${error.message}\nDigest Code: ${error.digest || "N/A"}\nURL: ${typeof window !== "undefined" ? window.location.href : ""}`
+      `Hi Diamond Club Vacation Support,\n\nI encountered an error on the website.\n\nError Message: ${error.message}\nDigest Code: ${error.digest || "N/A"}\nURL: ${typeof window !== "undefined" ? window.location.href : ""}`
     );
-    window.location.href = `mailto:support@purepool.es?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:support@diamondclubvacation.com?subject=${subject}&body=${body}`;
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50/80 via-slate-50 to-sky-100/40 flex items-center justify-center p-4 sm:p-6 relative overflow-hidden">
-      {/* Subtle Ambient Water/Pool Glows */}
+      {/* Subtle Ambient Decorative Glows */}
       <div className="absolute -top-32 -right-32 w-96 h-96 bg-sky-300/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-400/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-200/10 rounded-full blur-3xl pointer-events-none" />
@@ -44,7 +44,7 @@ export default function Error({
             <Link href="/" className="inline-block hover:opacity-90 transition-opacity">
               <Image
                 src={AllImages.logo}
-                alt="Pure Pool Logo"
+                alt="Diamond Club Vacation Logo"
                 width={160}
                 height={40}
                 className="h-8 sm:h-9 w-auto object-contain"
@@ -118,7 +118,7 @@ export default function Error({
               className="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm font-semibold text-sky-600 hover:text-sky-700 transition-colors cursor-pointer group"
             >
               <Mail className="w-4 h-4 text-sky-500 group-hover:scale-110 transition-transform" />
-              <span>support@purepool.es</span>
+              <span>support@diamondclubvacation.com</span>
             </button>
           </div>
         </div>

@@ -15,14 +15,14 @@ const pageDescription = siteConfig.description;
 export const metadata: Metadata = {
   // No `title` here — the root layout's `title.default` is already the exact
   // fully-branded string, and setting one here would run it through the
-  // "%s | Pure Pool" template too, duplicating the brand name.
+  // "%s | Diamond Club Vacation" template too, duplicating the brand name.
   description: pageDescription,
   keywords: [
-    "pool maintenance Madrid",
-    "pool cleaning service Madrid",
-    "swimming pool technician Madrid",
-    "piscina mantenimiento Madrid",
-    "pool chemical balancing",
+    "vacation club membership",
+    "points-based vacation club",
+    "timeshare points club",
+    "vacation ownership rewards",
+    "luxury resort membership",
   ],
   alternates: {
     canonical: pageUrl,
@@ -44,19 +44,18 @@ export const metadata: Metadata = {
   },
 };
 
-// Structured data mirrors the real, visible page content (services, pricing) so it
+// Structured data mirrors the real, visible page content (membership tiers) so it
 // stays honest — no fabricated ratings/reviews or unconfirmed social profiles.
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
+  "@type": "TravelAgency",
   name: siteConfig.name,
   description: siteConfig.description,
   url: siteConfig.siteUrl,
   image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
   telephone: siteConfig.contact.phone,
   email: siteConfig.contact.email,
-  areaServed: siteConfig.areaServed,
-  priceRange: "€60 - €340",
+  priceRange: "$2,500 - $35,000",
   address: {
     "@type": "PostalAddress",
     ...siteConfig.contact.address,
@@ -64,24 +63,24 @@ const structuredData = {
   makesOffer: [
     {
       "@type": "Offer",
-      name: "Essential Maintenance Plan",
-      price: "60",
-      priceCurrency: "EUR",
-      description: "Fortnightly visits for smaller residential pools.",
+      name: "Silver Membership",
+      price: "2500",
+      priceCurrency: "USD",
+      description: "Entry-level points allotment with access to the full resort network.",
     },
     {
       "@type": "Offer",
-      name: "Premium Maintenance Plan",
-      price: "85",
-      priceCurrency: "EUR",
-      description: "Weekly visits and priority response.",
+      name: "Gold Membership",
+      price: "9500",
+      priceCurrency: "USD",
+      description: "Higher annual points, priority booking window, and guest certificates.",
     },
     {
       "@type": "Offer",
-      name: "Commercial Maintenance Plan",
-      price: "340",
-      priceCurrency: "EUR",
-      description: "Hotels, communities and public pools with regulatory requirements.",
+      name: "Diamond Elite Membership",
+      price: "35000",
+      priceCurrency: "USD",
+      description: "Maximum points allotment, dedicated concierge, and premium resort access worldwide.",
     },
   ],
 };
