@@ -1,147 +1,80 @@
-import Image from "next/image";
-import Link from "next/link";
-import {
-    HiOutlineLocationMarker,
-    HiOutlineMail,
-    HiOutlinePhone,
-} from "react-icons/hi";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa6";
-import { AllImages } from "../../../public/images/AllImages";
+"use client";
+
+import { useRef } from "react";
 import Container from "../ui/CustomUi/Container";
+import { useGSAP, gsap, ScrollTrigger } from "@/lib/gsap-util";
+import FooterBrand from "./Footer/FooterBrand";
+import FooterLinkColumn from "./Footer/FooterLinkColumn";
+import FooterWordmark from "./Footer/FooterWordmark";
+import FooterBottomBar from "./Footer/FooterBottomBar";
+import { FOOTER_COLUMNS } from "./Footer/footer.data";
 
-const ACCOUNT_LINKS = [
-    { label: "My membership details", href: "/my-membership" },
-    { label: "Stay history", href: "/stay-history" },
-    { label: "Invoices & payment", href: "/billing" },
-    { label: "Contracts & renewals", href: "/contracts-renewals" },
-    { label: "Membership benefits & perks", href: "/membership-benefits" },
-    { label: "Documents", href: "/documents" },
-] as const;
+/**
+ * The footer content starts shifted up by half its own height and clipped by
+ * the wrapper overflow-hidden, so only the bottom half shows. Scrolling
+ * scrubs it back to yPercent 0, sliding the rest down into view -- the
+ * footer appears to uncover itself rather than simply scrolling into frame.
+ */
+const buildFooterRevealTrigger = (
+    footerEl: HTMLElement,
+    containerEl: HTMLElement
+): ScrollTrigger => {
+    gsap.set(containerEl, { yPercent: -50 });
 
-const SUPPORT_LINKS = [
-    { label: "Help center & FAQ", href: "/help-center" },
-    { label: "Membership terms & disclosures", href: "/membership-disclosures" },
-] as const;
+    const uncover = gsap.timeline({ paused: true });
+    uncover.to(containerEl, { yPercent: 0, ease: "none" });
 
-const SOCIAL_LINKS = [
-    { label: "Facebook", href: "#", Icon: FaFacebook },
-    { label: "Instagram", href: "#", Icon: FaInstagram },
-    { label: "YouTube", href: "#", Icon: FaYoutube },
-] as const;
-
-const FooterLinkColumn = ({
-    title,
-    links,
-}: {
-    title: string;
-    links: ReadonlyArray<{ label: string; href: string }>;
-}) => (
-    <div className="flex flex-col gap-3.5 min-w-0">
-        <h3 className="text-sm font-bold uppercase tracking-wider text-primary-color">
-            {title}
-        </h3>
-        <ul className="flex flex-col gap-2.5">
-            {links.map((link) => (
-                <li key={link.label} className="min-w-0">
-                    <Link
-                        href={link.href}
-                        className="text-sm font-medium text-primary-color/80 hover:text-primary-color transition-colors leading-snug block"
-                    >
-                        {link.label}
-                    </Link>
-                </li>
-            ))}
-        </ul>
-    </div>
-);
+    return ScrollTrigger.create({
+        trigger: footerEl,
+        start: "top bottom",
+        end: "+=75%",
+        animation: uncover,
+        scrub: true,
+    });
+};
 
 const Footer = () => {
+    const footerRef = useRef<HTMLElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(
+        () => {
+            if (!footerRef.current || !containerRef.current) return;
+
+            const trigger = buildFooterRevealTrigger(footerRef.current, containerRef.current);
+            return () => trigger.kill();
+        },
+        { scope: footerRef }
+    );
+
     return (
-        <footer className="w-full overflow-x-clip bg-sky-950 text-primary-color">
-            <Container className="flex flex-col gap-12 pt-16 pb-12">
-                <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 xl:gap-12">
-                    {/* Brand Column */}
-                    <div className="flex flex-col items-start gap-3 sm:col-span-2 lg:col-span-4 min-w-0">
-                        <Link href="/" className="inline-block">
-                            <Image
-                                src={AllImages.logoSecondary}
-                                alt="Diamond Club Vacation"
-                                width={240}
-                                height={80}
-                                className="h-16 sm:h-18 w-auto object-contain"
-                            />
-                        </Link>
-                        <p className="text-sm leading-relaxed text-primary-color/85 max-w-sm">
-                            Diamond Club Vacation gives members effortless access to premium resort
-                            stays, flexible points, and dedicated concierge support worldwide.
-                        </p>
+        <footer
+            ref={footerRef}
+            className="relative z-10 w-full overflow-hidden bg-[#F2F0EC]"
+        >
+            <div ref={containerRef}>
+                <Container className="flex flex-col gap-8 pb-6 pt-16 sm:gap-10 sm:pb-8 sm:pt-20 lg:pt-24">
+                    {/* Brand + sitemap / collection / social / contact columns */}
+                    <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-8">
+                        <FooterBrand />
+
+                        <nav
+                            aria-label="Footer"
+                            className="grid w-full grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4 lg:flex lg:flex-1 lg:gap-8"
+                        >
+                            {FOOTER_COLUMNS.map((column) => (
+                                <FooterLinkColumn key={column.id} column={column} className="lg:flex-1" />
+                            ))}
+                        </nav>
                     </div>
 
-                    {/* Account Links */}
-                    <div className="sm:col-span-1 lg:col-span-3 min-w-0">
-                        <FooterLinkColumn title="Your Account" links={ACCOUNT_LINKS} />
-                    </div>
+                    <div className="h-px w-full bg-base-color/20" />
 
-                    {/* Support Links */}
-                    <div className="sm:col-span-1 lg:col-span-2 min-w-0">
-                        <FooterLinkColumn title="Support" links={SUPPORT_LINKS} />
-                    </div>
+                    <FooterWordmark />
 
-                    {/* Get In Touch */}
-                    <div className="flex flex-col gap-3.5 sm:col-span-2 lg:col-span-3 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-primary-color">
-                            Get In Touch
-                        </h3>
-                        <ul className="flex flex-col gap-3 text-sm font-medium text-primary-color/85">
-                            <li className="flex items-start gap-2.5 min-w-0">
-                                <HiOutlineLocationMarker className="mt-0.5 size-5 shrink-0 text-sky-400" />
-                                <span className="leading-snug break-words">
-                                    100 Ocean Vista Drive, Suite 200, Miami, FL 33131
-                                </span>
-                            </li>
-                            <li className="flex items-center gap-2.5 min-w-0">
-                                <HiOutlinePhone className="size-5 shrink-0 text-sky-400" />
-                                <a
-                                    href="tel:+15550100142"
-                                    className="hover:text-primary-color transition-colors"
-                                >
-                                    +1 (555) 010-0142
-                                </a>
-                            </li>
-                            <li className="flex items-center gap-2.5 min-w-0">
-                                <HiOutlineMail className="size-5 shrink-0 text-sky-400" />
-                                <a
-                                    href="mailto:support@diamondclubvacation.com"
-                                    className="hover:text-primary-color transition-colors truncate"
-                                >
-                                    support@diamondclubvacation.com
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Bottom bar */}
-                <div className="flex flex-col items-center gap-5 pt-8 border-t border-white/10 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-xs sm:text-sm text-primary-color/75 text-center sm:text-left">
-                        © {new Date().getFullYear()} Diamond Club Vacation. All rights reserved.
-                    </p>
-                    <div className="flex items-center gap-5">
-                        {SOCIAL_LINKS.map(({ label, href, Icon }) => (
-                            <a
-                                key={label}
-                                href={href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={label}
-                                className="text-primary-color/80 hover:text-sky-400 hover:scale-110 transition-all duration-200"
-                            >
-                                <Icon className="size-5" />
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            </Container>
+                    <FooterBottomBar />
+                </Container>
+            </div>
         </footer>
     );
 };

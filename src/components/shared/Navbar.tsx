@@ -118,7 +118,7 @@ export const Navbar = () => {
 
                         {/* Right Column: Inquire Action */}
                         <div className="w-40 sm:w-56 md:w-60 flex justify-end items-center">
-                            <InquireButton />
+                            <InquireButton openInNewTab={false} />
                         </div>
                     </div>
                 </Container>
