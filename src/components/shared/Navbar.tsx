@@ -67,8 +67,8 @@ export const Navbar = () => {
                 className={cn(
                     "w-full transition-colors duration-300 ease-out z-50",
                     isScrolled
-                        ? "bg-[#FCFCFB]/95 backdrop-blur-md shadow-[0_1px_3px_rgba(0,0,0,0.05)] border-b border-black/[0.04]"
-                        : "bg-[#FCFCFB]/00 backdrop-blur-xs"
+                        ? "bg-[#FCFCFB]/75 backdrop-blur-md shadow-[0_1px_3px_rgba(0,0,0,0.05)] border-b border-black/[0.04]"
+                        : "bg-[#FCFCFB]/00"
                 )}
             >
                 <Container className="py-2">

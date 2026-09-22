@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { siteConfig } from "@/lib/site-config";
+import Hero from "@/components/homepage/Hero";
 
 // Below-the-fold sections are code-split into their own chunks so the initial
 // route bundle (and hydration cost) stays small. Content is still fully
@@ -92,9 +93,8 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="h-[200vh]"></div>
       {/* 1. Hero Section */}
-
+      <Hero />
     </div>
   );
 }
