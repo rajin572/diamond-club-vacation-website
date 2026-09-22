@@ -88,14 +88,13 @@ const structuredData = {
 
 export default function HomePage() {
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       {/* 1. Hero Section */}
       <Hero />
-      <div className="h-[102vh] bg-blue-600"></div>
       <div className="h-screen bg-red-500"></div>
     </div>
   );

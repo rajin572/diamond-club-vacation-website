@@ -46,6 +46,7 @@ const Hero = () => {
           start: "top top",
           end: "+=" + sectionEl.offsetHeight,
           pin: true,
+          pinSpacing: true,
           scrub: 0.1,
         },
       })
