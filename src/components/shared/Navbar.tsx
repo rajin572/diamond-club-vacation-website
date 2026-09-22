@@ -24,8 +24,13 @@ export const Navbar = () => {
     }, [isMenuOpen]);
 
     useGSAP(() => {
+        let lastScrolled = false;
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 15);
+            const scrolled = window.scrollY > 15;
+            if (scrolled !== lastScrolled) {
+                lastScrolled = scrolled;
+                setIsScrolled(scrolled);
+            }
         };
         window.addEventListener("scroll", handleScroll, { passive: true });
         handleScroll();
@@ -44,8 +49,9 @@ export const Navbar = () => {
 
                 gsap.to(headerRef.current, {
                     yPercent: shouldHide ? -100 : 0,
-                    duration: 0.4,
+                    duration: 0.35,
                     ease: "power3.out",
+                    force3D: true,
                 });
             },
         });
@@ -57,7 +63,7 @@ export const Navbar = () => {
     useGSAP(() => {
         if (!isMenuOpen || !hiddenRef.current) return;
         hiddenRef.current = false;
-        gsap.to(headerRef.current, { yPercent: 0, duration: 0.3, ease: "power3.out" });
+        gsap.to(headerRef.current, { yPercent: 0, duration: 0.3, ease: "power3.out", force3D: true });
     }, [isMenuOpen]);
 
     return (
@@ -65,7 +71,7 @@ export const Navbar = () => {
             <header
                 ref={headerRef}
                 className={cn(
-                    "w-full transition-colors duration-300 ease-out z-50",
+                    "w-full transition-colors duration-300 ease-out z-50 will-change-transform transform-gpu",
                     isScrolled
                         ? "bg-[#FCFCFB]/75 backdrop-blur-md shadow-[0_1px_3px_rgba(0,0,0,0.05)] border-b border-black/[0.04]"
                         : "bg-[#FCFCFB]/00"

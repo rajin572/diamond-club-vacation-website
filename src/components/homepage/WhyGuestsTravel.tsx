@@ -44,18 +44,18 @@ export const WhyGuestsTravel = () => {
         );
       }
 
-      // B. Title -- words focus in from a blur and rise
+      // B. Title -- words rise smoothly through line mask
       if (splitTitle?.words?.length) {
         tl.fromTo(
           splitTitle.words,
-          { autoAlpha: 0, yPercent: 40, filter: "blur(6px)" },
+          { autoAlpha: 0, yPercent: 80 },
           {
             autoAlpha: 1,
             yPercent: 0,
-            filter: "blur(0px)",
-            duration: 0.7,
+            duration: 0.75,
             stagger: 0.04,
-            ease: "power2.out",
+            ease: "premiumOut",
+            force3D: true,
           },
           0.1
         );

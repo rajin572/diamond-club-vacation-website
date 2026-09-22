@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { gsap, useGSAP } from "@/lib/gsap-util";
+import React from "react";
 import { cn } from "@/lib/utils";
 
 interface HoverStaggerTextProps {
@@ -9,165 +8,90 @@ interface HoverStaggerTextProps {
   className?: string;
   hoverColor?: string;
   idleColor?: string;
-  stagger?: number;
-  duration?: number;
   variant?: "default" | "display";
+  duration?: number;
+  stagger?: number;
 }
 
 /**
- * Letter-by-letter vertical rolling stagger animation on hover.
- * - "default": Mechanical 100% vertical roll tuned for small UI labels (Menu, Close, footer links).
- * - "display": Luxury fluid glide tuned for large serif display typography (Home, Passover 2027, etc.)
- *   with natural kerning preservation and subtle opacity feathering.
+ * High-performance, GPU-accelerated letter-stagger animation on hover.
+ * Uses pure CSS transitions with custom property delay mapping so it runs
+ * on the compositor thread with zero JS/GSAP overhead on mount or scroll.
  */
 export function HoverStaggerText({
   text,
   className,
   hoverColor = "#00549C",
   idleColor = "#131313",
-  stagger,
-  duration,
   variant = "default",
 }: HoverStaggerTextProps) {
-  const containerRef = useRef<HTMLSpanElement>(null);
-
   const isDisplay = variant === "display";
-  const animStagger = stagger ?? (isDisplay ? 0.014 : 0.022);
-  const animDuration = duration ?? (isDisplay ? 0.46 : 0.38);
 
-  useGSAP(
-    () => {
-      if (!containerRef.current) return;
-
-      const trigger =
-        containerRef.current.closest("a, button, [data-hover-trigger]") ||
-        containerRef.current;
-
-      const primaryChars = containerRef.current.querySelectorAll(".char-primary");
-      const secondaryChars = containerRef.current.querySelectorAll(".char-secondary");
-
-      if (!primaryChars.length || !secondaryChars.length) return;
-
-      const reduceMotion =
-        typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      // Set initial positions
-      if (isDisplay) {
-        gsap.set(primaryChars, { yPercent: 0, opacity: 1 });
-        gsap.set(secondaryChars, { yPercent: 65, opacity: 0 });
-      } else {
-        gsap.set(primaryChars, { yPercent: 0, opacity: 1 });
-        gsap.set(secondaryChars, { yPercent: 100, opacity: 1 });
-      }
-
-      const tl = gsap.timeline({ paused: true });
-
-      if (isDisplay) {
-        // Luxury display animation: smoother travel, tight stagger, elegant dissolve
-        tl.to(
-          primaryChars,
-          {
-            yPercent: -65,
-            opacity: 0,
-            duration: reduceMotion ? 0.01 : animDuration,
-            ease: "power3.out",
-            stagger: reduceMotion ? 0 : animStagger,
-          },
-          0
-        );
-
-        tl.to(
-          secondaryChars,
-          {
-            yPercent: 0,
-            opacity: 1,
-            duration: reduceMotion ? 0.01 : animDuration,
-            ease: "power3.out",
-            stagger: reduceMotion ? 0 : animStagger,
-          },
-          0
-        );
-      } else {
-        // Compact UI animation: crisp mechanical roll
-        tl.to(
-          primaryChars,
-          {
-            yPercent: -100,
-            duration: reduceMotion ? 0.01 : animDuration,
-            ease: "power3.out",
-            stagger: reduceMotion ? 0 : animStagger,
-          },
-          0
-        );
-
-        tl.to(
-          secondaryChars,
-          {
-            yPercent: 0,
-            duration: reduceMotion ? 0.01 : animDuration,
-            ease: "power3.out",
-            stagger: reduceMotion ? 0 : animStagger,
-          },
-          0
-        );
-      }
-
-      const onEnter = () => tl.play();
-      const onLeave = () => tl.reverse();
-
-      trigger.addEventListener("mouseenter", onEnter);
-      trigger.addEventListener("mouseleave", onLeave);
-
-      return () => {
-        trigger.removeEventListener("mouseenter", onEnter);
-        trigger.removeEventListener("mouseleave", onLeave);
-        tl.kill();
-      };
-    },
-    {
-      scope: containerRef,
-      dependencies: [text, hoverColor, idleColor, animStagger, animDuration, isDisplay],
-    }
-  );
+  let globalCharIndex = 0;
 
   return (
     <span
-      ref={containerRef}
-      className={cn("inline-flex flex-wrap items-baseline select-none", className)}
+      className={cn(
+        "hover-stagger-root inline-flex flex-wrap items-baseline select-none",
+        className
+      )}
       aria-label={text}
     >
       <span aria-hidden="true" className="inline-flex flex-wrap items-baseline">
         {text.split(" ").map((word, wordIndex, wordsArray) => (
           <span key={wordIndex} className="inline-flex whitespace-nowrap items-baseline">
-            {word.split("").map((char, charIndex) => (
-              <span
-                key={charIndex}
-                className={cn(
-                  "char-slot relative inline-block overflow-hidden",
-                  isDisplay ? "align-baseline" : "align-top"
-                )}
-                style={{
-                  height: isDisplay ? "1.12em" : "1.18em",
-                  lineHeight: isDisplay ? "1.12em" : "1.18em",
-                  paddingRight: isDisplay ? "0px" : "0.025em",
-                }}
-              >
+            {word.split("").map((char, charIndex) => {
+              const charIdx = globalCharIndex++;
+              const delay = isDisplay ? charIdx * 14 : charIdx * 20;
+
+              return (
                 <span
-                  className="char-primary block select-none"
-                  style={{ color: idleColor }}
+                  key={charIndex}
+                  className={cn(
+                    "char-slot relative inline-block overflow-hidden",
+                    isDisplay ? "align-baseline" : "align-top"
+                  )}
+                  style={{
+                    height: isDisplay ? "1.12em" : "1.18em",
+                    lineHeight: isDisplay ? "1.12em" : "1.18em",
+                    paddingRight: isDisplay ? "0px" : "0.025em",
+                  }}
                 >
-                  {char}
+                  {/* Primary idle character */}
+                  <span
+                    className={cn(
+                      "block select-none transform-gpu will-change-transform",
+                      isDisplay
+                        ? "transition-all duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-[65%] group-hover:opacity-0 [.hover-stagger-root:hover_&]:-translate-y-[65%] [.hover-stagger-root:hover_&]:opacity-0"
+                        : "transition-transform duration-[360ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full [.hover-stagger-root:hover_&]:-translate-y-full"
+                    )}
+                    style={{
+                      color: idleColor,
+                      transitionDelay: `${delay}ms`,
+                    }}
+                  >
+                    {char}
+                  </span>
+
+                  {/* Secondary hover character */}
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "absolute inset-0 block select-none transform-gpu will-change-transform",
+                      isDisplay
+                        ? "translate-y-[65%] opacity-0 transition-all duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 [.hover-stagger-root:hover_&]:translate-y-0 [.hover-stagger-root:hover_&]:opacity-100"
+                        : "translate-y-full transition-transform duration-[360ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 [.hover-stagger-root:hover_&]:translate-y-0"
+                    )}
+                    style={{
+                      color: hoverColor,
+                      transitionDelay: `${delay}ms`,
+                    }}
+                  >
+                    {char}
+                  </span>
                 </span>
-                <span
-                  aria-hidden="true"
-                  className="char-secondary absolute inset-0 block select-none"
-                  style={{ color: hoverColor }}
-                >
-                  {char}
-                </span>
-              </span>
-            ))}
+              );
+            })}
             {wordIndex !== wordsArray.length - 1 && (
               <span className="inline-block whitespace-pre select-none">
                 {" "}

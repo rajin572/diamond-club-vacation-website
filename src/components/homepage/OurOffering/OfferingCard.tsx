@@ -5,14 +5,14 @@ import { OfferingItem } from "./offering.data";
 
 export const OfferingCard: React.FC<{ item: OfferingItem }> = ({ item }) => {
   return (
-    <Link href={item.href} className="offering-card group flex flex-1 flex-col gap-4">
+    <Link href={item.href} className="offering-card group flex flex-1 flex-col gap-4 will-change-transform transform-gpu">
       <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm">
         <Image
           src={item.image}
           alt={item.title}
           fill
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-          className="offering-card-image object-cover"
+          className="offering-card-image object-cover will-change-transform transform-gpu"
         />
 
         <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-black/40 to-transparent" />

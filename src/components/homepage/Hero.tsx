@@ -47,12 +47,11 @@ const Hero = () => {
           end: "+=" + sectionEl.offsetHeight,
           pin: true,
           pinSpacing: true,
-          scrub: 0.1,
+          scrub: 0.6,
         },
       })
-        .to(contentEl, { yPercent: -0, ease: "none" }, 0)
-        .to(videoEl, { scale: 1, ease: "none" }, 0)
-        .to(boxEl, { scale: targetScale, borderRadius: 0, ease: "none" }, 0);
+        .to(videoEl, { scale: 1, ease: "none", force3D: true }, 0)
+        .to(boxEl, { scale: targetScale, ease: "none", force3D: true }, 0);
     },
     { scope: sectionRef }
   );
@@ -65,9 +64,9 @@ const Hero = () => {
       <Container>
         <div
           ref={boxRef}
-          className="relative h-[clamp(28rem,85vh,47.5rem)] w-full overflow-hidden rounded-3xl sm:rounded-[40px] lg:rounded-[50px]"
+          className="relative h-[clamp(28rem,85vh,47.5rem)] w-full overflow-hidden rounded-3xl sm:rounded-[40px] lg:rounded-[50px] will-change-transform transform-gpu"
         >
-          <div ref={videoParallaxRef} className="absolute inset-0 scale-110">
+          <div ref={videoParallaxRef} className="absolute inset-0 scale-110 will-change-transform transform-gpu">
             <HeroVideoBackground src={HERO_CONTENT.video.src} poster={HERO_CONTENT.video.poster} />
           </div>
 

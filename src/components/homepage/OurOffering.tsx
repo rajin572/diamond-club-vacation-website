@@ -91,9 +91,10 @@ export const OurOffering = () => {
             y: 0,
             rotateX: 0,
             scale: 1,
-            duration: 1.3,
-            stagger: 0.18,
+            duration: 1.2,
+            stagger: 0.15,
             ease: "premiumOut",
+            force3D: true,
             transformPerspective: 1000,
             transformOrigin: "50% 100%",
           },
@@ -105,8 +106,8 @@ export const OurOffering = () => {
       if (wipes.length) {
         tl.to(
           wipes,
-          { xPercent: 100, duration: 0.95, stagger: 0.18, ease: "power4.inOut" },
-          0.55
+          { xPercent: 100, duration: 0.9, stagger: 0.15, ease: "power4.inOut", force3D: true },
+          0.5
         );
       }
 
@@ -114,9 +115,9 @@ export const OurOffering = () => {
       if (images.length) {
         tl.fromTo(
           images,
-          { scale: 1.35 },
-          { scale: 1, duration: 1.4, stagger: 0.18, ease: "power3.out" },
-          0.5
+          { scale: 1.15 },
+          { scale: 1, duration: 1.2, stagger: 0.15, ease: "power3.out", force3D: true },
+          0.45
         );
       }
 
