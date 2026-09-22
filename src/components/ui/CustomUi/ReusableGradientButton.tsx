@@ -15,7 +15,7 @@ const SIZE_CLASSES: Record<GradientButtonSize, string> = {
 };
 
 const BASE_CLASSES =
-    "group relative isolate overflow-hidden inline-flex shrink-0 items-center justify-center rounded-xl font-bold font-['Onest'] text-primary-color " +
+    "group relative isolate overflow-hidden inline-flex shrink-0 items-center justify-center rounded-xl font-bold font-outfit text-primary-color " +
     "bg-gradient-to-br shadow-[0px_1px_1px_-0.5px_rgba(0,0,0,0.03),inset_0px_3px_3px_0px_rgba(255,255,255,0.12)] " +
     "outline outline-1 -outline-offset-1 outline-white/25 backdrop-blur-md select-none will-change-transform " +
     "transition-[opacity,box-shadow] duration-200 hover:opacity-90 hover:shadow-lg active:opacity-80 " +

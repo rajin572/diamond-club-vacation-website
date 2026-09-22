@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-import { Onest } from "next/font/google";
+import { Outfit, Cormorant_Garamond } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
-const onest = Onest({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-onest",
+  variable: "--font-outfit",
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -32,9 +41,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${onest.variable} font-['Onest'] h-full antialiased`}
+      className={`${outfit.variable} ${cormorantGaramond.variable} h-full antialiased`}
     >
-      <body className={`${onest.className} min-h-full flex flex-col bg-background-color! font-['Onest']`}>
+      <body className={`${outfit.className} min-h-full flex flex-col bg-background-color!`}>
         {children}
       </body>
     </html>

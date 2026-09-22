@@ -7,6 +7,7 @@ import menuImage from "./menuImage.png";
 
 export const AllImages = {
   logo,
+  logoSecondary: logo,
 
   profile,
   cover,

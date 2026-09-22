@@ -92,7 +92,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-
+      <div className="h-[200vh]"></div>
       {/* 1. Hero Section */}
 
     </div>
