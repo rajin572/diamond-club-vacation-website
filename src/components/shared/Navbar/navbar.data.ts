@@ -15,7 +15,6 @@ export const PRIMARY_NAV_ITEMS: NavLinkItem[] = [
     label: "Passover 2027",
     href: "/#passover-2027",
     isItalic: true,
-    hasActiveDot: true,
   },
   {
     id: "casa-nizuc",

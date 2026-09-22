@@ -52,7 +52,7 @@ export const DiamondClubVacationsContent: React.FC<DiamondClubVacationsContentPr
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 82%",
-          toggleActions: "play none none reverse",
+          toggleActions: "restart none none reverse",
         },
       });
 
@@ -116,7 +116,7 @@ export const DiamondClubVacationsContent: React.FC<DiamondClubVacationsContentPr
       {/* 2. Headline: Where luxury meets kosher */}
       <h2
         ref={headlineRef}
-        className="text-[clamp(2.5rem,5.5vw,5rem)] font-medium leading-[1.0] tracking-[-0.015em] text-[#131313]"
+        className="text-[clamp(2.5rem,5.5vw,5rem)] font-medium leading-[1.0] tracking-[-0.03em] text-[#131313]"
       >
         <span className="font-['Cormorant_Garamond'] block">
           {headline.primary}

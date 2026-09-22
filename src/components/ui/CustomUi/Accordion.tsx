@@ -21,6 +21,9 @@ export interface AccordionProps {
   answerClassName?: string;
   variant?: "admin" | "bordered" | "card";
   defaultOpen?: boolean;
+  /** Controlled open state -- e.g. an accordion group that keeps only one item open at a time. Omit for the default uncontrolled behavior. */
+  open?: boolean;
+  onToggle?: () => void;
   showFaqUpdateModal?: (item: { question: string; answer: string }) => void;
   showFaqDeleteModal?: (item: { question: string; answer: string }) => void;
 }
@@ -34,15 +37,23 @@ const Accordion: React.FC<AccordionProps> = ({
   answerClassName,
   variant = "bordered",
   defaultOpen = false,
+  open,
+  onToggle,
   showFaqUpdateModal,
   showFaqDeleteModal,
 }) => {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const isControlled = open !== undefined;
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isOpen = isControlled ? open : internalOpen;
   const [height, setHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   const toggleAccordion = () => {
-    setIsOpen((prev) => !prev);
+    if (isControlled) {
+      onToggle?.();
+    } else {
+      setInternalOpen((prev) => !prev);
+    }
   };
 
   useEffect(() => {

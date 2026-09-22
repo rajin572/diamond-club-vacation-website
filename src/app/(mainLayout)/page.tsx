@@ -3,6 +3,12 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 import Hero from "@/components/homepage/Hero";
 import { DiamondClubVacations } from "@/components/homepage/DiamondClubVacations";
+import OurOffering from "@/components/homepage/OurOffering";
+import AboutDiamondClub from "@/components/homepage/AboutDiamondClub";
+import WhyGuestsTravel from "@/components/homepage/WhyGuestsTravel";
+import ExperienceCarousel from "@/components/homepage/ExperienceCarousel";
+import PlanWedding from "@/components/homepage/PlanWedding";
+import FaqSection from "@/components/homepage/FaqSection";
 
 // Below-the-fold sections are code-split into their own chunks so the initial
 // route bundle (and hydration cost) stays small. Content is still fully
@@ -98,6 +104,24 @@ export default function HomePage() {
 
       {/* 2. Diamond Club Vacations Section */}
       <DiamondClubVacations />
+
+      {/* 3. Our Offering */}
+      <OurOffering />
+
+      {/* 4. About Diamond Club */}
+      <AboutDiamondClub />
+
+      {/* 5. Why Guests Travel With Us */}
+      <WhyGuestsTravel />
+
+      {/* 6. Experience */}
+      <ExperienceCarousel />
+
+      {/* 7. Planning a Wedding or Private Event */}
+      <PlanWedding />
+
+      {/* 8. FAQ */}
+      <FaqSection />
     </div>
   );
 }

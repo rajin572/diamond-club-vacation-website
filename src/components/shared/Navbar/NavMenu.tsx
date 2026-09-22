@@ -161,6 +161,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
       {/* Right Column: Menu Panel */}
       <div
         ref={menuPanelRef}
+        data-lenis-prevent
         className={cn(
           "flex-1 flex flex-col justify-between self-stretch",
           "px-6 pt-6 pb-14 sm:px-10 sm:pt-8 sm:pb-12 lg:pl-16 lg:pr-12 lg:pt-7 lg:pb-12 xl:pl-24 xl:pr-16",

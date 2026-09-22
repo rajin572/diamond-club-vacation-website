@@ -46,7 +46,7 @@ export const DiamondClubVacationsImage: React.FC<DiamondClubVacationsImageProps>
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top 85%",
-            toggleActions: "play none none reverse",
+            toggleActions: "restart none none reverse",
           },
         }
       );

@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { PRIMARY_NAV_ITEMS } from "./navbar.data";
 import { NavLinkItem } from "./navbar.types";
 import { cn } from "@/lib/utils";
@@ -12,10 +13,28 @@ interface NavPrimaryLinksProps {
   className?: string;
 }
 
+// Splits "/#casa-nizuc" into its path ("/") and hash ("casa-nizuc") so an
+// item's active state can be checked against the current pathname + hash
+// instead of being hardcoded on a single item.
+const parseHref = (href: string) => {
+  const [path, hash = ""] = href.split("#");
+  return { path: path || "/", hash };
+};
+
 export const NavPrimaryLinks: React.FC<NavPrimaryLinksProps> = ({
   onLinkClick,
   className,
 }) => {
+  const pathname = usePathname();
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash.slice(1));
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, []);
+
   return (
     <nav
       aria-label="Main Navigation"
@@ -25,6 +44,9 @@ export const NavPrimaryLinks: React.FC<NavPrimaryLinksProps> = ({
       )}
     >
       {PRIMARY_NAV_ITEMS.map((item: NavLinkItem) => {
+        const { path, hash: itemHash } = parseHref(item.href);
+        const isActive = path === pathname && (itemHash ? itemHash === hash : !hash);
+
         return (
           <div key={item.id} className="group relative">
             <Link
@@ -39,11 +61,11 @@ export const NavPrimaryLinks: React.FC<NavPrimaryLinksProps> = ({
             >
               <HoverStaggerText
                 text={item.label}
-                idleColor={item.hasActiveDot ? "#131313" : "rgba(19,19,19,0.9)"}
+                idleColor={isActive ? "#131313" : "rgba(19,19,19,0.9)"}
                 hoverColor="#00549C"
                 variant="display"
               />
-              {item.hasActiveDot && (
+              {isActive && (
                 <span
                   aria-hidden="true"
                   className="size-2 sm:size-2.5 bg-[#00549C] rounded-full inline-block shrink-0 animate-pulse"

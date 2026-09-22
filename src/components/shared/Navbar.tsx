@@ -71,7 +71,7 @@ export const Navbar = () => {
                         : "bg-[#FCFCFB]/00"
                 )}
             >
-                <Container className="py-2">
+                <Container className="py-1">
                     <div className="w-full flex items-center justify-between gap-4">
                         {/* Left Column: Menu Button */}
                         <div className="w-40 sm:w-56 md:w-60 flex justify-start items-center">
@@ -111,7 +111,7 @@ export const Navbar = () => {
                                     width={64}
                                     height={64}
                                     priority
-                                    className="size-12 sm:size-14 md:size-16 object-contain"
+                                    className="aspect-square max-h-10 sm:max-h-12 lg:max-h-14 w-full object-contain"
                                 />
                             </Link>
                         </div>

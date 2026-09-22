@@ -35,7 +35,7 @@ export interface SectionHeadingProps {
   /**
    * Heading semantic HTML element (default: "h2")
    */
-  titleAs?: "h1" | "h2" | "h3" | "h4" | "span";
+  titleAs?: "h1" | "h2" | "h3" | "h4" | "p" | "span";
 
   /**
    * Custom max width utility class (default: "max-w-2xl")
@@ -202,11 +202,12 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         <span
           ref={badgeRef}
           className={cn(
-            "text-xs sm:text-sm font-extrabold font-mono uppercase tracking-wider inline-block",
-            isLight ? "text-white/90" : "text-sky-600",
+            "inline-flex items-center gap-2.5 font-outfit text-sm font-medium",
+            isLight ? "text-stone-200" : "text-[#BD9343]",
             badgeClassName
           )}
         >
+          <span className={cn("size-1.25 shrink-0 rounded-full", isLight ? "bg-stone-200" : "bg-[#BD9343]")} />
           {badge}
         </span>
       )}
@@ -214,8 +215,8 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       <TitleTag
         ref={titleRef}
         className={cn(
-          "text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-tight tracking-tight",
-          isLight ? "text-white" : "text-gray-900",
+          "font-cormorant text-[clamp(2rem,4.5vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.03em]",
+          isLight ? "text-white" : "text-base-color",
           titleClassName
         )}
       >
@@ -226,8 +227,8 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         <p
           ref={descRef}
           className={cn(
-            "text-base sm:text-lg font-normal leading-relaxed mt-1",
-            isLight ? "text-white/90" : "text-gray-600",
+            "mt-1 font-outfit text-base leading-relaxed",
+            isLight ? "text-white/90" : "text-base-secondary-color",
             descriptionClassName
           )}
         >

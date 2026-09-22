@@ -3,7 +3,6 @@ export interface NavLinkItem {
   label: string;
   href: string;
   isItalic?: boolean;
-  hasActiveDot?: boolean;
 }
 
 export interface NavFooterColumn {
