@@ -22,43 +22,45 @@ const Hero = () => {
       gsap.from(ctaRef.current, {
         autoAlpha: 0,
         y: 16,
-        duration: 0.8,
-        delay: 0.9,
+        duration: 0.5,
+        delay: 0.5,
         ease: "premiumOut",
       });
 
-      if (
-        prefersReducedMotion() ||
-        !sectionRef.current ||
-        !boxRef.current ||
-        !videoParallaxRef.current ||
-        !contentRef.current
-      ) {
+      const boxEl = boxRef.current;
+      const videoEl = videoParallaxRef.current;
+      const contentEl = contentRef.current;
+
+      if (prefersReducedMotion() || !sectionRef.current || !boxEl || !videoEl || !contentEl) {
         return;
       }
 
-      // Scroll-scrubbed exit: as the hero scrolls off screen, the video
-      // drifts/zooms slower than the box around it (parallax depth) while
-      // the box itself recedes and the text fades a touch faster than both
-      // -- three layers moving at different rates reads as "premium" instead
-      // of everything sliding off together as one flat plane.
+      const sectionEl = sectionRef.current;
+      const boxRect = boxEl.getBoundingClientRect();
+      const targetScale =
+        Math.max(window.innerWidth / boxRect.width, window.innerHeight / boxRect.height) * 1.02;
+
       gsap.timeline({
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: sectionEl,
           start: "top top",
-          end: "bottom top",
-          scrub: 1,
+          end: "+=" + sectionEl.offsetHeight,
+          pin: true,
+          scrub: 0.1,
         },
       })
-        .to(videoParallaxRef.current, { yPercent: 12, scale: 1.05, ease: "none" }, 0)
-        .to(boxRef.current, { scale: 0.94, ease: "none" }, 0)
-        .to(contentRef.current, { yPercent: -18, autoAlpha: 0, ease: "none" }, 0);
+        .to(contentEl, { yPercent: -0, ease: "none" }, 0)
+        .to(videoEl, { scale: 1, ease: "none" }, 0)
+        .to(boxEl, { scale: targetScale, borderRadius: 0, ease: "none" }, 0);
     },
     { scope: sectionRef }
   );
 
   return (
-    <section ref={sectionRef} className="relative z-10 flex h-screen w-full flex-col items-center justify-center">
+    <section
+      ref={sectionRef}
+      className="relative z-10 flex h-screen w-full flex-col items-center justify-center bg-background-color"
+    >
       <Container>
         <div
           ref={boxRef}

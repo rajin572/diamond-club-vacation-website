@@ -95,6 +95,8 @@ export default function HomePage() {
       />
       {/* 1. Hero Section */}
       <Hero />
+      <div className="h-[102vh] bg-blue-600"></div>
+      <div className="h-screen bg-red-500"></div>
     </div>
   );
 }
