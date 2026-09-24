@@ -22,6 +22,16 @@ import experience1 from "./homepage/experience1.jpg";
 import experience2 from "./homepage/experience2.jpg";
 import experience3 from "./homepage/experience3.png";
 
+// Passover Collection
+import passoverHero from "./passoverCollection/passoverHero.jpg";
+import diamondClubReserver1 from "./passoverCollection/diamondClubReserver1.png";
+import diamondClubReserver2 from "./passoverCollection/diamondClubReserver2.jpg";
+import guttawayDCVProgram1 from "./passoverCollection/guttawayDCVProgram1.jpg";
+import guttawayDCVProgram2 from "./passoverCollection/guttawayDCVProgram2.png";
+import diamondClubBlue1 from "./passoverCollection/diamondClubBlue1.jpg";
+import diamondClubBlue2 from "./passoverCollection/diamondClubBlue2.png";
+import passoverInquireBanner from "./passoverCollection/passoverInquireBanner.jpg";
+
 export const AllImages = {
   logo,
   logoSecondary: logo,
@@ -45,4 +55,13 @@ export const AllImages = {
   experience1,
   experience2,
   experience3,
+
+  passoverHero,
+  diamondClubReserver1,
+  diamondClubReserver2,
+  guttawayDCVProgram1,
+  guttawayDCVProgram2,
+  diamondClubBlue1,
+  diamondClubBlue2,
+  passoverInquireBanner,
 };

@@ -2,11 +2,13 @@
 
 import { gsap, ScrollTrigger } from "@/lib/gsap-util";
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { ReactLenis, LenisRef } from "lenis/react";
 import "lenis/dist/lenis.css";
 
 const LenisSmoothScroll = () => {
     const lenisRef = useRef<LenisRef>(null);
+    const pathname = usePathname();
 
     useEffect(() => {
         // Ticker synchronisation: hand Lenis the real frame delta from GSAP
@@ -29,6 +31,20 @@ const LenisSmoothScroll = () => {
             lenis?.off("scroll", ScrollTrigger.update);
         };
     }, []);
+
+    // Scroll to top and refresh triggers whenever the route changes
+    useEffect(() => {
+        const lenis = lenisRef.current?.lenis;
+        lenis?.scrollTo(0, { immediate: true });
+        window.scrollTo(0, 0);
+
+        // Small timeout allows Next.js page components to mount and calculate heights
+        const timer = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 120);
+
+        return () => clearTimeout(timer);
+    }, [pathname]);
 
     return (
         <ReactLenis
