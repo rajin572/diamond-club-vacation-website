@@ -62,7 +62,7 @@ const structuredData = {
       "@type": "Offer",
       name: "Diamond Club Reserve",
       description: "Our most exclusive Passover experience at St. Regis Kanai and The Edition Resort.",
-      url: `${siteConfig.siteUrl}/passover-collection-2027#reserve`,
+      url: `${siteConfig.siteUrl}/passover-collection-2027/diamond-club-reserve`,
     },
     {
       "@type": "Offer",

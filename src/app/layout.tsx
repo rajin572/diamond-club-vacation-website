@@ -41,6 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${outfit.variable} ${cormorantGaramond.variable} h-full antialiased`}
     >
       <body className={`${outfit.className} min-h-full flex flex-col bg-background-color!`}>

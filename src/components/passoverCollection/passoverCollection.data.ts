@@ -55,7 +55,7 @@ export const PASSOVER_PROGRAMS: PassoverProgramItem[] = [
     },
     cta: {
       label: "Explore program",
-      href: "/inquire?program=reserve",
+      href: "/passover-collection-2027/diamond-club-reserve",
     },
   },
   {

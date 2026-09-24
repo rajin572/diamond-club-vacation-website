@@ -32,6 +32,20 @@ import diamondClubBlue1 from "./passoverCollection/diamondClubBlue1.jpg";
 import diamondClubBlue2 from "./passoverCollection/diamondClubBlue2.png";
 import passoverInquireBanner from "./passoverCollection/passoverInquireBanner.jpg";
 
+// Diamond Club Reserve
+import diamondClubReserveHero from "./diamond-club-resturant/Diamond-Club-Reserve-hero.png";
+import regisResturant from "./diamond-club-resturant/regis-resturant.png";
+import edisonResturant from "./diamond-club-resturant/edison-resturant.png";
+import entertainment from "./diamond-club-resturant/entertainment.jpg";
+import kidsProgram from "./diamond-club-resturant/kids-program.png";
+import scholars from "./diamond-club-resturant/scholars.png";
+import ourChefs from "./diamond-club-resturant/our-chefs.png";
+import koshaSupervision from "./diamond-club-resturant/kosha-supervision.png";
+import beyondDiamondClubResturant from "./diamond-club-resturant/beyond-diamond-club-resturant.jpg";
+import underwaterMuseum from "./diamond-club-resturant/underwater-museum.jpg";
+import mayanRuins from "./diamond-club-resturant/mayan-ruins.png";
+import ecoAdventureParks from "./diamond-club-resturant/eco-adventure-parks.jpg";
+
 export const AllImages = {
   logo,
   logoSecondary: logo,
@@ -64,4 +78,19 @@ export const AllImages = {
   diamondClubBlue1,
   diamondClubBlue2,
   passoverInquireBanner,
+
+  // Diamond Club Reserve
+  diamondClubReserveHero,
+  regisResturant,
+  edisonResturant,
+  entertainment,
+  kidsProgram,
+  scholars,
+  ourChefs,
+  koshaSupervision,
+  beyondDiamondClubResturant,
+  underwaterMuseum,
+  mayanRuins,
+  ecoAdventureParks,
 };
+
