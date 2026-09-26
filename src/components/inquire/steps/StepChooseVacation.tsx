@@ -1,3 +1,4 @@
+import { useRouter, usePathname } from "next/navigation";
 import { Control, useWatch, UseFormSetValue } from "react-hook-form";
 import { Check } from "lucide-react";
 import { InquireFormValues } from "../inquire.types";
@@ -13,10 +14,25 @@ interface StepChooseVacationProps {
 }
 
 export const StepChooseVacation: React.FC<StepChooseVacationProps> = ({ control, setValue, onBack, onContinue }) => {
+  const router = useRouter();
+  const pathname = usePathname();
   const holidayId = useWatch({ control, name: "holiday" });
   const destinationId = useWatch({ control, name: "destinationId" });
 
   const holiday = INQUIRE_HOLIDAYS.find((h) => h.id === holidayId);
+
+  const clearUrlParams = () => {
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", pathname);
+      router.replace(pathname, { scroll: false });
+    }
+  };
+
+  const handleClearHoliday = () => {
+    setValue("holiday", "");
+    setValue("destinationId", "");
+    clearUrlParams();
+  };
 
   return (
     <>
@@ -47,10 +63,7 @@ export const StepChooseVacation: React.FC<StepChooseVacationProps> = ({ control,
             </div>
             <button
               type="button"
-              onClick={() => {
-                setValue("holiday", "");
-                setValue("destinationId", "");
-              }}
+              onClick={handleClearHoliday}
               className="font-outfit text-sm font-medium text-secondary-color underline underline-offset-2"
             >
               Change
@@ -103,13 +116,13 @@ export const StepChooseVacation: React.FC<StepChooseVacationProps> = ({ control,
       <InquireStepFooter
         onBack={() => {
           if (holiday) {
-            setValue("holiday", "");
-            setValue("destinationId", "");
+            handleClearHoliday();
           } else {
-            onBack();
+            clearUrlParams();
+            router.back();
           }
         }}
-        backDisabled={!holiday}
+        backDisabled={false}
         onContinue={onContinue}
       />
     </>

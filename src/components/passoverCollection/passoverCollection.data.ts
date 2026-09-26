@@ -86,7 +86,7 @@ export const PASSOVER_PROGRAMS: PassoverProgramItem[] = [
     },
     cta: {
       label: "Explore program",
-      href: "/inquire?program=guttaway",
+      href: "/passover-collection-2027/guttaway",
     },
   },
   {
@@ -117,7 +117,7 @@ export const PASSOVER_PROGRAMS: PassoverProgramItem[] = [
     },
     cta: {
       label: "Explore program",
-      href: "/inquire?program=blue",
+      href: "/passover-collection-2027/blue",
     },
   },
 ];

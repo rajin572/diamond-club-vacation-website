@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import InquireWizard from "@/components/inquire/InquireWizard";
 
@@ -10,7 +11,15 @@ export const metadata: Metadata = {
 export default function InquirePage() {
   return (
     <div className="w-full min-h-[calc(100vh)] bg-background-color">
-      <InquireWizard />
+      <Suspense
+        fallback={
+          <div className="w-full py-32 flex items-center justify-center font-outfit text-zinc-500">
+            Loading inquiry form...
+          </div>
+        }
+      >
+        <InquireWizard />
+      </Suspense>
     </div>
   );
 }

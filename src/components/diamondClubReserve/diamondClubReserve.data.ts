@@ -22,7 +22,7 @@ export const RESERVE_HERO_DATA: ReserveHeroData = {
   ctas: {
     primary: {
       label: "Inquire about this program",
-      href: "/inquire?program=reserve",
+      href: "/inquire?holiday=passover-2027&destination=diamond-club-reserve",
     },
     secondary: {
       label: "Where you'll stay",
@@ -71,7 +71,7 @@ export const RESERVE_ABOUT_DATA: ReserveAboutData = {
     ],
     cta: {
       label: "Inquire about Reserve",
-      href: "/inquire?program=reserve",
+      href: "/inquire?holiday=passover-2027&destination=diamond-club-reserve",
     },
   },
 };
@@ -89,7 +89,7 @@ export const RESERVE_WHERE_YOU_STAY_DATA: ReserveWhereYouStayData = {
       description: "Beachfront suites, signature dining and the main Passover program.",
       image: AllImages.regisResturant,
       linkText: "View resort",
-      href: "/inquire?program=reserve&resort=st-regis",
+      href: "/inquire?holiday=passover-2027&destination=diamond-club-reserve&resort=st-regis",
     },
     {
       id: "edition",
@@ -97,7 +97,7 @@ export const RESERVE_WHERE_YOU_STAY_DATA: ReserveWhereYouStayData = {
       description: "Contemporary rooms and suites beside the mangrove reserve and the beach club.",
       image: AllImages.edisonResturant,
       linkText: "View resort",
-      href: "/inquire?program=reserve&resort=edition",
+      href: "/inquire?holiday=passover-2027&destination=diamond-club-reserve&resort=edition",
     },
   ],
 };
@@ -152,7 +152,7 @@ export const RESERVE_EXPLORE_DATA: ReserveExploreData = {
     description:
       "Cenotes, Mayan ruins, eco parks and the second-largest coral reef in the world, all within reach of the resort.",
     linkText: "View all attractions",
-    href: "/inquire?program=reserve&topic=attractions",
+    href: "/inquire?holiday=passover-2027&destination=diamond-club-reserve&topic=attractions",
     backgroundImage: AllImages.beyondDiamondClubResturant,
   },
   attractions: [
@@ -185,7 +185,7 @@ export const RESERVE_INQUIRY_DATA: ReserveInquiryData = {
   subtitle: "Availability is limited. Tell us about your group and our team will be in touch.",
   cta: {
     label: "Inquire about Reserve",
-    href: "/inquire?program=reserve",
+    href: "/inquire?holiday=passover-2027&destination=diamond-club-reserve",
   },
   backgroundImage: AllImages.passoverInquireBanner,
 };

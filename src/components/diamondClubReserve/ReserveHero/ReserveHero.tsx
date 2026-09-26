@@ -8,7 +8,13 @@ import { RESERVE_HERO_DATA } from "../diamondClubReserve.data";
 import { gsap, SplitText, useGSAP, prefersReducedMotion } from "@/lib/gsap-util";
 import Container from "../../ui/CustomUi/Container";
 
-export const ReserveHero: React.FC = () => {
+interface ReserveHeroProps {
+  inquireHref?: string;
+}
+
+export const ReserveHero: React.FC<ReserveHeroProps> = ({
+  inquireHref,
+}) => {
   const sectionRef = useRef<HTMLElement>(null);
   const heroCardRef = useRef<HTMLDivElement>(null);
   const bgImageRef = useRef<HTMLDivElement>(null);
@@ -172,7 +178,7 @@ export const ReserveHero: React.FC = () => {
               className="pt-3 flex flex-wrap items-center gap-3 sm:gap-4"
             >
               <Link
-                href={RESERVE_HERO_DATA.ctas.primary.href}
+                href={inquireHref || RESERVE_HERO_DATA.ctas.primary.href}
                 className="group relative inline-flex items-center gap-3.5 pl-5 pr-2.5 py-2.5 rounded-sm bg-[#00549c] hover:bg-[#00427c] transition-all duration-300 text-white font-outfit text-sm sm:text-base font-medium leading-5 active:scale-98 shadow-lg shadow-black/20"
               >
                 <span>{RESERVE_HERO_DATA.ctas.primary.label}</span>

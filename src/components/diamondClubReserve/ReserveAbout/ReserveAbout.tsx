@@ -7,7 +7,13 @@ import Container from "../../ui/CustomUi/Container";
 import { RESERVE_ABOUT_DATA } from "../diamondClubReserve.data";
 import { gsap, SplitText, useGSAP, prefersReducedMotion } from "@/lib/gsap-util";
 
-export const ReserveAbout: React.FC = () => {
+interface ReserveAboutProps {
+  inquireHref?: string;
+}
+
+export const ReserveAbout: React.FC<ReserveAboutProps> = ({
+  inquireHref,
+}) => {
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -187,7 +193,7 @@ export const ReserveAbout: React.FC = () => {
             {/* CTA Button */}
             <div className="pt-2 w-full">
               <Link
-                href={RESERVE_ABOUT_DATA.glance.cta.href}
+                href={inquireHref || RESERVE_ABOUT_DATA.glance.cta.href}
                 className="group relative inline-flex items-center gap-3.5 pl-5 pr-2.5 py-2.5 rounded-sm bg-[#00549c] hover:bg-[#00427c] transition-all duration-300 text-white font-outfit text-sm sm:text-base font-medium leading-5 active:scale-98 shadow-md"
               >
                 <span>{RESERVE_ABOUT_DATA.glance.cta.label}</span>

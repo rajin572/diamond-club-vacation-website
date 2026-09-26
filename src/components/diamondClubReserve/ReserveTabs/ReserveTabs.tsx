@@ -7,7 +7,13 @@ import Container from "../../ui/CustomUi/Container";
 import { RESERVE_NAV_TABS } from "../diamondClubReserve.data";
 import { cn } from "@/lib/utils";
 
-export const ReserveTabs: React.FC = () => {
+interface ReserveTabsProps {
+  inquireHref?: string;
+}
+
+export const ReserveTabs: React.FC<ReserveTabsProps> = ({
+  inquireHref = "/inquire?holiday=passover-2027&destination=diamond-club-reserve",
+}) => {
   const [activeTab, setActiveTab] = useState<string>("about-this-event");
 
   // Track active section on scroll
@@ -78,7 +84,7 @@ export const ReserveTabs: React.FC = () => {
           {/* Right Inquire Button */}
           <div className="py-2.5 shrink-0 hidden sm:block">
             <Link
-              href="/inquire?program=reserve"
+              href={inquireHref}
               className="group relative inline-flex items-center gap-3 pl-4 pr-2 py-2 rounded-sm bg-[#00549c] hover:bg-[#00427c] transition-all duration-300 text-white font-outfit text-sm font-medium leading-5 active:scale-98"
             >
               <span>Inquire</span>

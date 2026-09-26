@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useForm } from "react-hook-form";
 import ReuseableForm from "@/components/ui/CustomUi/ReuseForm/ReuseableForm";
 import Container from "@/components/ui/CustomUi/Container";
@@ -27,18 +28,82 @@ import StepReview from "./steps/StepReview";
 const LAST_STEP = 6;
 
 export const InquireWizard = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const hasInitializedRef = useRef(false);
+
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
 
   const form = useForm<InquireFormValues>({ defaultValues: INQUIRE_DEFAULT_VALUES });
   const { control, setValue } = form;
 
+  // Clear query parameters from URL without a full page reload
+  const clearUrlParams = () => {
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", pathname);
+      router.replace(pathname, { scroll: false });
+    }
+  };
+
+  // Pre-fill holiday and destination/program from search params on initial mount
+  useEffect(() => {
+    if (hasInitializedRef.current) return;
+
+    const holidayParam = searchParams.get("holiday");
+    const destinationParam =
+      searchParams.get("destination") || searchParams.get("program");
+
+    if (holidayParam || destinationParam) {
+      hasInitializedRef.current = true;
+
+      const targetHoliday = holidayParam || "passover-2027";
+      const matched = INQUIRE_HOLIDAYS.find((h) => h.id === targetHoliday);
+      if (matched) {
+        setValue("holiday", matched.id);
+      }
+
+      if (destinationParam) {
+        const normalized = destinationParam.toLowerCase().trim();
+        if (
+          normalized === "reserve" ||
+          normalized === "diamond-club-reserve"
+        ) {
+          setValue("destinationId", "diamond-club-reserve");
+        } else if (
+          normalized === "guttaway" ||
+          normalized === "guttaway-a-dcv-program" ||
+          normalized === "gold" ||
+          normalized === "diamond-club-gold"
+        ) {
+          setValue("destinationId", "diamond-club-gold");
+        } else if (
+          normalized === "blue" ||
+          normalized === "diamond-club-blue" ||
+          normalized === "diamond-club-blue-by-dcv"
+        ) {
+          setValue("destinationId", "diamond-club-blue");
+        } else {
+          setValue("destinationId", normalized);
+        }
+      }
+    }
+  }, [searchParams, setValue]);
+
   const holidayId = form.watch("holiday");
   const holiday = INQUIRE_HOLIDAYS.find((h) => h.id === holidayId);
 
   const goNext = () => setStep((s) => Math.min(LAST_STEP, s + 1));
-  const goBack = () => setStep((s) => Math.max(1, s - 1));
+  const goBack = () => {
+    clearUrlParams();
+    setStep((s) => Math.max(1, s - 1));
+  };
   const goToStep = (target: number) => setStep(target);
+  const handleChangeVacation = () => {
+    clearUrlParams();
+    goToStep(1);
+  };
 
   const onSubmit = (values: InquireFormValues) => {
     // Design phase: no backend yet -- just show the success state.
@@ -90,25 +155,25 @@ export const InquireWizard = () => {
               setValue={setValue}
               onBack={goBack}
               onContinue={goNext}
-              onChangeVacation={() => goToStep(1)}
+              onChangeVacation={handleChangeVacation}
             />
           )}
           {step === 3 && (
-            <StepAddOns control={control} onBack={goBack} onContinue={goNext} onChangeVacation={() => goToStep(1)} />
+            <StepAddOns control={control} onBack={goBack} onContinue={goNext} onChangeVacation={handleChangeVacation} />
           )}
           {step === 4 && (
-            <StepAboutYou control={control} onBack={goBack} onContinue={goNext} onChangeVacation={() => goToStep(1)} />
+            <StepAboutYou control={control} onBack={goBack} onContinue={goNext} onChangeVacation={handleChangeVacation} />
           )}
           {step === 5 && (
             <StepContactDetails
               control={control}
               onBack={goBack}
               onContinue={goNext}
-              onChangeVacation={() => goToStep(1)}
+              onChangeVacation={handleChangeVacation}
             />
           )}
           {step === 6 && (
-            <StepReview control={control} onBack={goBack} onChangeVacation={() => goToStep(1)} onEditStep={goToStep} />
+            <StepReview control={control} onBack={goBack} onChangeVacation={handleChangeVacation} onEditStep={goToStep} />
           )}
         </ReuseableForm>
 

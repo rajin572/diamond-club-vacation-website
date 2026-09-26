@@ -43,8 +43,8 @@ export const FOOTER_NAV_COLUMNS: NavFooterColumn[] = [
     title: "Passover 2027",
     links: [
       { label: "Diamond Club Reserve", href: "/passover-collection-2027/diamond-club-reserve" },
-      { label: "Guttaway a DCV Program", href: "/passover-collection-2027#guttaway" },
-      { label: "Diamond Club Blue", href: "/passover-collection-2027#blue" },
+      { label: "Guttaway a DCV Program", href: "/passover-collection-2027/guttaway" },
+      { label: "Diamond Club Blue", href: "/passover-collection-2027/blue" },
     ],
   },
   {

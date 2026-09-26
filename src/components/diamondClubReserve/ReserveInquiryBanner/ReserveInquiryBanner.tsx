@@ -8,7 +8,13 @@ import Container from "../../ui/CustomUi/Container";
 import { RESERVE_INQUIRY_DATA } from "../diamondClubReserve.data";
 import { gsap, SplitText, useGSAP, prefersReducedMotion } from "@/lib/gsap-util";
 
-export const ReserveInquiryBanner: React.FC = () => {
+interface ReserveInquiryBannerProps {
+  inquireHref?: string;
+}
+
+export const ReserveInquiryBanner: React.FC<ReserveInquiryBannerProps> = ({
+  inquireHref,
+}) => {
   const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -129,7 +135,7 @@ export const ReserveInquiryBanner: React.FC = () => {
             {/* Inquire CTA Button */}
             <div ref={ctaRef} className="pt-1">
               <Link
-                href={RESERVE_INQUIRY_DATA.cta.href}
+                href={inquireHref || RESERVE_INQUIRY_DATA.cta.href}
                 className="group relative inline-flex items-center gap-3.5 pl-5 pr-2.5 py-2.5 rounded-sm bg-[#00549c] hover:bg-[#00427c] transition-all duration-300 text-white font-outfit text-sm sm:text-base font-medium leading-5 active:scale-98 shadow-lg shadow-black/30"
               >
                 <span>{RESERVE_INQUIRY_DATA.cta.label}</span>
