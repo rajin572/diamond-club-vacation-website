@@ -46,6 +46,14 @@ import underwaterMuseum from "./diamond-club-resturant/underwater-museum.jpg";
 import mayanRuins from "./diamond-club-resturant/mayan-ruins.png";
 import ecoAdventureParks from "./diamond-club-resturant/eco-adventure-parks.jpg";
 import diamondClubResturantExperiencesInquire from "./diamond-club-resturant/diamondClubResturantExperiencesInquire.jpg";
+import stRegisResortMain from "./diamond-club-resturant/The St. Regis Kanai Resort.jpg";
+import stRegisFamilyPool from "./diamond-club-resturant/The St. Regis Kanai Resort family-pool.jpg";
+import stRegisGallery1 from "./diamond-club-resturant/The St. Regis Kanai Resort Gallery1.png";
+import stRegisGallery2 from "./diamond-club-resturant/The St. Regis Kanai Resort Gallery2.jpg";
+import stRegisGallery3 from "./diamond-club-resturant/The St. Regis Kanai Resort Gallery3.jpg";
+import stRegisGallery4 from "./diamond-club-resturant/The St. Regis Kanai Resort Gallery4.jpg";
+import stRegisMainPoolBeach from "./diamond-club-resturant/The St. Regis Kanai Resort main-pool-beach.jpg";
+import stRegisSerenityPool from "./diamond-club-resturant/The St. Regis Kanai Resort serenity-pool.jpg";
 
 // Coming Soon & Not Found
 import comingSoon from "./coming-soon.png";
@@ -98,6 +106,14 @@ export const AllImages = {
   mayanRuins,
   ecoAdventureParks,
   diamondClubResturantExperiencesInquire,
+  stRegisResortMain,
+  stRegisFamilyPool,
+  stRegisGallery1,
+  stRegisGallery2,
+  stRegisGallery3,
+  stRegisGallery4,
+  stRegisMainPoolBeach,
+  stRegisSerenityPool,
 
   // Coming Soon & Not Found
   comingSoon,

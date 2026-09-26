@@ -43,20 +43,21 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
       reconnectionDelay: 1000,
     });
 
-    socketInstance.on("connect", () =>
-      console.log("Connected to socket server")
-    );
-    socketInstance.on("disconnect", () =>
-      console.error("Disconnected from socket server")
-    );
+    socketInstance.on("connect", () => {
+      console.log("Connected to socket server");
+      setSocket(socketInstance);
+    });
+    socketInstance.on("disconnect", () => {
+      console.error("Disconnected from socket server");
+      setSocket(null);
+    });
     socketInstance.on("connect_error", (error) =>
       console.error(`Connection error: ${error.message}`)
     );
 
-    setSocket(socketInstance);
-
     return () => {
       socketInstance.disconnect();
+      setSocket(null);
     };
   }, [token]);
 

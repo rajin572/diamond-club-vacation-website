@@ -191,7 +191,7 @@ export default async function PassoverProgramDynamicPage({ params }: PageProps) 
           <ReserveHero inquireHref={inquireHref} />
           <ReserveTabs inquireHref={inquireHref} />
           <ReserveAbout inquireHref={inquireHref} />
-          <ReserveWhereYouStay />
+          <ReserveWhereYouStay programId={id} />
           <ReserveExperiences programId={id} />
           <ReserveExplore programId={id} />
           <ReserveInquiryBanner inquireHref={inquireHref} />

@@ -7,7 +7,13 @@ import Container from "../../ui/CustomUi/Container";
 import { RESERVE_WHERE_YOU_STAY_DATA } from "../diamondClubReserve.data";
 import { gsap, SplitText, useGSAP, prefersReducedMotion } from "@/lib/gsap-util";
 
-export const ReserveWhereYouStay: React.FC = () => {
+interface ReserveWhereYouStayProps {
+  programId?: string;
+}
+
+export const ReserveWhereYouStay: React.FC<ReserveWhereYouStayProps> = ({
+  programId = "diamond-club-reserve",
+}) => {
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -117,44 +123,53 @@ export const ReserveWhereYouStay: React.FC = () => {
             ref={cardsContainerRef}
             className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6"
           >
-            {RESERVE_WHERE_YOU_STAY_DATA.resorts.map((resort) => (
-              <div
-                key={resort.id}
-                className="group flex flex-col justify-start items-start gap-5 w-full cursor-pointer"
-              >
-                {/* Image Container with subtle hover zoom */}
-                <div className="relative w-full h-[360px] sm:h-[420px] lg:h-[460px] rounded-md overflow-hidden bg-slate-900">
-                  <Image
-                    src={resort.image}
-                    alt={resort.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  {/* Subtle Gradient matching Figma */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/15 to-slate-950/80 pointer-events-none" />
-                </div>
+            {RESERVE_WHERE_YOU_STAY_DATA.resorts.map((resort) => {
+              const resortHref = `/passover-collection-2027/${programId}/resorts/${resort.id}`;
 
-                {/* Card Meta & Link */}
-                <div className="w-full flex flex-col sm:flex-row justify-between items-start gap-4 sm:gap-6 pt-1">
-                  <div className="flex-1 flex flex-col justify-start items-start gap-2">
-                    <h3 className="font-cormorant text-neutral-900 text-3xl sm:text-4xl font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-300">
-                      {resort.title}
-                    </h3>
-                    <p className="font-outfit text-zinc-600 text-base font-normal leading-6 max-w-md">
-                      {resort.description}
-                    </p>
-                  </div>
-
+              return (
+                <div
+                  key={resort.id}
+                  className="group flex flex-col justify-start items-start gap-5 w-full"
+                >
+                  {/* Image Container with subtle hover zoom */}
                   <Link
-                    href={resort.href}
-                    className="font-outfit text-neutral-900 text-base font-medium underline leading-5 hover:text-[#00549c] transition-colors duration-200 shrink-0 self-start sm:self-center"
+                    href={resortHref}
+                    className="relative w-full h-[360px] sm:h-[420px] lg:h-[460px] rounded-md overflow-hidden bg-slate-900 block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
                   >
-                    {resort.linkText}
+                    <Image
+                      src={resort.image}
+                      alt={resort.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    {/* Subtle Gradient matching Figma */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/15 to-slate-950/80 pointer-events-none" />
                   </Link>
+
+                  {/* Card Meta & Link */}
+                  <div className="w-full flex flex-col sm:flex-row justify-between items-start gap-4 sm:gap-6 pt-1">
+                    <div className="flex-1 flex flex-col justify-start items-start gap-2">
+                      <Link href={resortHref}>
+                        <h3 className="font-cormorant text-neutral-900 text-3xl sm:text-4xl font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-300">
+                          {resort.title}
+                        </h3>
+                      </Link>
+                      <p className="font-outfit text-zinc-600 text-base font-normal leading-6 max-w-md">
+                        {resort.description}
+                      </p>
+                    </div>
+
+                    <Link
+                      href={resortHref}
+                      className="font-outfit text-neutral-900 text-base font-medium underline leading-5 hover:text-[#00549c] transition-colors duration-200 shrink-0 self-start sm:self-center"
+                    >
+                      {resort.linkText}
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </Container>
