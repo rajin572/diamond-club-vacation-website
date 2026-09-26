@@ -6,6 +6,7 @@ import EntertainmentView from "@/components/entertainment/EntertainmentView";
 import KidsProgramView from "@/components/kidsProgram/KidsProgramView";
 import KidsDayCampView from "@/components/kidsDayCamp/KidsDayCampView";
 import ScholarsView from "@/components/scholars/ScholarsView";
+import AttractionsView from "@/components/attractions/AttractionsView";
 
 interface PageProps {
   params: Promise<{ id: string; experienceId: string }>;
@@ -17,6 +18,7 @@ export async function generateStaticParams() {
     "kids-program",
     "day-camp-teen-program",
     "scholars",
+    "attractions",
   ];
 
   return experiences.map((exp) => ({
@@ -48,6 +50,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: "Scholars | Passover 2027",
       description:
         "Inspiring talks, classes and tefillah led by renowned rabbis and speakers throughout the Passover holiday.",
+    },
+    attractions: {
+      title: "Attractions | Passover 2027",
+      description:
+        "Cenotes, Mayan ruins, eco parks and the second-largest coral reef in the world, all within reach of the resort.",
     },
   };
 
@@ -93,6 +100,8 @@ export default async function ExperiencePage({ params }: PageProps) {
       return <KidsDayCampView programId={programId} />;
     case "scholars":
       return <ScholarsView programId={programId} />;
+    case "attractions":
+      return <AttractionsView programId={programId} />;
     default:
       notFound();
   }

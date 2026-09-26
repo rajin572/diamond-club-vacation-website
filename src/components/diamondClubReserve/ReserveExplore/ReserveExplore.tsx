@@ -7,7 +7,13 @@ import Container from "../../ui/CustomUi/Container";
 import { RESERVE_EXPLORE_DATA } from "../diamondClubReserve.data";
 import { gsap, SplitText, useGSAP, prefersReducedMotion } from "@/lib/gsap-util";
 
-export const ReserveExplore: React.FC = () => {
+interface ReserveExploreProps {
+  programId?: string;
+}
+
+export const ReserveExplore: React.FC<ReserveExploreProps> = ({
+  programId = "diamond-club-reserve",
+}) => {
   const sectionRef = useRef<HTMLElement>(null);
   const bannerRef = useRef<HTMLDivElement>(null);
   const bannerBgRef = useRef<HTMLDivElement>(null);
@@ -185,7 +191,7 @@ export const ReserveExplore: React.FC = () => {
               {/* View all attractions link */}
               <Link
                 ref={bannerLinkRef}
-                href={RESERVE_EXPLORE_DATA.banner.href}
+                href={`/passover-collection-2027/${programId}/experiences/attractions`}
                 className="font-outfit text-white text-base font-medium underline leading-5 hover:text-stone-200 transition-colors pt-1 inline-block"
               >
                 {RESERVE_EXPLORE_DATA.banner.linkText}
@@ -199,9 +205,10 @@ export const ReserveExplore: React.FC = () => {
             className="w-full grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             {RESERVE_EXPLORE_DATA.attractions.map((attraction) => (
-              <div
+              <Link
                 key={attraction.id}
-                className="group flex flex-col justify-start items-start gap-3.5 w-full cursor-pointer"
+                href={`/passover-collection-2027/${programId}/experiences/attractions`}
+                className="group flex flex-col justify-start items-start gap-3.5 w-full cursor-pointer focus:outline-none"
               >
                 {/* Image Container with subtle hover zoom */}
                 <div className="relative w-full h-56 rounded-md overflow-hidden bg-slate-900 shadow-sm">
@@ -219,7 +226,7 @@ export const ReserveExplore: React.FC = () => {
                 <h3 className="font-cormorant text-neutral-900 text-2xl sm:text-3xl font-semibold leading-8 group-hover:text-[#00549c] transition-colors duration-300">
                   {attraction.title}
                 </h3>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
