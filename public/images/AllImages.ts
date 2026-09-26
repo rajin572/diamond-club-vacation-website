@@ -45,6 +45,7 @@ import beyondDiamondClubResturant from "./diamond-club-resturant/beyond-diamond-
 import underwaterMuseum from "./diamond-club-resturant/underwater-museum.jpg";
 import mayanRuins from "./diamond-club-resturant/mayan-ruins.png";
 import ecoAdventureParks from "./diamond-club-resturant/eco-adventure-parks.jpg";
+import diamondClubResturantExperiencesInquire from "./diamond-club-resturant/diamondClubResturantExperiencesInquire.jpg";
 
 // Coming Soon & Not Found
 import comingSoon from "./coming-soon.png";
@@ -96,9 +97,11 @@ export const AllImages = {
   underwaterMuseum,
   mayanRuins,
   ecoAdventureParks,
+  diamondClubResturantExperiencesInquire,
 
   // Coming Soon & Not Found
   comingSoon,
   notFound,
 };
+
 

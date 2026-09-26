@@ -98,4 +98,5 @@ function ReusableModal({
     );
 }
 
+export { ReusableModal, ReusableModal as ReuseModal };
 export default ReusableModal;

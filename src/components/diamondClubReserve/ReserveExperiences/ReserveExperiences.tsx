@@ -2,11 +2,19 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import Container from "../../ui/CustomUi/Container";
 import { RESERVE_EXPERIENCES_DATA } from "../diamondClubReserve.data";
 import { gsap, SplitText, useGSAP, prefersReducedMotion } from "@/lib/gsap-util";
 
-export const ReserveExperiences: React.FC = () => {
+interface ReserveExperiencesProps {
+  programId?: string;
+}
+
+export const ReserveExperiences: React.FC<ReserveExperiencesProps> = ({
+  programId = "diamond-club-reserve",
+}) => {
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -137,34 +145,63 @@ export const ReserveExperiences: React.FC = () => {
               ref={row1Ref}
               className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              {topRowExperiences.map((exp) => (
-                <div
-                  key={exp.id}
-                  className="group relative h-[360px] md:h-96 px-6 sm:px-7 pb-7 rounded-md overflow-hidden flex flex-col justify-end items-start gap-1.5 cursor-pointer shadow-sm"
-                >
-                  {/* Background Image */}
-                  <Image
-                    src={exp.image}
-                    alt={exp.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
+              {topRowExperiences.map((exp) => {
+                const href =
+                  exp.id === "entertainment"
+                    ? `/passover-collection-2027/${programId}/experiences/entertainment`
+                    : exp.id === "kids-program"
+                      ? `/passover-collection-2027/${programId}/experiences/kids-program`
+                      : exp.id === "scholars"
+                        ? `/passover-collection-2027/${programId}/experiences/scholars`
+                        : null;
 
-                  {/* Dark Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 group-hover:from-black/90 transition-all duration-300" />
+                const CardWrapper = ({ children }: { children: React.ReactNode }) =>
+                  href ? (
+                    <Link
+                      href={href}
+                      className="group relative h-[360px] md:h-96 px-6 sm:px-7 pb-7 rounded-md overflow-hidden flex flex-col justify-end items-start gap-1.5 cursor-pointer shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
+                    >
+                      {children}
+                    </Link>
+                  ) : (
+                    <div className="group relative h-[360px] md:h-96 px-6 sm:px-7 pb-7 rounded-md overflow-hidden flex flex-col justify-end items-start gap-1.5 cursor-pointer shadow-sm">
+                      {children}
+                    </div>
+                  );
 
-                  {/* Text Content */}
-                  <div className="relative z-10 flex flex-col items-start gap-1.5 w-full">
-                    <h3 className="font-cormorant text-white text-3xl sm:text-4xl font-semibold leading-tight drop-shadow-sm">
-                      {exp.title}
-                    </h3>
-                    <p className="font-outfit text-white/80 text-sm sm:text-base font-normal leading-6">
-                      {exp.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                return (
+                  <CardWrapper key={exp.id}>
+                    {/* Background Image */}
+                    <Image
+                      src={exp.image}
+                      alt={exp.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+
+                    {/* Dark Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 group-hover:from-black/90 transition-all duration-300" />
+
+                    {/* Top Right Arrow Indicator for navigable experiences */}
+                    {href && (
+                      <div className="absolute top-4 right-4 z-10 size-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
+                        <ArrowUpRight className="size-4 stroke-[2.2]" />
+                      </div>
+                    )}
+
+                    {/* Text Content */}
+                    <div className="relative z-10 flex flex-col items-start gap-1.5 w-full">
+                      <h3 className="font-cormorant text-white text-3xl sm:text-4xl font-semibold leading-tight drop-shadow-sm group-hover:text-amber-100 transition-colors">
+                        {exp.title}
+                      </h3>
+                      <p className="font-outfit text-white/80 text-sm sm:text-base font-normal leading-6">
+                        {exp.description}
+                      </p>
+                    </div>
+                  </CardWrapper>
+                );
+              })}
             </div>
 
             {/* Row 2: Our Chefs, Kosher Supervision */}
