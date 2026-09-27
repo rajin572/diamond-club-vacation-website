@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import StRegisMainView from "@/components/resorts/stRegis/StRegisMainView";
-import ComingSoonView from "@/components/comingSoon/ComingSoonView";
+import EditionMainView from "@/components/resorts/edition/EditionMainView";
 
 interface ResortPageProps {
   params: Promise<{
@@ -31,9 +31,9 @@ export async function generateMetadata({ params }: ResortPageProps): Promise<Met
 
   if (resortId === "edition") {
     return {
-      title: "The Edition Resort | Coming Soon | Diamond Club Vacations",
+      title: "The Edition Resort | Diamond Club Vacations",
       description:
-        "Contemporary rooms and suites beside the mangrove reserve and the beach club.",
+        "Contemporary, design-led luxury at Kanai, set between the jungle and the Riviera Maya coast.",
     };
   }
 
@@ -50,12 +50,7 @@ export default async function ResortPage({ params }: ResortPageProps) {
   }
 
   if (resortId === "edition") {
-    // Coming soon page as requested by user
-    return (
-      <main className="w-full min-h-screen bg-[#FCFCFB] pt-24 sm:pt-28 md:pt-32">
-        <ComingSoonView />
-      </main>
-    );
+    return <EditionMainView programId={programId} />;
   }
 
   notFound();

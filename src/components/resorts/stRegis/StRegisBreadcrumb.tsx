@@ -14,6 +14,7 @@ interface StRegisBreadcrumbProps {
   programTitle?: string;
   resortName?: string;
   detailLabel?: string;
+  currentPage?: string;
 }
 
 export const StRegisBreadcrumb: React.FC<StRegisBreadcrumbProps> = ({
@@ -21,21 +22,23 @@ export const StRegisBreadcrumb: React.FC<StRegisBreadcrumbProps> = ({
   programTitle = "Diamond Club Reserve",
   resortName = "The St. Regis Kanai Resort",
   detailLabel,
+  currentPage,
 }) => {
+  const activeDetail = detailLabel || currentPage;
   const items: BreadcrumbItem[] = [
     { label: "Home", href: "/" },
     { label: "Passover 2027", href: "/passover-collection-2027" },
     { label: programTitle, href: `/passover-collection-2027/${programId}` },
     {
       label: resortName,
-      href: detailLabel
+      href: activeDetail
         ? `/passover-collection-2027/${programId}/resorts/st-regis`
         : undefined,
     },
   ];
 
-  if (detailLabel) {
-    items.push({ label: detailLabel });
+  if (activeDetail) {
+    items.push({ label: activeDetail });
   }
 
   return (

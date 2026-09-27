@@ -16,6 +16,7 @@ interface StRegisPhotoModalProps {
   onClose: () => void;
   photos: PhotoItem[];
   initialIndex?: number;
+  initialIdx?: number;
   title?: string;
 }
 
@@ -24,10 +25,12 @@ export const StRegisPhotoModal: React.FC<StRegisPhotoModalProps> = ({
   onClose,
   photos,
   initialIndex = 0,
+  initialIdx,
   title = "Photo Gallery",
 }) => {
+  const startIndex = initialIdx !== undefined ? initialIdx : initialIndex;
   // Use state with initialIndex
-  const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
+  const [currentIndex, setCurrentIndex] = useState<number>(startIndex);
 
   if (!photos || photos.length === 0) return null;
 
@@ -109,8 +112,8 @@ export const StRegisPhotoModal: React.FC<StRegisPhotoModalProps> = ({
                 type="button"
                 onClick={() => setCurrentIndex(idx)}
                 className={`relative w-16 h-12 sm:w-20 sm:h-14 rounded overflow-hidden shrink-0 transition-opacity ${idx === activeIndex
-                    ? "ring-2 ring-[#BD9343] opacity-100"
-                    : "opacity-40 hover:opacity-80"
+                  ? "ring-2 ring-[#BD9343] opacity-100"
+                  : "opacity-40 hover:opacity-80"
                   }`}
               >
                 <Image

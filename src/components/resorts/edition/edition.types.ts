@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
 
-export interface StRegisGalleryStructure {
+export interface EditionGalleryStructure {
   main: { src: StaticImageData | string; label: string };
   side1: { src: StaticImageData | string; label: string };
   side2: { src: StaticImageData | string; label: string };
@@ -9,7 +9,7 @@ export interface StRegisGalleryStructure {
   totalPhotos: number;
 }
 
-export interface StRegisRoom {
+export interface EditionRoom {
   id: string;
   title: string;
   titlePrefix: string;
@@ -19,7 +19,7 @@ export interface StRegisRoom {
   view: string;
   description: string;
   image: StaticImageData | string;
-  gallery: StRegisGalleryStructure;
+  gallery: EditionGalleryStructure;
   bedsAndBedding: {
     items: string[];
     note?: string;
@@ -28,90 +28,76 @@ export interface StRegisRoom {
   bathFeatures: string[];
 }
 
-export interface StRegisDiningVenue {
+export interface EditionDiningVenue {
   id: string;
   title: string;
-  titlePrefix?: string;
-  titleItalic?: string;
+  titlePrefix: string;
+  titleItalic: string;
   cuisine: string;
-  category: "all" | "latin" | "steakhouse" | "mediterranean" | "international" | "cafe";
+  category: "all" | "seafood" | "mediterranean" | "multiple" | "other";
   categoryLabel: string;
   mealPeriod: string;
-  location: string;
-  schedule: { days: string; hours: string; isClosed?: boolean }[];
+  schedule: { days: string; hours: string }[];
   dressCode: string;
   description: string;
   image: StaticImageData | string;
-  gallery: StRegisGalleryStructure;
-  hours: string;
-  kashrutNotes?: string;
+  gallery: EditionGalleryStructure;
 }
 
-export interface StRegisPoolItem {
+export interface EditionPoolItem {
   id: string;
   title: string;
   titlePrefix: string;
   titleItalic: string;
-  type: "outdoor" | "beach" | "cabanas" | "pools";
+  type: "outdoor" | "beach" | "lagoon";
   typeLabel: string;
-  atmosphere: string;
   location: string;
   schedule: { days: string; hours: string }[];
-  hours: string;
   description: string;
   image: StaticImageData | string;
-  gallery: StRegisGalleryStructure;
-  amenities?: string[];
+  gallery: EditionGalleryStructure;
 }
 
-export interface StRegisWellnessItem {
+export interface EditionWellnessItem {
   id: string;
   title: string;
-  category: "the-spa" | "wellness-deck" | "fitness-center" | "soak-rituals";
+  category: "the-spa" | "wellness-deck" | "fitness-center";
   description: string;
   image: StaticImageData | string;
-  timing?: string;
   linkText?: string;
 }
 
-export interface StRegisSpaData {
+export interface EditionSpaData {
   title: string;
   titlePrefix: string;
   titleItalic: string;
-  meta: string[];
+  headline: string;
   description: string;
   treatmentsAndFacilities: string[];
   schedule: { days: string; hours: string }[];
-  hours: string;
   location: string;
   image: StaticImageData | string;
-  gallery: StRegisGalleryStructure;
-  treatments?: {
-    title: string;
-    description: string;
-    duration: string;
-  }[];
-  amenities?: string[];
+  gallery: EditionGalleryStructure;
 }
 
-export interface StRegisGalleryPhoto {
+export interface EditionGalleryPhoto {
   id: string;
   title: string;
   category: "all" | "resort" | "rooms" | "pools" | "dining" | "spa" | "events";
   image: StaticImageData | string;
 }
 
-export interface StRegisResortData {
+export interface EditionResortData {
   programId: string;
   programTitle: string;
   resortId: string;
   resortName: string;
   tagline: string;
   heroImage: StaticImageData | string;
-  rooms: StRegisRoom[];
-  dining: StRegisDiningVenue[];
-  pools: StRegisPoolItem[];
-  wellness: StRegisWellnessItem[];
-  spa: StRegisSpaData;
-  gallery: StRegisGalleryPhoto[];
+  rooms: EditionRoom[];
+  dining: EditionDiningVenue[];
+  pools: EditionPoolItem[];
+  wellness: EditionWellnessItem[];
+  spa: EditionSpaData;
+  gallery: EditionGalleryPhoto[];
 }

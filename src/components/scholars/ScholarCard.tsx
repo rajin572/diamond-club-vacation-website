@@ -18,7 +18,7 @@ export const ScholarCard: React.FC<ScholarCardProps> = ({
   return (
     <div className="scholar-card flex-1 p-8 sm:p-10 rounded-lg border border-stone-300/80 bg-white flex flex-col items-center gap-5 text-center transition-all duration-300 hover:shadow-md hover:border-stone-400">
       {/* Circular Portrait */}
-      <div className="size-40 sm:size-44 rounded-full ring-4 ring-stone-300 relative overflow-hidden bg-stone-100 flex-shrink-0 shadow-inner">
+      <div className="size-40 sm:size-44 rounded-full ring-4 ring-[#9A7B3F] relative overflow-hidden bg-stone-100 flex-shrink-0 shadow-inner">
         <Image
           src={scholar.image}
           alt={scholar.imageAlt}
@@ -30,7 +30,7 @@ export const ScholarCard: React.FC<ScholarCardProps> = ({
 
       {/* Details */}
       <div className="w-full pt-1 flex flex-col items-center gap-2.5">
-        <span className="text-stone-500 text-xs font-medium font-outfit uppercase tracking-wider">
+        <span className="text-[#9A7B3F] text-xs font-medium font-outfit uppercase tracking-wider">
           {scholar.role}
         </span>
 

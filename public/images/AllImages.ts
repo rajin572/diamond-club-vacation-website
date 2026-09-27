@@ -54,6 +54,10 @@ import stRegisGallery3 from "./diamond-club-resturant/The St. Regis Kanai Resort
 import stRegisGallery4 from "./diamond-club-resturant/The St. Regis Kanai Resort Gallery4.jpg";
 import stRegisMainPoolBeach from "./diamond-club-resturant/The St. Regis Kanai Resort main-pool-beach.jpg";
 import stRegisSerenityPool from "./diamond-club-resturant/The St. Regis Kanai Resort serenity-pool.jpg";
+import editionResortHero from "./diamond-club-resturant/The Edition Resort Hero.jpg";
+import editionResortPool1 from "./diamond-club-resturant/The Edition Resort Pool1.jpg";
+import editionResortPool2 from "./diamond-club-resturant/The Edition Resort pool2.jpg";
+import editionResortPool3 from "./diamond-club-resturant/The Edition Resort pool3.jpg";
 
 // Coming Soon & Not Found
 import comingSoon from "./coming-soon.png";
@@ -114,6 +118,10 @@ export const AllImages = {
   stRegisGallery4,
   stRegisMainPoolBeach,
   stRegisSerenityPool,
+  editionResortHero,
+  editionResortPool1,
+  editionResortPool2,
+  editionResortPool3,
 
   // Coming Soon & Not Found
   comingSoon,

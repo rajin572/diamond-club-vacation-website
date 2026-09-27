@@ -46,7 +46,7 @@ export const ScholarsGrid: React.FC<ScholarsGridProps> = ({
   return (
     <section ref={gridRef} className="w-full pb-20 sm:pb-28 bg-[#FCFCFB]">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {scholars.map((scholar, idx) => (
             <ScholarCard
               key={scholar.id}
