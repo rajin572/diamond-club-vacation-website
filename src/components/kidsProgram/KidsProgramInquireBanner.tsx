@@ -7,9 +7,10 @@ import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/CustomUi/Container";
 import { AllImages } from "../../../public/images/AllImages";
 import { gsap, SplitText, useGSAP, prefersReducedMotion } from "@/lib/gsap-util";
+import { inquireHref as buildInquireHref } from "@/lib/routes";
 
 interface KidsProgramInquireBannerProps {
-  programId?: string;
+  programId: string;
   headline?: {
     part1: string;
     part2: string;
@@ -18,7 +19,7 @@ interface KidsProgramInquireBannerProps {
 }
 
 export const KidsProgramInquireBanner: React.FC<KidsProgramInquireBannerProps> = ({
-  programId = "diamond-club-reserve",
+  programId,
   headline = {
     part1: "Bring the whole family for ",
     part2: "Passover 2027",
@@ -70,9 +71,7 @@ export const KidsProgramInquireBanner: React.FC<KidsProgramInquireBannerProps> =
     { scope: bannerRef }
   );
 
-  const inquireHref = `/inquire?holiday=passover-2027&destination=${encodeURIComponent(
-    programId
-  )}`;
+  const inquireHref = buildInquireHref({ destination: programId });
 
   return (
     <section ref={bannerRef} className="w-full pb-20 md:pb-28 bg-[#FCFCFB]">

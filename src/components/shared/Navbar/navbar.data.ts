@@ -13,7 +13,7 @@ export const PRIMARY_NAV_ITEMS: NavLinkItem[] = [
   {
     id: "passover-2027",
     label: "Passover 2027",
-    href: "/passover-collection-2027",
+    href: "/offerings/passover-collection-2027",
     isItalic: true,
   },
   {
@@ -42,9 +42,9 @@ export const FOOTER_NAV_COLUMNS: NavFooterColumn[] = [
     id: "passover-collection",
     title: "Passover 2027",
     links: [
-      { label: "Diamond Club Reserve", href: "/passover-collection-2027/diamond-club-reserve" },
-      { label: "Guttaway a DCV Program", href: "/passover-collection-2027/guttaway" },
-      { label: "Diamond Club Blue", href: "/passover-collection-2027/blue" },
+      { label: "Diamond Club Reserve", href: "/offerings/passover-collection-2027/programs/diamond-club-reserve" },
+      { label: "Guttaway a DCV Program", href: "/offerings/passover-collection-2027/programs/guttaway" },
+      { label: "Diamond Club Blue", href: "/offerings/passover-collection-2027/programs/blue" },
     ],
   },
   {

@@ -4,7 +4,7 @@ export const HERO_CONTENT = {
     "Passover programs, year-round vacations, weddings and private events at five-diamond resorts in the Riviera Maya and Cancun.",
   cta: {
     label: "Explore Passover 2027",
-    href: "/passover-collection-2027",
+    href: "/offerings/passover-collection-2027",
   },
   video: {
     src: "/video/heroVideo.mp4",

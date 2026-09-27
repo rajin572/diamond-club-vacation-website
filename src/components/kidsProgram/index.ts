@@ -1,5 +1,4 @@
 export * from "./kidsProgram.types";
-export * from "./kidsProgram.data";
 export * from "./KidsProgramBreadcrumb";
 export * from "./KidsProgramHeader";
 export * from "./KidsProgramCards";

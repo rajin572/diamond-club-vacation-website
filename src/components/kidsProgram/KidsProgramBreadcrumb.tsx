@@ -1,14 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import Container from "@/components/ui/CustomUi/Container";
+import { offeringHref, programHref } from "@/lib/routes";
 
 interface KidsProgramBreadcrumbProps {
-  programId?: string;
+  offeringId: string;
+  programId: string;
   programTitle?: string;
 }
 
 export const KidsProgramBreadcrumb: React.FC<KidsProgramBreadcrumbProps> = ({
-  programId = "diamond-club-reserve",
+  offeringId,
+  programId,
   programTitle = "Diamond Club Reserve",
 }) => {
   return (
@@ -26,14 +29,14 @@ export const KidsProgramBreadcrumb: React.FC<KidsProgramBreadcrumbProps> = ({
           </Link>
           <span className="text-stone-300">/</span>
           <Link
-            href="/passover-collection-2027"
+            href={offeringHref(offeringId)}
             className="text-neutral-500 hover:text-neutral-900 transition-colors"
           >
             Passover 2027
           </Link>
           <span className="text-stone-300">/</span>
           <Link
-            href={`/passover-collection-2027/${programId}`}
+            href={programHref(offeringId, programId)}
             className="text-neutral-500 hover:text-neutral-900 transition-colors"
           >
             {programTitle}

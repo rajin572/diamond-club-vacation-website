@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import type { BabysittingModalData } from "@/components/kidsProgram/kidsProgram.types";
 
 export interface TeamMember {
   id: string;
@@ -52,4 +53,5 @@ export interface KidsDayCampData {
     description: string;
     rateText: string;
   };
+  babysittingModal: BabysittingModalData;
 }

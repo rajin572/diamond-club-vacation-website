@@ -15,7 +15,7 @@ export const OFFERING_ITEMS: OfferingItem[] = [
     id: "passover-collection",
     title: "Passover Collection",
     description: "Three exceptional Passover programs in the Riviera Maya and Cancun. One standard of excellence.",
-    href: "/passover-collection-2027",
+    href: "/offerings/passover-collection-2027",
     image: AllImages.offeringImg1,
     logo: AllImages.offeringLogo4,
   },

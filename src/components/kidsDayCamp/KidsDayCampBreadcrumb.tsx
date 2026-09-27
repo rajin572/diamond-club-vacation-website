@@ -3,14 +3,17 @@
 import React from "react";
 import Link from "next/link";
 import Container from "@/components/ui/CustomUi/Container";
+import { offeringHref, programHref, experienceHref } from "@/lib/routes";
 
 interface KidsDayCampBreadcrumbProps {
-  programId?: string;
+  offeringId: string;
+  programId: string;
   programName?: string;
 }
 
 export const KidsDayCampBreadcrumb: React.FC<KidsDayCampBreadcrumbProps> = ({
-  programId = "diamond-club-reserve",
+  offeringId,
+  programId,
   programName = "Diamond Club Reserve",
 }) => {
   return (
@@ -31,7 +34,7 @@ export const KidsDayCampBreadcrumb: React.FC<KidsDayCampBreadcrumbProps> = ({
           <li className="text-stone-300 select-none">/</li>
           <li>
             <Link
-              href="/passover-collection-2027"
+              href={offeringHref(offeringId)}
               className="hover:text-neutral-900 transition-colors duration-200"
             >
               Passover 2027
@@ -40,7 +43,7 @@ export const KidsDayCampBreadcrumb: React.FC<KidsDayCampBreadcrumbProps> = ({
           <li className="text-stone-300 select-none">/</li>
           <li>
             <Link
-              href={`/passover-collection-2027/${programId}`}
+              href={programHref(offeringId, programId)}
               className="hover:text-neutral-900 transition-colors duration-200"
             >
               {programName}
@@ -49,7 +52,7 @@ export const KidsDayCampBreadcrumb: React.FC<KidsDayCampBreadcrumbProps> = ({
           <li className="text-stone-300 select-none">/</li>
           <li>
             <Link
-              href={`/passover-collection-2027/${programId}/experiences/kids-program`}
+              href={experienceHref(offeringId, programId, "kids-program")}
               className="hover:text-neutral-900 transition-colors duration-200"
             >
               Kids Program

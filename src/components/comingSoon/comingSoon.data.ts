@@ -14,7 +14,7 @@ export const COMING_SOON_DATA: ComingSoonData = {
     "This part of the site is being prepared. In the meantime, our team is ready to answer any question about Passover 2027 and our year-round programs.",
   primaryCta: {
     label: "Explore Passover 2027",
-    href: "/passover-collection-2027",
+    href: "/offerings/passover-collection-2027",
   },
   secondaryCta: {
     label: "Inquire",

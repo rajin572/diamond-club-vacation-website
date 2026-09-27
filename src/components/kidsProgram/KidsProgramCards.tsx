@@ -7,16 +7,19 @@ import { Image as ImageIcon } from "lucide-react";
 import Container from "@/components/ui/CustomUi/Container";
 import type { KidsProgramItem } from "./kidsProgram.types";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap-util";
+import { experienceHref } from "@/lib/routes";
 
 interface KidsProgramCardsProps {
   programs: KidsProgramItem[];
-  programId?: string;
+  offeringId: string;
+  programId: string;
   onOpenBabysittingModal: () => void;
 }
 
 export const KidsProgramCards: React.FC<KidsProgramCardsProps> = ({
   programs,
-  programId = "diamond-club-reserve",
+  offeringId,
+  programId,
   onOpenBabysittingModal,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,9 +49,7 @@ export const KidsProgramCards: React.FC<KidsProgramCardsProps> = ({
     { scope: containerRef }
   );
 
-  const dayCampHref = `/passover-collection-2027/${encodeURIComponent(
-    programId
-  )}/experiences/day-camp-teen-program`;
+  const dayCampHref = experienceHref(offeringId, programId, "kids-day-camp");
 
   return (
     <div ref={containerRef} className="w-full pb-20 md:pb-28 bg-[#FCFCFB]">

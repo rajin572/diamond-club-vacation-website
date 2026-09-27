@@ -6,23 +6,22 @@ import Link from "next/link";
 import { X, ArrowUpRight, Image as ImageIcon } from "lucide-react";
 import ReuseModal from "@/components/ui/CustomUi/ReuseModal";
 import type { BabysittingModalData } from "./kidsProgram.types";
+import { inquireHref as buildInquireHref } from "@/lib/routes";
 
 interface BabysittingModalProps {
   isOpen: boolean;
   onClose: () => void;
   data: BabysittingModalData;
-  programId?: string;
+  programId: string;
 }
 
 export const BabysittingModal: React.FC<BabysittingModalProps> = ({
   isOpen,
   onClose,
   data,
-  programId = "diamond-club-reserve",
+  programId,
 }) => {
-  const inquireHref = `/inquire?holiday=passover-2027&destination=${encodeURIComponent(
-    programId
-  )}&service=babysitting`;
+  const inquireHref = buildInquireHref({ destination: programId, service: "babysitting" });
 
   return (
     <ReuseModal

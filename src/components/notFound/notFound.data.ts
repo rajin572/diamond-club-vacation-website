@@ -27,7 +27,7 @@ export const NOT_FOUND_DATA: NotFoundData = {
       id: "passover",
       title: "Passover Collection 2027",
       subtitle: "Three programs in the Riviera Maya and Cancun",
-      href: "/passover-collection-2027",
+      href: "/offerings/passover-collection-2027",
     },
     {
       id: "casa-nizuc",

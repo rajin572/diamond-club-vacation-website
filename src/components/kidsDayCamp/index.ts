@@ -1,5 +1,4 @@
 export * from "./kidsDayCamp.types";
-export * from "./kidsDayCamp.data";
 export * from "./KidsDayCampBreadcrumb";
 export * from "./KidsDayCampGallery";
 export * from "./KidsDayCampHeader";
