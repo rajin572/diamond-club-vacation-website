@@ -2,8 +2,14 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
+import { ComingSoonView } from "@/components/comingSoon";
 import { OfferingMainView } from "@/components/offerings";
-import { getOffering, offeringsRegistry } from "@/data/offerings/registry";
+import {
+  comingSoonOfferings,
+  getComingSoonOffering,
+  getOffering,
+  offeringsRegistry,
+} from "@/data/offerings/registry";
 import { offeringHref } from "@/lib/routes";
 
 interface PageProps {
@@ -11,14 +17,23 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return Object.keys(offeringsRegistry).map((offeringId) => ({ offeringId }));
+  return [...Object.keys(offeringsRegistry), ...Object.keys(comingSoonOfferings)].map((offeringId) => ({ offeringId }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { offeringId } = await params;
   const offering = getOffering(offeringId);
+  const comingSoonTitle = getComingSoonOffering(offeringId);
 
   if (!offering) {
+    if (comingSoonTitle) {
+      return {
+        title: `${comingSoonTitle} - Coming Soon`,
+        description: `${comingSoonTitle} by Diamond Club Vacations is coming soon.`,
+        robots: { index: false, follow: false },
+      };
+    }
+
     return { title: "Offering Not Found" };
   }
 
@@ -52,6 +67,10 @@ export default async function OfferingPage({ params }: PageProps) {
   const offering = getOffering(offeringId);
 
   if (!offering) {
+    if (getComingSoonOffering(offeringId)) {
+      return <ComingSoonView />;
+    }
+
     notFound();
   }
 

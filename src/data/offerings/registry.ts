@@ -5,6 +5,12 @@ export const offeringsRegistry = {
   "passover-collection-2027": PASSOVER_COLLECTION_2027_DATA,
 } satisfies Record<string, OfferingData>;
 
+export const comingSoonOfferings = {
+  "casa-nizuc": "Casa Nizuc",
+  "weddings-events": "Weddings & Events",
+  "private-events": "Private Events",
+} as const;
+
 export type OfferingId = keyof typeof offeringsRegistry;
 
 export function getOffering(offeringId: string): OfferingData | undefined {
@@ -13,4 +19,8 @@ export function getOffering(offeringId: string): OfferingData | undefined {
 
 export function getAllOfferings(): OfferingData[] {
   return Object.values(offeringsRegistry);
+}
+
+export function getComingSoonOffering(offeringId: string): string | undefined {
+  return comingSoonOfferings[offeringId as keyof typeof comingSoonOfferings];
 }

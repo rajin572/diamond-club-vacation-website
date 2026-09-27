@@ -19,17 +19,17 @@ export const PRIMARY_NAV_ITEMS: NavLinkItem[] = [
   {
     id: "casa-nizuc",
     label: "Casa Nizuc",
-    href: "/#casa-nizuc",
+    href: "/offerings/casa-nizuc",
   },
   {
     id: "weddings-events",
     label: "Weddings & Events",
-    href: "/#weddings-events",
+    href: "/offerings/weddings-events",
   },
   {
     id: "private-events",
     label: "Private Events",
-    href: "/#private-events",
+    href: "/offerings/private-events",
   },
 ];
 
@@ -90,4 +90,3 @@ export const FOOTER_NAV_COLUMNS: NavFooterColumn[] = [
 //   // return { deleteItem, isLoading };
 // };
 // =============================================================================
-
