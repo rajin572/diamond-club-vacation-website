@@ -16,10 +16,9 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const programIds = Object.keys(programsRegistry);
   const experienceTypes = [...CATEGORY_TYPES, "kids-program", "kids-day-camp"];
 
-  return programIds.flatMap((programId) =>
+  return Object.values(programsRegistry).flatMap(({ id: programId, offeringId }) =>
     experienceTypes
       .filter(
         (experienceType) =>
@@ -27,7 +26,7 @@ export async function generateStaticParams() {
           (experienceType === "kids-program" && getKidsProgramData(programId)) ||
           (experienceType === "kids-day-camp" && getKidsDayCampData(programId))
       )
-      .map((experienceType) => ({ programId, experienceType }))
+      .map((experienceType) => ({ offeringId, programId, experienceType }))
   );
 }
 

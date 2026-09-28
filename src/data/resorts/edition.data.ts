@@ -6,6 +6,8 @@ export const EDITION_RESORT_DATA: ResortData = {
   programTitle: "Diamond Club Reserve",
   resortId: "edition",
   resortName: "The Edition Resort",
+  shortName: "The Edition",
+  poolsIntro: "Three pools, from the lagoon to the SO’OL beach club, a short walk from every room.",
   tagline: "Contemporary, design-led luxury at Kanai, set between the jungle and the Riviera Maya coast.",
   heroImage: AllImages.editionResortHero,
 
@@ -476,7 +478,6 @@ export const EDITION_RESORT_DATA: ResortData = {
       category: "wellness-deck",
       description: "Gentle sunrise vinyasa flow and mindful breathwork overlooking the mangrove reserve.",
       image: AllImages.editionResortHero,
-      linkText: "See details",
     },
     {
       id: "sound-healing",
@@ -484,7 +485,6 @@ export const EDITION_RESORT_DATA: ResortData = {
       category: "wellness-deck",
       description: "Acoustic crystal bowl vibrations to release physical stress and quiet the holiday mind.",
       image: AllImages.editionResortPool1,
-      linkText: "See details",
     },
     {
       id: "technogym-cardio",
@@ -492,7 +492,6 @@ export const EDITION_RESORT_DATA: ResortData = {
       category: "fitness-center",
       description: "High-performance treadmills, ellipticals and connected Peloton bikes available 24/7.",
       image: AllImages.editionResortPool2,
-      linkText: "See details",
     },
     {
       id: "functional-training",
@@ -500,7 +499,6 @@ export const EDITION_RESORT_DATA: ResortData = {
       category: "fitness-center",
       description: "Full free weight rack, kettlebells, cable resistance stations and private training options.",
       image: AllImages.editionResortHero,
-      linkText: "See details",
     },
   ],
 
@@ -509,6 +507,8 @@ export const EDITION_RESORT_DATA: ResortData = {
     titlePrefix: "The",
     titleItalic: "Spa",
     headline: "An afternoon that undoes the year",
+    summary:
+      "Hydrotherapy pools, hammam and steam rooms, massages, facials and a full salon, with treatments bookable through your concierge.",
     description:
       "The spa offers hydrotherapy pools, a Turkish hammam and steam rooms, alongside a beauty salon and body treatments rooted in time-honoured techniques.",
     treatmentsAndFacilities: [

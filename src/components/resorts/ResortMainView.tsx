@@ -24,7 +24,7 @@ export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, prog
   const [galleryOpen, setGalleryOpen] = useState(false);
 
   return (
-    <div className="w-full flex flex-col bg-[#FCFCFB]">
+    <main className="w-full min-h-screen bg-[#FCFCFB] pt-24 sm:pt-28 md:pt-32 flex flex-col">
       <ResortBreadcrumb
         offeringId={offeringId}
         programId={programId}
@@ -37,6 +37,7 @@ export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, prog
         programId={programId}
         resortId={data.resortId}
         resortName={data.resortName}
+        shortName={data.shortName}
         tagline={data.tagline}
         heroImage={data.heroImage}
         onOpenGallery={() => setGalleryOpen(true)}
@@ -63,13 +64,14 @@ export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, prog
         programId={programId}
         resortId={data.resortId}
         pools={data.pools}
+        intro={data.poolsIntro}
       />
 
       <ResortWellnessSection
         offeringId={offeringId}
         programId={programId}
         resortId={data.resortId}
-        wellness={data.wellness}
+        wellness={data.wellnessActivities ?? data.wellness}
       />
 
       <ResortSpaSection
@@ -94,7 +96,7 @@ export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, prog
         photos={data.gallery}
         title={data.resortName}
       />
-    </div>
+    </main>
   );
 };
 

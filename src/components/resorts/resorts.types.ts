@@ -91,6 +91,8 @@ export interface ResortSpaData {
   titleItalic: string;
   headline?: string;
   meta?: string[];
+  /** Short blurb for the main resort page's spa section; falls back to `description`. */
+  summary?: string;
   description: string;
   treatmentsAndFacilities: string[];
   schedule: { days: string; hours: string }[];
@@ -114,12 +116,18 @@ export interface ResortData {
   programTitle: string;
   resortId: string;
   resortName: string;
+  /** Name without the trailing "Resort", used in the hero badge (e.g. "The Edition"). */
+  shortName: string;
   tagline: string;
   heroImage: StaticImageData | string;
+  /** One-line intro under the "Pools & Beach" heading on the main resort page. */
+  poolsIntro?: string;
   rooms: ResortRoom[];
   dining: ResortDiningVenue[];
   pools: ResortPoolItem[];
   wellness: ResortWellnessItem[];
+  /** Activities shown in the main page's wellness tabs, when they differ from `wellness` (which feeds the spa detail page). */
+  wellnessActivities?: ResortWellnessItem[];
   spa: ResortSpaData;
   gallery: ResortGalleryPhoto[];
 }

@@ -75,7 +75,9 @@ export const OfferingCompare: React.FC<OfferingCompareProps> = ({ data }) => {
             ref={titleRef}
             className="font-cormorant font-light text-neutral-900 tracking-tight leading-[1.1] text-[clamp(2.25rem,4.5vw,4.5rem)] max-w-3xl"
           >
-            <span>{data.headline}</span>
+            <span>{data.headline.lead}</span>
+            <span className="font-medium">{data.headline.accent}</span>
+            <span>{data.headline.tail}</span>
           </h2>
         </div>
 

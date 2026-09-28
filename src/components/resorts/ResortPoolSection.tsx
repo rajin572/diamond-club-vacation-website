@@ -13,6 +13,7 @@ interface ResortPoolSectionProps {
   programId: string;
   resortId: string;
   pools: ResortPoolItem[];
+  intro?: string;
 }
 
 export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
@@ -20,6 +21,7 @@ export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
   programId,
   resortId,
   pools,
+  intro,
 }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
@@ -97,9 +99,11 @@ export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
               </h2>
             </div>
 
-            <p ref={descRef} className="font-outfit text-[#5E6062] text-base leading-relaxed max-w-md">
-              {pools.length} pools, from the lagoon to the beach club, a short walk from every room.
-            </p>
+            {intro && (
+              <p ref={descRef} className="font-outfit text-[#5E6062] text-base leading-relaxed max-w-md">
+                {intro}
+              </p>
+            )}
           </div>
 
           <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6">

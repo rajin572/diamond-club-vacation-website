@@ -97,7 +97,7 @@ export const PASSOVER_COLLECTION_2027_DATA: OfferingData = {
 
   compare: {
     badge: "Compare",
-    headline: "Find the right fit for your family",
+    headline: { lead: "Find the ", accent: "right fit", tail: " for your family" },
     columns: [
       { id: "diamond-club-reserve", name: "Diamond Club\nReserve" },
       { id: "guttaway", name: "Guttaway a DCV\nProgram" },

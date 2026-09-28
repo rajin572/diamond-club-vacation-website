@@ -45,7 +45,8 @@ export interface OfferingCompareRow {
 
 export interface OfferingCompareData {
   badge: string;
-  headline: string;
+  /** `accent` is rendered in a heavier weight between `lead` and `tail`. */
+  headline: { lead: string; accent: string; tail: string };
   columns: OfferingCompareColumn[];
   rows: OfferingCompareRow[];
 }

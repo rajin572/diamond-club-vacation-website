@@ -6,7 +6,7 @@ import Link from "next/link";
 import Container from "@/components/ui/CustomUi/Container";
 import type { ResortWellnessItem } from "./resorts.types";
 import { gsap, SplitText, useGSAP, prefersReducedMotion } from "@/lib/gsap-util";
-import { spaHref } from "@/lib/routes";
+import { spaHref, inquireHref } from "@/lib/routes";
 
 interface ResortWellnessSectionProps {
   offeringId: string;
@@ -167,13 +167,22 @@ export const ResortWellnessSection: React.FC<ResortWellnessSectionProps> = ({
                     {item.timing && (
                       <p className="font-outfit text-xs text-[#8C877E]">{item.timing}</p>
                     )}
-                    {item.category === "the-spa" && (
+                    {item.category === "the-spa" ? (
                       <Link
                         href={spaHref(offeringId, programId, resortId)}
                         className="font-outfit text-sm font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200"
                       >
                         {item.linkText || "See details"}
                       </Link>
+                    ) : (
+                      item.linkText && (
+                        <Link
+                          href={inquireHref({ destination: programId, resort: resortId, topic: item.id })}
+                          className="font-outfit text-sm font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200"
+                        >
+                          {item.linkText}
+                        </Link>
+                      )
                     )}
                   </div>
                 </div>

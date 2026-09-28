@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
 import { ResortMainView } from "@/components/resorts";
-import { getResort, resortsRegistry } from "@/data/resorts/registry";
+import { getResort, getResortRouteParams } from "@/data/resorts/registry";
 import { resortHref } from "@/lib/routes";
 
 interface PageProps {
@@ -11,10 +11,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return Object.values(resortsRegistry).map((resort) => ({
-    programId: resort.programId,
-    resortId: resort.resortId,
-  }));
+  return getResortRouteParams().map(({ params }) => params);
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

@@ -115,19 +115,8 @@ export const ResortSpaSection: React.FC<ResortSpaSectionProps> = ({
               )}
             </h2>
 
-            {spa.meta && spa.meta.length > 0 && (
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[#5E6062] font-outfit text-sm sm:text-base">
-                {spa.meta.map((m, idx) => (
-                  <React.Fragment key={m}>
-                    {idx > 0 && <span className="size-1 rounded-full bg-[#C6C2BA]" aria-hidden="true" />}
-                    <span>{m}</span>
-                  </React.Fragment>
-                ))}
-              </div>
-            )}
-
             <p ref={descRef} className="font-outfit text-[#5E6062] text-base leading-relaxed">
-              {spa.description}
+              {spa.summary ?? spa.description}
             </p>
 
             <div ref={detailsRef} className="w-full flex flex-col gap-3">

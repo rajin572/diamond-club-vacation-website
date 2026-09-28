@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ResortPoolDetailView } from "@/components/resorts";
-import { getResort, resortsRegistry } from "@/data/resorts/registry";
+import { getResort, getResortRouteParams } from "@/data/resorts/registry";
 
 interface PageProps {
   params: Promise<{ offeringId: string; programId: string; resortId: string; poolId: string }>;
@@ -11,12 +11,8 @@ interface PageProps {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return Object.values(resortsRegistry).flatMap((resort) =>
-    resort.pools.map((pool) => ({
-      programId: resort.programId,
-      resortId: resort.resortId,
-      poolId: pool.id,
-    }))
+  return getResortRouteParams().flatMap(({ resort, params }) =>
+    resort.pools.map((pool) => ({ ...params, poolId: pool.id }))
   );
 }
 

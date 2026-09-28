@@ -1,6 +1,7 @@
 import type { ResortData } from "@/components/resorts/resorts.types";
 import { EDITION_RESORT_DATA } from "./edition.data";
 import { ST_REGIS_RESORT_DATA } from "./st-regis.data";
+import { getProgram } from "@/data/programs/registry";
 
 export const resortsRegistry = {
   edition: EDITION_RESORT_DATA,
@@ -19,4 +20,23 @@ export function getAllResorts(): ResortData[] {
 
 export function getResortsForProgram(programId: string): ResortData[] {
   return getAllResorts().filter((r) => r.programId === programId);
+}
+
+/**
+ * Every resort with the full parent route params (`offeringId`, `programId`, `resortId`).
+ * `generateStaticParams` for every route under /resorts/[resortId] must return ALL of the
+ * dynamic segments above it — leaving out `offeringId` produces no prerendered pages, and
+ * with `dynamicParams = false` that turns into a 404 in production.
+ */
+export function getResortRouteParams() {
+  return getAllResorts().flatMap((resort) => {
+    const program = getProgram(resort.programId);
+    if (!program) return [];
+    return [
+      {
+        resort,
+        params: { offeringId: program.offeringId, programId: resort.programId, resortId: resort.resortId },
+      },
+    ];
+  });
 }

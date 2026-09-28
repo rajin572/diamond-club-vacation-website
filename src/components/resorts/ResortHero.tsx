@@ -12,6 +12,7 @@ interface ResortHeroProps {
   programId: string;
   resortId: string;
   resortName: string;
+  shortName: string;
   tagline: string;
   heroImage: StaticImageData | string;
   onOpenGallery?: () => void;
@@ -21,6 +22,7 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
   programId,
   resortId,
   resortName,
+  shortName,
   tagline,
   heroImage,
   onOpenGallery,
@@ -32,6 +34,10 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
   const actionsRef = useRef<HTMLDivElement>(null);
 
   const inquireUrl = inquireHref({ destination: programId, resort: resortId });
+
+  const lastSpace = resortName.lastIndexOf(" ");
+  const titleLead = lastSpace === -1 ? "" : resortName.slice(0, lastSpace + 1);
+  const titleAccent = lastSpace === -1 ? resortName : resortName.slice(lastSpace + 1);
 
   useGSAP(
     () => {
@@ -104,14 +110,15 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 font-outfit text-xs sm:text-sm tracking-widest uppercase font-medium select-none"
             >
               <span className="size-1.5 rounded-full bg-[#BD9343]" />
-              {resortName} · Riviera Maya
+              {shortName} · Riviera Maya
             </div>
 
             <h1
               ref={titleRef}
               className="font-cormorant font-light text-white text-[clamp(2.5rem,6vw,6rem)] leading-[0.98] tracking-tight text-left"
             >
-              {resortName}
+              {titleLead}
+              <span className="font-normal italic text-[#f4ecd8]">{titleAccent}</span>
             </h1>
 
             <p
