@@ -77,7 +77,7 @@ export const InquireWizard = () => {
           normalized === "gold" ||
           normalized === "diamond-club-gold"
         ) {
-          setValue("destinationId", "diamond-club-gold");
+          setValue("destinationId", "guttaway");
         } else if (
           normalized === "blue" ||
           normalized === "diamond-club-blue" ||

@@ -120,8 +120,8 @@ export const KidsDayCampContent: React.FC<KidsDayCampContentProps> = ({
             <div
               key={row.group}
               className={`px-5 py-4 grid grid-cols-12 gap-4 items-center font-outfit text-sm sm:text-base ${idx !== data.ageGroups.length - 1
-                  ? "border-b border-neutral-900/10"
-                  : ""
+                ? "border-b border-neutral-900/10"
+                : ""
                 } hover:bg-neutral-50/50 transition-colors`}
             >
               <div className="col-span-3 sm:col-span-3 font-medium text-neutral-900">

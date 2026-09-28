@@ -28,7 +28,6 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
   onOpenGallery,
 }) => {
   const heroRef = useRef<HTMLDivElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
@@ -48,10 +47,6 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
         : null;
 
       const tl = gsap.timeline({ delay: 0.1, defaults: { ease: "premiumOut" } });
-
-      if (logoRef.current) {
-        tl.fromTo(logoRef.current, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.8 }, 0);
-      }
 
       if (splitTitle?.words?.length) {
         tl.fromTo(
@@ -105,14 +100,6 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
           />
 
           <div className="relative z-10 flex flex-col justify-end items-start gap-4 sm:gap-6 max-w-4xl">
-            <div
-              ref={logoRef}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 font-outfit text-xs sm:text-sm tracking-widest uppercase font-medium select-none"
-            >
-              <span className="size-1.5 rounded-full bg-[#BD9343]" />
-              {shortName} · Riviera Maya
-            </div>
-
             <h1
               ref={titleRef}
               className="font-cormorant font-light text-white text-[clamp(2.5rem,6vw,6rem)] leading-[0.98] tracking-tight text-left"

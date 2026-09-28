@@ -29,11 +29,11 @@ export const INQUIRE_HOLIDAYS: InquireHoliday[] = [
         gradientClassName: "bg-gradient-to-br from-[#0a2540] via-[#0f3d68] to-[#00549C]",
       },
       {
-        id: "diamond-club-gold",
-        name: "Diamond Club Gold",
-        description: "Elevated Passover for the whole family, in the Riviera Maya.",
+        id: "guttaway",
+        name: "Guttaway a DCV Program",
+        description: "Elevated Passover for the whole family, at Amai in the Riviera Maya.",
         dates: "April 20, 2027 – May 2, 2027",
-        gradientClassName: "bg-gradient-to-br from-[#2a2115] via-[#5c4326] to-[#a9843f]",
+        gradientClassName: "bg-gradient-to-br from-[#1a3a4b] via-[#245d7d] to-[#00549c]",
       },
       {
         id: "diamond-club-blue",

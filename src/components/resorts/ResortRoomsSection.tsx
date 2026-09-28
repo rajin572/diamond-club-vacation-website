@@ -102,49 +102,119 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
             </p>
           </div>
 
-          <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {rooms.map((room) => {
-              const href = roomHref(offeringId, programId, resortId, room.id);
+          {(() => {
+            const hasCategories = rooms.some((r) => r.category);
+
+            if (hasCategories) {
+              const categoryMap = new Map<string, typeof rooms>();
+              rooms.forEach((r) => {
+                const cat = r.category || "Rooms";
+                if (!categoryMap.has(cat)) categoryMap.set(cat, []);
+                categoryMap.get(cat)!.push(r);
+              });
 
               return (
-                <div key={room.id} className="group flex flex-col justify-start items-start gap-4 w-full">
-                  <Link
-                    href={href}
-                    className="relative w-full h-[260px] sm:h-[300px] rounded-md overflow-hidden bg-[#E4E0D8] block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
-                  >
-                    <Image
-                      src={room.image}
-                      alt={room.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                  </Link>
-
-                  <div className="flex flex-col items-start gap-2.5 w-full">
-                    <Link href={href}>
-                      <h3 className="font-cormorant text-2xl sm:text-[26px] lg:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
-                        {room.title}
+                <div ref={cardsRef} className="flex flex-col gap-12 sm:gap-14 w-full">
+                  {Array.from(categoryMap.entries()).map(([catName, catRooms]) => (
+                    <div key={catName} className="flex flex-col gap-6 w-full">
+                      <h3 className="font-cormorant text-2xl sm:text-3xl text-[#131313] font-normal">
+                        {catName}
                       </h3>
-                    </Link>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {catRooms.map((room) => {
+                          const href = roomHref(offeringId, programId, resortId, room.id);
 
-                    <div className="flex flex-col gap-0.5 text-sm sm:text-[15px] font-outfit text-[#5E6062]">
-                      <p>
-                        {room.bedConfig} · {room.view}
-                      </p>
+                          return (
+                            <div key={room.id} className="group flex flex-col justify-start items-start gap-4 w-full">
+                              <Link
+                                href={href}
+                                className="relative w-full h-[260px] sm:h-[300px] rounded-md overflow-hidden bg-[#E4E0D8] block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
+                              >
+                                <Image
+                                  src={room.image}
+                                  alt={room.title}
+                                  fill
+                                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+                                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                                />
+                              </Link>
+
+                              <div className="flex flex-col items-start gap-2.5 w-full">
+                                <Link href={href}>
+                                  <h4 className="font-cormorant text-2xl sm:text-[26px] lg:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
+                                    {room.title}
+                                  </h4>
+                                </Link>
+
+                                <div className="flex flex-col gap-0.5 text-sm sm:text-[15px] font-outfit text-[#5E6062]">
+                                  <p>
+                                    {room.bedConfig}{room.view ? ` · ${room.view}` : ""}
+                                  </p>
+                                </div>
+
+                                <Link
+                                  href={href}
+                                  className="font-outfit text-[15px] font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200 pt-1"
+                                >
+                                  View room
+                                </Link>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-
-                    <Link
-                      href={href}
-                      className="font-outfit text-[15px] font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200 pt-1"
-                    >
-                      View room
-                    </Link>
-                  </div>
+                  ))}
                 </div>
               );
-            })}
-          </div>
+            }
+
+            return (
+              <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {rooms.map((room) => {
+                  const href = roomHref(offeringId, programId, resortId, room.id);
+
+                  return (
+                    <div key={room.id} className="group flex flex-col justify-start items-start gap-4 w-full">
+                      <Link
+                        href={href}
+                        className="relative w-full h-[260px] sm:h-[300px] rounded-md overflow-hidden bg-[#E4E0D8] block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
+                      >
+                        <Image
+                          src={room.image}
+                          alt={room.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+                          className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        />
+                      </Link>
+
+                      <div className="flex flex-col items-start gap-2.5 w-full">
+                        <Link href={href}>
+                          <h3 className="font-cormorant text-2xl sm:text-[26px] lg:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
+                            {room.title}
+                          </h3>
+                        </Link>
+
+                        <div className="flex flex-col gap-0.5 text-sm sm:text-[15px] font-outfit text-[#5E6062]">
+                          <p>
+                            {room.bedConfig}{room.view ? ` · ${room.view}` : ""}
+                          </p>
+                        </div>
+
+                        <Link
+                          href={href}
+                          className="font-outfit text-[15px] font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200 pt-1"
+                        >
+                          View room
+                        </Link>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })()}
         </div>
       </Container>
     </section>

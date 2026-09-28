@@ -106,7 +106,15 @@ export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
             )}
           </div>
 
-          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6">
+          <div
+            ref={gridRef}
+            className={`grid gap-8 sm:gap-6 ${pools.length === 2
+                ? "grid-cols-1 md:grid-cols-2"
+                : pools.length === 4
+                  ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+                  : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+              }`}
+          >
             {pools.map((item) => {
               const href = poolHref(offeringId, programId, resortId, item.id);
 

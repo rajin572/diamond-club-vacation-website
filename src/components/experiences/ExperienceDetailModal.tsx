@@ -71,12 +71,13 @@ export const ExperienceDetailModal: React.FC<ExperienceDetailModalProps> = ({
 
   if (!items || items.length === 0) return null;
 
-  const current = items[currentIndex] || items[0];
+  const modalItems = isBioItem(items[0]) ? items.filter((it) => !it.isTba) : items;
+  const current = modalItems[currentIndex] || modalItems[0] || items[0];
 
-  const handlePrev = () => setCurrentIndex((prev) => (prev > 0 ? prev - 1 : items.length - 1));
-  const handleNext = () => setCurrentIndex((prev) => (prev < items.length - 1 ? prev + 1 : 0));
+  const handlePrev = () => setCurrentIndex((prev) => (prev > 0 ? prev - 1 : modalItems.length - 1));
+  const handleNext = () => setCurrentIndex((prev) => (prev < modalItems.length - 1 ? prev + 1 : 0));
 
-  const formattedCounter = `${String(currentIndex + 1).padStart(2, "0")} / ${String(items.length).padStart(2, "0")}`;
+  const formattedCounter = `${String(currentIndex + 1).padStart(2, "0")} / ${String(modalItems.length).padStart(2, "0")}`;
 
   if (isBioItem(current)) {
     return (
@@ -141,10 +142,12 @@ export const ExperienceDetailModal: React.FC<ExperienceDetailModalProps> = ({
               </p>
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-neutral-200/60">
-              <ModalDots items={items} currentIndex={currentIndex} onSelect={setCurrentIndex} />
-              <ModalNavButtons onPrev={handlePrev} onNext={handleNext} />
-            </div>
+            {modalItems.length > 1 && (
+              <div className="flex items-center justify-between pt-4 border-t border-neutral-200/60">
+                <ModalDots items={modalItems} currentIndex={currentIndex} onSelect={setCurrentIndex} />
+                <ModalNavButtons onPrev={handlePrev} onNext={handleNext} />
+              </div>
+            )}
           </div>
         </div>
       </ReuseModal>
@@ -255,17 +258,19 @@ export const ExperienceDetailModal: React.FC<ExperienceDetailModalProps> = ({
                 >
                   <MapPin className="size-4 text-neutral-900 group-hover:text-white transition-colors stroke-[1.7]" />
                   <span className="text-neutral-900 group-hover:text-white font-outfit text-base font-medium leading-5 transition-colors">
-                    See on map
+                    View on Google Maps
                   </span>
                 </button>
               )
             )}
           </div>
 
-          <div className="w-full flex items-center justify-between pt-4 border-t border-neutral-900/10">
-            <ModalDots items={items} currentIndex={currentIndex} onSelect={setCurrentIndex} />
-            <ModalNavButtons onPrev={handlePrev} onNext={handleNext} />
-          </div>
+          {items.length > 1 && (
+            <div className="w-full flex items-center justify-between pt-4 border-t border-neutral-900/10">
+              <ModalDots items={items} currentIndex={currentIndex} onSelect={setCurrentIndex} />
+              <ModalNavButtons onPrev={handlePrev} onNext={handleNext} />
+            </div>
+          )}
         </div>
       </div>
     </ReuseModal>

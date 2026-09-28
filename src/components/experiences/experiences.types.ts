@@ -8,8 +8,8 @@ export interface ExperienceGalleryItem {
   description: string;
   image?: StaticImageData | string;
   imagePlaceholderText?: string;
-  /** Entertainment-only "details to be announced" badge state. */
   isTba?: boolean;
+  ctaText?: string;
   /** Attraction-only "see on map" link. */
   mapQuery?: string;
   mapUrl?: string;
@@ -35,6 +35,8 @@ export interface ExperienceBioItem {
   fullBio: string;
   image: StaticImageData | string;
   imageAlt: string;
+  isTba?: boolean;
+  ctaText?: string;
 }
 
 export type ExperienceItem = ExperienceGalleryItem | ExperienceBioItem;

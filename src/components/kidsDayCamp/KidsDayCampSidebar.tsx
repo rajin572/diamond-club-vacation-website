@@ -75,8 +75,8 @@ export const KidsDayCampSidebar: React.FC<KidsDayCampSidebarProps> = ({
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`w-full text-left pl-3.5 py-3 transition-colors duration-200 font-outfit text-base ${isActive
-                  ? "border-l-2 border-[#00549c] text-neutral-900 font-medium bg-[#00549c]/5"
-                  : "border-l border-neutral-900/10 text-zinc-600 font-normal hover:text-neutral-900 hover:border-neutral-900/30"
+                ? "border-l-2 border-[#00549c] text-neutral-900 font-medium bg-[#00549c]/5"
+                : "border-l border-neutral-900/10 text-zinc-600 font-normal hover:text-neutral-900 hover:border-neutral-900/30"
                 }`}
             >
               {item.label}

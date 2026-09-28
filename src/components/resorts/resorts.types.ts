@@ -11,6 +11,7 @@ export interface ResortGalleryStructure {
 
 export interface ResortRoom {
   id: string;
+  category?: string;
   title: string;
   titlePrefix: string;
   titleItalic: string;
@@ -63,7 +64,7 @@ export interface ResortPoolItem {
   title: string;
   titlePrefix: string;
   titleItalic: string;
-  type: "outdoor" | "beach" | "lagoon" | "cabanas" | "pools";
+  type: "outdoor" | "beach" | "lagoon" | "cabanas" | "pools" | "pool";
   typeLabel: string;
   atmosphere?: string;
   location: string;

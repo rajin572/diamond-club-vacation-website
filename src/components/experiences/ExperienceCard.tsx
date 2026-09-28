@@ -61,7 +61,7 @@ const GalleryCard: React.FC<{ item: ExperienceGalleryItem; onClick: () => void }
         onClick={onClick}
         className="cursor-pointer font-outfit text-neutral-900 text-base font-medium underline underline-offset-4 hover:text-[#00549c] transition-colors pt-1"
       >
-        See details
+        {item.ctaText || "View details"}
       </button>
     </div>
   </article>
@@ -69,14 +69,21 @@ const GalleryCard: React.FC<{ item: ExperienceGalleryItem; onClick: () => void }
 
 const BioCard: React.FC<{ item: ExperienceBioItem; onClick: () => void }> = ({ item, onClick }) => (
   <div className="flex-1 p-8 sm:p-10 rounded-lg border border-stone-300/80 bg-white flex flex-col items-center gap-5 text-center transition-all duration-300 hover:shadow-md hover:border-stone-400">
-    <div className="size-40 sm:size-44 rounded-full ring-4 ring-[#9A7B3F] relative overflow-hidden bg-stone-100 flex-shrink-0 shadow-inner">
-      <Image
-        src={item.image}
-        alt={item.imageAlt}
-        fill
-        sizes="(max-width: 640px) 100vw, 100vw"
-        className="object-cover object-center transition-transform duration-500 hover:scale-105"
-      />
+    <div className="size-40 sm:size-44 rounded-full ring-4 ring-[#9A7B3F] relative overflow-hidden bg-stone-100 flex-shrink-0 shadow-inner flex items-center justify-center">
+      {item.image ? (
+        <Image
+          src={item.image}
+          alt={item.imageAlt || item.name}
+          fill
+          sizes="(max-width: 640px) 100vw, 100vw"
+          className="object-cover object-center transition-transform duration-500 hover:scale-105"
+        />
+      ) : (
+        <div className="flex flex-col items-center justify-center text-stone-400">
+          <ImageIcon className="size-8 stroke-[1.5]" />
+          <span className="font-outfit text-xs mt-1">Photo coming soon</span>
+        </div>
+      )}
     </div>
 
     <div className="w-full pt-1 flex flex-col items-center gap-2.5">
@@ -88,13 +95,19 @@ const BioCard: React.FC<{ item: ExperienceBioItem; onClick: () => void }> = ({ i
         {item.shortBio}
       </p>
 
-      <button
-        type="button"
-        onClick={onClick}
-        className="mt-2 text-neutral-900 text-base font-medium font-outfit underline underline-offset-4 decoration-neutral-900/60 hover:decoration-neutral-900 transition-colors py-1 cursor-pointer focus:outline-none"
-      >
-        Read full bio
-      </button>
+      {item.isTba ? (
+        <span className="mt-2 text-stone-400 text-base font-medium font-outfit select-none py-1">
+          {item.ctaText || "Coming soon"}
+        </span>
+      ) : (
+        <button
+          type="button"
+          onClick={onClick}
+          className="mt-2 text-neutral-900 text-base font-medium font-outfit underline underline-offset-4 decoration-neutral-900/60 hover:decoration-neutral-900 transition-colors py-1 cursor-pointer focus:outline-none"
+        >
+          {item.ctaText || "Read full bio"}
+        </button>
+      )}
     </div>
   </div>
 );

@@ -59,6 +59,11 @@ import editionResortPool1 from "./diamond-club-resturant/The Edition Resort Pool
 import editionResortPool2 from "./diamond-club-resturant/The Edition Resort pool2.jpg";
 import editionResortPool3 from "./diamond-club-resturant/The Edition Resort pool3.jpg";
 
+// Guttaway a DCV Program
+import guttawayHero from "./diamond-club-resturant/Guttaway a DCV Program hero.jpg";
+import parkHyattResort from "./diamond-club-resturant/Park Hyatt Riviera Maya.png";
+import waldorfAstoriaResort from "./diamond-club-resturant/Waldorf Astoria Riviera Maya.png";
+
 // Coming Soon & Not Found
 import comingSoon from "./coming-soon.png";
 import notFound from "./not-found.png";
@@ -122,6 +127,11 @@ export const AllImages = {
   editionResortPool1,
   editionResortPool2,
   editionResortPool3,
+
+  // Guttaway a DCV Program
+  guttawayHero,
+  parkHyattResort,
+  waldorfAstoriaResort,
 
   // Coming Soon & Not Found
   comingSoon,

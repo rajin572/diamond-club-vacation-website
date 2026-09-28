@@ -160,4 +160,52 @@ export const ENTERTAINMENT_BY_PROGRAM: Record<string, ExperienceCategoryData> = 
       buttonText: "Inquire",
     },
   },
+  guttaway: {
+    programId: "guttaway",
+    programTitle: "Guttaway a DCV Program",
+    experienceType: "entertainment",
+    variant: "gallery",
+    breadcrumbLabel: "Entertainment",
+    badgeStyle: "dot",
+    accentColor: "#00549c",
+    gridColumns: 3,
+    header: {
+      badge: "Experiences",
+      titlePart1: "Enter",
+      titlePart2: "tainment",
+      description:
+        "Nightly shows, headline performers and late-night parties, planned throughout the holiday for every age.",
+    },
+    items: [
+      {
+        id: "to-be-announced",
+        title: "To be announced",
+        tag: "Details to be announced",
+        isTba: true,
+        ctaText: "View details",
+        description: "Incredible lineup of nightly entertainment.",
+        image: AllImages.entertainment,
+        imagePlaceholderText: "Entertainment photo",
+        modal: {
+          title: "To be announced",
+          tag: "Nightly",
+          longDescription:
+            "Incredible lineup of nightly entertainment. Full details will be announced closer to the program.",
+          when: "Nightly, after the evening program",
+          where: "SO’OL beach club",
+          mainPhotoPlaceholder: "Entertainment — main photo",
+          thumbnails: [
+            { id: "t1", label: "DJ photo", placeholderText: "DJ photo" },
+            { id: "t2", label: "Music photo", placeholderText: "Music photo" },
+            { id: "t3", label: "Lounge photo", placeholderText: "Lounge photo" },
+          ],
+        },
+      },
+    ],
+    inquireBanner: {
+      headlinePart1: "Celebrate with us for ",
+      headlinePart2: "Passover 2027",
+      buttonText: "Inquire",
+    },
+  },
 };

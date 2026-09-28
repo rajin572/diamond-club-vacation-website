@@ -110,7 +110,7 @@ export const ResortDiningSection: React.FC<ResortDiningSectionProps> = ({
                 ref={titleRef}
                 className="font-cormorant font-light text-[#131313] text-[clamp(2.25rem,4.5vw,4.25rem)] leading-[1.05] tracking-tight"
               >
-                Nine kitchens, <span className="font-normal italic">one standard of kashrut</span>
+                {dining.length === 6 ? "Six" : dining.length === 4 ? "Four" : dining.length === 9 ? "Nine" : dining.length} kitchens, <span className="font-normal italic">one standard of kashrut</span>
               </h2>
             </div>
 
