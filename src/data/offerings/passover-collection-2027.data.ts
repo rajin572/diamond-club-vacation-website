@@ -19,7 +19,7 @@ export const PASSOVER_COLLECTION_2027_DATA: OfferingData = {
     programs: [
       {
         id: "diamond-club-reserve",
-        badge: "Reserve · Riviera Maya, Kanai",
+        badge: "Riviera Maya, Kanai",
         title: { part1: "Diamond Club ", part2: "Reserve" },
         subtitle: "Our most exclusive Passover experience",
         description:

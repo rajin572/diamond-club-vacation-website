@@ -100,7 +100,7 @@ export const ProgramHero: React.FC<ProgramHeroProps> = ({ data, inquireHref }) =
               alt={`${data.headline.primary} ${data.headline.secondary}`}
               fill
               priority
-              sizes="(max-width: 1550px) 100vw, 1550px"
+              sizes="(max-width: 1550px) 100vw, 100vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-slate-950/40 to-slate-950/85" />

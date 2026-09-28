@@ -58,7 +58,7 @@ export const ResortPhotoModal: React.FC<ResortPhotoModalProps> = ({
             src={currentPhoto.image}
             alt={currentPhoto.title || `Photo ${activeIndex + 1}`}
             fill
-            sizes="(max-width: 1024px) 100vw, 1200px"
+            sizes="(max-width: 1024px) 100vw, 100vw"
             className="object-contain"
             priority
           />
@@ -104,7 +104,7 @@ export const ResortPhotoModal: React.FC<ResortPhotoModalProps> = ({
                 src={item.image}
                 alt={item.title || `Thumbnail ${idx + 1}`}
                 fill
-                sizes="80px"
+                sizes="100vw"
                 className="object-cover"
               />
             </button>

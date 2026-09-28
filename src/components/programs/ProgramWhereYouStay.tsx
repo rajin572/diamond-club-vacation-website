@@ -103,7 +103,7 @@ export const ProgramWhereYouStay: React.FC<ProgramWhereYouStayProps> = ({
                       src={resort.image}
                       alt={resort.title}
                       fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      sizes="(max-width: 1024px) 100vw, 100vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/15 to-slate-950/80 pointer-events-none" />

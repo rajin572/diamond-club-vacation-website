@@ -105,7 +105,7 @@ export const OfferingHero: React.FC<OfferingHeroProps> = ({ data }) => {
               alt={`${data.headline.primary} ${data.headline.secondary}`}
               fill
               priority
-              sizes="(max-width: 1550px) 100vw, 1550px"
+              sizes="(max-width: 1550px) 100vw, 100vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-neutral-950/50 backdrop-brightness-[0.82]" />

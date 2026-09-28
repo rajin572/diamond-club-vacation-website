@@ -73,7 +73,7 @@ export const ProgramInquiryBanner: React.FC<ProgramInquiryBannerProps> = ({ data
               src={data.backgroundImage}
               alt={`${data.headline.part1}${data.headline.part2}`}
               fill
-              sizes="(max-width: 1550px) 100vw, 1550px"
+              sizes="(max-width: 1550px) 100vw, 100vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gray-950/75" />

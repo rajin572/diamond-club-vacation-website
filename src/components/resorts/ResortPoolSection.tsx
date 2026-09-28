@@ -120,7 +120,7 @@ export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
                       src={item.image}
                       alt={item.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </Link>

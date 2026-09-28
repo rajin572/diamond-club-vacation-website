@@ -325,7 +325,7 @@ const ParallaxMarquee = ({
                                 height={150}
                                 className="object-contain w-full h-auto max-w-25"
                                 draggable={false}
-                                sizes="(max-width: 768px) 50vw, 100vw"
+                                sizes="(max-width: 768px) 100vw, 100vw"
                                 fetchPriority="high"
                                 priority
                             />

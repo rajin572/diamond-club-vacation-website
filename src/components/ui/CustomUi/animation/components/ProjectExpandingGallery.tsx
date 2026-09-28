@@ -81,7 +81,7 @@ const ProjectExpandingGallery = () => {
                                 fill
                                 fetchPriority="high"
                                 priority
-                                sizes="(max-width: 768px) 50vw, 100vw"
+                                sizes="(max-width: 768px) 100vw, 100vw"
                                 className="object-cover object-center rounded-3xl transition-transform duration-800 ease-in-out group-hover:scale-110"
                             />
 

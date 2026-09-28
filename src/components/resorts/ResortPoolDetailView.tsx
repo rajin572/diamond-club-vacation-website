@@ -104,7 +104,7 @@ export const ResortPoolDetailView: React.FC<ResortPoolDetailViewProps> = ({
                 alt={currentPool.gallery.main.label}
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 58vw"
+                sizes="(max-width: 1024px) 100vw, 100vw"
                 className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
@@ -122,7 +122,7 @@ export const ResortPoolDetailView: React.FC<ResortPoolDetailViewProps> = ({
                       src={side.src}
                       alt={side.label}
                       fill
-                      sizes="21vw"
+                      sizes="100vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     {idx === 3 ? (
@@ -299,7 +299,7 @@ export const ResortPoolDetailView: React.FC<ResortPoolDetailViewProps> = ({
                           src={pool.image}
                           alt={pool.title}
                           fill
-                          sizes="(max-width: 768px) 100vw, 50vw"
+                          sizes="(max-width: 768px) 100vw, 100vw"
                           className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                         />
                       </Link>

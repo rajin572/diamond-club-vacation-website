@@ -42,7 +42,7 @@ export const ProgramSimpleAbout: React.FC<ProgramSimpleAboutProps> = ({ data }) 
               src={data.images.secondary.src}
               alt={data.images.secondary.alt}
               fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
+              sizes="(max-width: 1024px) 100vw, 100vw"
               className="object-cover object-center"
             />
           </div>

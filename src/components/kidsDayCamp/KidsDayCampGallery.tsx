@@ -80,7 +80,7 @@ export const KidsDayCampGallery: React.FC<KidsDayCampGalleryProps> = ({ gallery 
               src={gallery.mainPhoto}
               alt="Day camp — main photo"
               fill
-              sizes="(max-width: 1024px) 100vw, 60vw"
+              sizes="(max-width: 1024px) 100vw, 100vw"
               className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               priority
             />
@@ -102,7 +102,7 @@ export const KidsDayCampGallery: React.FC<KidsDayCampGalleryProps> = ({ gallery 
                 src={gallery.counselorsPhoto}
                 alt="Counselors photo"
                 fill
-                sizes="(max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 1024px) 100vw, 100vw"
                 className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-300" />
@@ -120,7 +120,7 @@ export const KidsDayCampGallery: React.FC<KidsDayCampGalleryProps> = ({ gallery 
                 src={gallery.waterParkPhoto}
                 alt="Water park photo"
                 fill
-                sizes="(max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 1024px) 100vw, 100vw"
                 className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-300" />
@@ -138,7 +138,7 @@ export const KidsDayCampGallery: React.FC<KidsDayCampGalleryProps> = ({ gallery 
                 src={gallery.artsCraftsPhoto}
                 alt="Arts & crafts photo"
                 fill
-                sizes="(max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 1024px) 100vw, 100vw"
                 className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-300" />
@@ -156,7 +156,7 @@ export const KidsDayCampGallery: React.FC<KidsDayCampGalleryProps> = ({ gallery 
                 src={gallery.kidsPhoto}
                 alt="Kids photo"
                 fill
-                sizes="(max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 1024px) 100vw, 100vw"
                 className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-colors duration-300" />

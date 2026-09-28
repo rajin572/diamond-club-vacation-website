@@ -116,7 +116,7 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
                       src={room.image}
                       alt={room.title}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </Link>

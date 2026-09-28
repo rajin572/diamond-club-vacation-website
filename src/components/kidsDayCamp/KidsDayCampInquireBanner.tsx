@@ -83,7 +83,7 @@ export const KidsDayCampInquireBanner: React.FC<KidsDayCampInquireBannerProps> =
               src={AllImages.diamondClubResturantExperiencesInquire}
               alt="Bring the whole family for Passover 2027"
               fill
-              sizes="(max-width: 1440px) 100vw, 1440px"
+              sizes="(max-width: 1440px) 100vw, 100vw"
               className="object-cover object-center"
             />
             {/* Dark luxury overlay matching Figma bg-gray-950/60 */}

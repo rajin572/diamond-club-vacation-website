@@ -152,7 +152,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
             alt="Diamond Club Vacations Luxury Resort"
             fill
             priority
-            sizes="(min-width: 1024px) 45vw, 100vw"
+            sizes="(min-width: 1024px) 100vw, 100vw"
             className="object-cover object-center w-full h-full transition-transform duration-700 hover:scale-105"
           />
         </div>

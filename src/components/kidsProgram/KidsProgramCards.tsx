@@ -80,7 +80,7 @@ export const KidsProgramCards: React.FC<KidsProgramCardsProps> = ({
                           src={program.images.main}
                           alt={program.title}
                           fill
-                          sizes="(max-width: 1024px) 70vw, 40vw"
+                          sizes="(max-width: 1024px) 100vw, 100vw"
                           className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                         />
                       ) : (
@@ -101,7 +101,7 @@ export const KidsProgramCards: React.FC<KidsProgramCardsProps> = ({
                             src={program.images.secondary1}
                             alt="Water park"
                             fill
-                            sizes="(max-width: 1024px) 30vw, 15vw"
+                            sizes="(max-width: 1024px) 100vw, 100vw"
                             className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                           />
                         ) : (
@@ -120,7 +120,7 @@ export const KidsProgramCards: React.FC<KidsProgramCardsProps> = ({
                             src={program.images.secondary2}
                             alt="Counselors"
                             fill
-                            sizes="(max-width: 1024px) 30vw, 15vw"
+                            sizes="(max-width: 1024px) 100vw, 100vw"
                             className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                           />
                         ) : (
@@ -146,7 +146,7 @@ export const KidsProgramCards: React.FC<KidsProgramCardsProps> = ({
                           src={program.images.main}
                           alt={program.title}
                           fill
-                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          sizes="(max-width: 1024px) 100vw, 100vw"
                           className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors duration-300" />

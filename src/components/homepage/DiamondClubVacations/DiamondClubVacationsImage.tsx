@@ -85,7 +85,7 @@ export const DiamondClubVacationsImage: React.FC<DiamondClubVacationsImageProps>
           alt={alt}
           fill
           priority={priority}
-          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 300px"
+          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 100vw, 100vw"
           className="object-cover"
         />
       </div>

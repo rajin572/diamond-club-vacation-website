@@ -145,7 +145,7 @@ export const ComingSoonView: React.FC = () => {
               alt="Coming Soon Background"
               fill
               priority
-              sizes="(max-width: 1440px) 100vw, 1440px"
+              sizes="(max-width: 1440px) 100vw, 100vw"
               className="object-cover object-center"
             />
             {/* Dark Overlay matching Figma bg-slate-950/75 */}

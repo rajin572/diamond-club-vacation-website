@@ -31,7 +31,7 @@ export function ImagePreview({ src, alt, className = "", title = "" }: {
                         src={src}
                         alt={alt}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
                         <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={32} />

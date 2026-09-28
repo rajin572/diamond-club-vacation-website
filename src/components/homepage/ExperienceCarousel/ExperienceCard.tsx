@@ -12,7 +12,7 @@ export const ExperienceCard: React.FC<{ item: ExperienceItem }> = ({ item }) => 
             src={item.image}
             alt={item.title}
             fill
-            sizes="240px"
+            sizes="100vw"
             className="experience-card-image object-cover transition-transform duration-700 ease-out hover:scale-110"
           />
         </div>

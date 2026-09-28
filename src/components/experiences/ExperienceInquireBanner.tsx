@@ -72,7 +72,7 @@ export const ExperienceInquireBanner: React.FC<ExperienceInquireBannerProps> = (
               src={AllImages.diamondClubResturantExperiencesInquire}
               alt="Passover 2027"
               fill
-              sizes="(max-width: 1440px) 100vw, 1440px"
+              sizes="(max-width: 1440px) 100vw, 100vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gray-950/65" />

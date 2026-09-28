@@ -155,7 +155,7 @@ export const ResortWellnessSection: React.FC<ResortWellnessSectionProps> = ({
                       src={item.image}
                       alt={item.title}
                       fill
-                      sizes="(max-width: 640px) 144px, 176px"
+                      sizes="(max-width: 640px) 100vw, 100vw"
                       className="object-cover"
                     />
                   </div>

@@ -97,7 +97,7 @@ export default function HorizontalScroll() {
                             height={1000}
                             src={src}
                             alt={`Card ${i + 1}`}
-                            sizes="(max-width: 768px) 50vw, 100vw"
+                            sizes="(max-width: 768px) 100vw, 100vw"
                             className="w-full h-full object-cover"
                             draggable={false}
                             fetchPriority="high"

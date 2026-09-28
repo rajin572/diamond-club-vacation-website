@@ -89,7 +89,7 @@ export const ProgramExperiences: React.FC<ProgramExperiencesProps> = ({
           src={exp.image}
           alt={exp.title}
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
           className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
         />
 

@@ -93,7 +93,7 @@ export const ResortSpaSection: React.FC<ResortSpaSectionProps> = ({
               src={spa.image}
               alt={spa.title}
               fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 1024px) 100vw, 100vw"
               className="object-cover object-center"
             />
           </div>

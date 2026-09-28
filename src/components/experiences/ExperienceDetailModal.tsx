@@ -94,7 +94,7 @@ export const ExperienceDetailModal: React.FC<ExperienceDetailModalProps> = ({
                 src={current.image}
                 alt={current.imageAlt}
                 fill
-                sizes="(max-width: 768px) 192px, 256px"
+                sizes="(max-width: 768px) 75vw, 100vw"
                 className="object-cover object-center"
                 priority
               />
@@ -171,7 +171,7 @@ export const ExperienceDetailModal: React.FC<ExperienceDetailModalProps> = ({
                 src={current.image}
                 alt={current.title}
                 fill
-                sizes="(max-width: 1024px) 100vw, 540px"
+                sizes="(max-width: 1024px) 100vw, 100vw"
                 className="object-cover object-center"
               />
             ) : (

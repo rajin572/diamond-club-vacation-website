@@ -11,7 +11,7 @@ export const OfferingCard: React.FC<{ item: OfferingItem }> = ({ item }) => {
           src={item.image}
           alt={item.title}
           fill
-          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+          sizes="(min-width: 1024px) 100vw, (min-width: 640px) 100vw, 100vw"
           className="offering-card-image object-cover will-change-transform transform-gpu"
         />
 

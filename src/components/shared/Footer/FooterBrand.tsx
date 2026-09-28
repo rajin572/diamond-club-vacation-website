@@ -15,7 +15,7 @@ export const FooterBrand = () => {
           src={AllImages.logo}
           alt="Diamond Club Vacations"
           fill
-          sizes="(min-width: 1024px) 6rem, 4.5rem"
+          sizes="(min-width: 1024px) 100vw, 100vw"
           className="object-contain"
         />
       </Link>

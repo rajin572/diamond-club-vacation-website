@@ -21,7 +21,7 @@ export const ProgramSimpleHero: React.FC<ProgramSimpleHeroProps> = ({ data, inqu
               alt={data.images.primary.alt}
               fill
               priority
-              sizes="(max-width: 1550px) 100vw, 1550px"
+              sizes="(max-width: 1550px) 100vw, 100vw"
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-slate-950/45 to-slate-950/90" />

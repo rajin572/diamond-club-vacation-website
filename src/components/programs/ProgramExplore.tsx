@@ -107,7 +107,7 @@ export const ProgramExplore: React.FC<ProgramExploreProps> = ({ offeringId, prog
                 src={data.banner.backgroundImage}
                 alt={data.banner.headline}
                 fill
-                sizes="(max-width: 1550px) 100vw, 1550px"
+                sizes="(max-width: 1550px) 100vw, 100vw"
                 className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-102"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-slate-950/85" />
@@ -155,7 +155,7 @@ export const ProgramExplore: React.FC<ProgramExploreProps> = ({ offeringId, prog
                     src={attraction.image}
                     alt={attraction.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, 100vw"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />

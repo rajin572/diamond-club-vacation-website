@@ -237,7 +237,7 @@ export const NotFoundView: React.FC<NotFoundProps> = ({
               alt="Diamond Club Vacations Luxury Resort"
               fill
               priority
-              sizes="(max-width: 1024px) 100vw, 540px"
+              sizes="(max-width: 1024px) 100vw, 100vw"
               className="object-cover object-center"
             />
             {/* Subtle luxury vignette */}

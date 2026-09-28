@@ -140,7 +140,7 @@ export const ResortGallerySection: React.FC<ResortGallerySectionProps> = ({ reso
                   src={primaryPhoto.image}
                   alt={primaryPhoto.title}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  sizes="(max-width: 1024px) 100vw, 100vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
@@ -160,7 +160,7 @@ export const ResortGallerySection: React.FC<ResortGallerySectionProps> = ({ reso
                         src={photo.image}
                         alt={photo.title}
                         fill
-                        sizes="(max-width: 1024px) 50vw, 20vw"
+                        sizes="(max-width: 1024px) 100vw, 100vw"
                         className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                       />
 

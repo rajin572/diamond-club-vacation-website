@@ -39,7 +39,7 @@ export const BabysittingModal: React.FC<BabysittingModalProps> = ({
               src={data.image}
               alt="Babysitting Service"
               fill
-              sizes="(max-width: 768px) 100vw, 384px"
+              sizes="(max-width: 768px) 100vw, 100vw"
               className="object-cover object-center"
             />
           ) : (

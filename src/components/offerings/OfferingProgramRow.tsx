@@ -125,7 +125,7 @@ export const OfferingProgramRow: React.FC<OfferingProgramRowProps> = ({
               src={program.images.primary.src}
               alt={program.images.primary.alt}
               fill
-              sizes="(max-width: 768px) 55vw, 340px"
+              sizes="(max-width: 768px) 75vw, 100vw"
               className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-neutral-900/5 group-hover:bg-transparent transition-colors duration-300" />
@@ -139,7 +139,7 @@ export const OfferingProgramRow: React.FC<OfferingProgramRowProps> = ({
               src={program.images.secondary.src}
               alt={program.images.secondary.alt}
               fill
-              sizes="(max-width: 768px) 45vw, 260px"
+              sizes="(max-width: 768px) 75vw,  100vw"
               className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-neutral-900/5 group-hover:bg-transparent transition-colors duration-300" />

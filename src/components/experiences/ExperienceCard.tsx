@@ -24,7 +24,7 @@ const GalleryCard: React.FC<{ item: ExperienceGalleryItem; onClick: () => void }
             src={item.image}
             alt={item.title}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300" />
@@ -74,7 +74,7 @@ const BioCard: React.FC<{ item: ExperienceBioItem; onClick: () => void }> = ({ i
         src={item.image}
         alt={item.imageAlt}
         fill
-        sizes="(max-width: 640px) 160px, 176px"
+        sizes="(max-width: 640px) 100vw, 100vw"
         className="object-cover object-center transition-transform duration-500 hover:scale-105"
       />
     </div>
