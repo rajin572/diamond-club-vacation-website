@@ -38,7 +38,8 @@ export type ResortDiningCategory =
   | "latin"
   | "steakhouse"
   | "international"
-  | "cafe";
+  | "cafe"
+  | "signature";
 
 export interface ResortDiningVenue {
   id: string;
@@ -53,10 +54,13 @@ export interface ResortDiningVenue {
   schedule: { days: string; hours: string; isClosed?: boolean }[];
   dressCode: string;
   description: string;
+  reservations?: string;
+  kosherCertification?: string;
   image: StaticImageData | string;
   gallery: ResortGalleryStructure;
   hours?: string;
   kashrutNotes?: string;
+  features?: string[];
 }
 
 export interface ResortPoolItem {
@@ -64,16 +68,17 @@ export interface ResortPoolItem {
   title: string;
   titlePrefix: string;
   titleItalic: string;
-  type: "outdoor" | "beach" | "lagoon" | "cabanas" | "pools" | "pool";
+  type: string;
   typeLabel: string;
   atmosphere?: string;
-  location: string;
-  schedule: { days: string; hours: string }[];
+  location?: string;
+  schedule?: { days: string; hours: string }[];
   hours?: string;
   description: string;
   image: StaticImageData | string;
   gallery: ResortGalleryStructure;
   amenities?: string[];
+  features?: string[];
 }
 
 export interface ResortWellnessItem {
@@ -101,15 +106,33 @@ export interface ResortSpaData {
   location: string;
   image: StaticImageData | string;
   gallery: ResortGalleryStructure;
-  treatments?: { title: string; description: string; duration: string }[];
+  treatments?: { title: string; description: string; duration: string; category?: string }[];
   amenities?: string[];
 }
 
 export interface ResortGalleryPhoto {
   id: string;
   title: string;
-  category: "all" | "resort" | "rooms" | "pools" | "dining" | "spa" | "events";
+  category: "all" | "resort" | "rooms" | "pools" | "dining" | "spa" | "events" | "grounds" | "aerial";
   image: StaticImageData | string;
+}
+
+export interface ResortDetailsData {
+  checkIn: string;
+  checkOut: string;
+  facilities: string[];
+  address: string;
+  mapNote?: string;
+  description: string;
+}
+
+export interface ResortAboutData {
+  kicker?: string;
+  headline: {
+    lead: string;
+    italic: string;
+  };
+  paragraphs: string[];
 }
 
 export interface ResortData {
@@ -121,8 +144,23 @@ export interface ResortData {
   shortName: string;
   tagline: string;
   heroImage: StaticImageData | string;
+  heroCtas?: {
+    primaryText?: string;
+    secondaryText?: string;
+    secondaryAction?: "gallery" | "details";
+  };
   /** One-line intro under the "Pools & Beach" heading on the main resort page. */
   poolsIntro?: string;
+  roomsTitle?: { lead: string; italic: string };
+  roomsDescription?: string;
+  diningTitle?: { lead: string; italic: string };
+  diningDescription?: string;
+  poolsTitle?: { lead: string; italic: string };
+  poolsDescription?: string;
+  wellnessTitle?: { lead: string; italic: string };
+  wellnessDescription?: string;
+  about?: ResortAboutData;
+  details?: ResortDetailsData;
   rooms: ResortRoom[];
   dining: ResortDiningVenue[];
   pools: ResortPoolItem[];

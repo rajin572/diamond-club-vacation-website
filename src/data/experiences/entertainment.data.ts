@@ -208,4 +208,142 @@ export const ENTERTAINMENT_BY_PROGRAM: Record<string, ExperienceCategoryData> = 
       buttonText: "Inquire",
     },
   },
+  blue: {
+    programId: "blue",
+    programTitle: "Diamond Blue by DCV",
+    experienceType: "entertainment",
+    variant: "gallery",
+    breadcrumbLabel: "Entertainment",
+    badgeStyle: "dot",
+    accentColor: "#00549c",
+    gridColumns: 3,
+    header: {
+      badge: "Experiences",
+      titlePart1: "Enter",
+      titlePart2: "tainment",
+      description:
+        "Nightly shows, headline performers and late-night parties, planned throughout the holiday for every age.",
+    },
+    items: [
+      {
+        id: "after-party",
+        title: "The After Party",
+        tag: "Nightly",
+        description:
+          "As night falls, the beach club comes alive with DJ parties, hookah, disco and casino nights.",
+        image: AllImages.entertainment,
+        imagePlaceholderText: "The After Party photo",
+        modal: {
+          title: "The After Party",
+          tag: "Nightly",
+          longDescription:
+            "When the main event ends, the night is just beginning. DJ parties, hookah, disco, casino nights and more await under the stars.",
+          when: "Nightly, after the evening program",
+          where: "Beach Club",
+          mainPhotoPlaceholder: "The After Party — main photo",
+          thumbnails: [
+            { id: "t1", label: "DJ photo", placeholderText: "DJ photo" },
+            { id: "t2", label: "Music photo", placeholderText: "Music photo" },
+            { id: "t3", label: "Lounge photo", placeholderText: "Lounge photo" },
+          ],
+        },
+      },
+      {
+        id: "fire-shows",
+        title: "Fire Shows",
+        tag: "Evenings",
+        description: "An incredible lineup of nightly entertainment under the Cancun sky.",
+        image: AllImages.entertainment,
+        imagePlaceholderText: "Fire Shows photo",
+        modal: {
+          title: "Fire Shows",
+          tag: "Evenings",
+          longDescription:
+            "An incredible lineup of nightly entertainment under the Cancun sky featuring acrobats, fire manipulators, and percussion rhythms.",
+          when: "Select evenings during Chol Hamoed",
+          where: "Casa Nizuc Beachfront",
+          mainPhotoPlaceholder: "Fire Shows — main photo",
+          thumbnails: [
+            { id: "t1", label: "Fire Show 1", placeholderText: "Fire show photo" },
+            { id: "t2", label: "Fire Show 2", placeholderText: "Acrobatics photo" },
+            { id: "t3", label: "Fire Show 3", placeholderText: "Crowd photo" },
+          ],
+        },
+      },
+      {
+        id: "dj-pinny-yiddi",
+        title: "DJ Pinny & Yiddi",
+        tag: "Music & Beats",
+        description:
+          "High-energy sets bringing the best Jewish, Israeli, and electronic beats to the dance floor.",
+        image: AllImages.entertainment,
+        imagePlaceholderText: "DJ Pinny & Yiddi photo",
+        modal: {
+          title: "DJ Pinny & Yiddi",
+          tag: "Music & Beats",
+          longDescription:
+            "High-energy sets bringing the best Jewish, Israeli, and electronic beats to the dance floor for memorable late-night celebrations.",
+          when: "Nightly afterparties and poolside sets",
+          where: "Beach Club & Pool Stage",
+          mainPhotoPlaceholder: "DJ Pinny & Yiddi — main photo",
+          thumbnails: [
+            { id: "t1", label: "DJ Set", placeholderText: "DJ Set photo" },
+            { id: "t2", label: "Crowd", placeholderText: "Crowd dancing" },
+            { id: "t3", label: "Stage", placeholderText: "Stage lights" },
+          ],
+        },
+      },
+      {
+        id: "kumzits-nussi-benyomin",
+        title: "Kumzits with Nussi and Benyomin",
+        tag: "Soulful Kumzits",
+        description:
+          "Intimate acoustic sessions, heartfelt melodies, and soulful singing around the campfire.",
+        image: AllImages.entertainment,
+        imagePlaceholderText: "Kumzits photo",
+        modal: {
+          title: "Kumzits with Nussi and Benyomin",
+          tag: "Soulful Kumzits",
+          longDescription:
+            "Soul-stirring acoustic singing, classic niggunim, and heartwarming stories around the firepit at La Aldea.",
+          when: "Chol Hamoed evenings",
+          where: "La Aldea Firepit",
+          mainPhotoPlaceholder: "Kumzits — main photo",
+          thumbnails: [
+            { id: "t1", label: "Kumzits", placeholderText: "Kumzits singing" },
+            { id: "t2", label: "Guitars", placeholderText: "Acoustic guitars" },
+            { id: "t3", label: "Firepit", placeholderText: "Night campfire" },
+          ],
+        },
+      },
+      {
+        id: "comedian-dovi-neuburger",
+        title: "Comedian Dovi Neuburger",
+        tag: "Comedy Night",
+        description:
+          "Laugh out loud with one of Jewish entertainment's most sought-after standup comedians.",
+        image: AllImages.entertainment,
+        imagePlaceholderText: "Comedian Dovi Neuburger photo",
+        modal: {
+          title: "Comedian Dovi Neuburger",
+          tag: "Comedy Night",
+          longDescription:
+            "Hilarious observational humor, quick-witted crowd work, and clean comedy tailored for the whole family.",
+          when: "Chol Hamoed Evening Show",
+          where: "Grand Nizuc Ballroom",
+          mainPhotoPlaceholder: "Comedy Show — main photo",
+          thumbnails: [
+            { id: "t1", label: "Show 1", placeholderText: "Stage photo" },
+            { id: "t2", label: "Show 2", placeholderText: "Audience laughter" },
+            { id: "t3", label: "Show 3", placeholderText: "Encore" },
+          ],
+        },
+      },
+    ],
+    inquireBanner: {
+      headlinePart1: "Celebrate with us for ",
+      headlinePart2: "Passover 2027",
+      buttonText: "Inquire",
+    },
+  },
 };

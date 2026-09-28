@@ -52,6 +52,7 @@ export interface KidsDayCampData {
     title: string;
     description: string;
     rateText: string;
+    showButton?: boolean;
   };
   babysittingModal: BabysittingModalData;
 }

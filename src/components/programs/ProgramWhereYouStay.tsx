@@ -89,15 +89,21 @@ export const ProgramWhereYouStay: React.FC<ProgramWhereYouStayProps> = ({
             </h2>
           </div>
 
-          <div ref={cardsContainerRef} className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6">
+          <div
+            ref={cardsContainerRef}
+            className={`w-full grid gap-8 lg:gap-6 ${data.resorts.length === 1 ? "grid-cols-1 max-w-3xl" : "grid-cols-1 lg:grid-cols-2"
+              }`}
+          >
             {data.resorts.map((resort) => {
               const href = resortHref(offeringId, programId, resort.id);
-
               return (
-                <div key={resort.id} className="group flex flex-col justify-start items-start gap-5 w-full">
-                  <Link
-                    href={href}
-                    className="relative w-full h-[360px] sm:h-[420px] lg:h-[460px] rounded-md overflow-hidden bg-slate-900 block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
+                <Link
+                  key={resort.id}
+                  href={href}
+                  className="group flex flex-col justify-start items-start gap-5 w-full cursor-pointer focus:outline-none"
+                >
+                  <div
+                    className="relative w-full h-[360px] sm:h-[420px] lg:h-[460px] rounded-md overflow-hidden bg-slate-900 block focus-visible:ring-2 focus-visible:ring-[#BD9343]"
                   >
                     <Image
                       src={resort.image}
@@ -107,28 +113,23 @@ export const ProgramWhereYouStay: React.FC<ProgramWhereYouStayProps> = ({
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/15 to-slate-950/80 pointer-events-none" />
-                  </Link>
+                  </div>
 
                   <div className="w-full flex flex-col sm:flex-row justify-between items-start gap-4 sm:gap-6 pt-1">
                     <div className="flex-1 flex flex-col justify-start items-start gap-2">
-                      <Link href={href}>
-                        <h3 className="font-cormorant text-neutral-900 text-3xl sm:text-4xl font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-300">
-                          {resort.title}
-                        </h3>
-                      </Link>
+                      <h3 className="font-cormorant text-neutral-900 text-3xl sm:text-4xl font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-300">
+                        {resort.title}
+                      </h3>
                       <p className="font-outfit text-zinc-600 text-base font-normal leading-6 max-w-md">
                         {resort.description}
                       </p>
                     </div>
 
-                    <Link
-                      href={href}
-                      className="font-outfit text-neutral-900 text-base font-medium underline leading-5 hover:text-[#00549c] transition-colors duration-200 shrink-0 self-start sm:self-center"
-                    >
+                    <span className="font-outfit text-neutral-900 text-base font-medium underline leading-5 group-hover:text-[#00549c] transition-colors duration-200 shrink-0 self-start sm:self-center">
                       {resort.linkText}
-                    </Link>
+                    </span>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

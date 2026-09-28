@@ -24,6 +24,8 @@ export const ResortBreadcrumb: React.FC<ResortBreadcrumbProps> = ({
   resortName,
   currentPage,
 }) => {
+  const isSimple = programId === "blue" || resortId === "casa-nizuc";
+
   return (
     <div className="w-full py-4 sm:py-5 border-b border-[rgba(19,19,19,0.06)] bg-[#FCFCFB]">
       <Container>
@@ -42,27 +44,31 @@ export const ResortBreadcrumb: React.FC<ResortBreadcrumbProps> = ({
             /
           </span>
 
-          <Link
-            href={offeringHref(offeringId)}
-            className="hover:text-[#131313] transition-colors duration-150 focus:outline-none focus-visible:underline"
-          >
-            {offeringLabel}
-          </Link>
+          {!isSimple && (
+            <>
+              <Link
+                href={offeringHref(offeringId)}
+                className="hover:text-[#131313] transition-colors duration-150 focus:outline-none focus-visible:underline"
+              >
+                {offeringLabel}
+              </Link>
 
-          <span className="text-[#8C877E] select-none" aria-hidden="true">
-            /
-          </span>
+              <span className="text-[#8C877E] select-none" aria-hidden="true">
+                /
+              </span>
 
-          <Link
-            href={programHref(offeringId, programId)}
-            className="hover:text-[#131313] transition-colors duration-150 focus:outline-none focus-visible:underline"
-          >
-            {programTitle}
-          </Link>
+              <Link
+                href={programHref(offeringId, programId)}
+                className="hover:text-[#131313] transition-colors duration-150 focus:outline-none focus-visible:underline"
+              >
+                {programTitle}
+              </Link>
 
-          <span className="text-[#8C877E] select-none" aria-hidden="true">
-            /
-          </span>
+              <span className="text-[#8C877E] select-none" aria-hidden="true">
+                /
+              </span>
+            </>
+          )}
 
           {currentPage ? (
             <>

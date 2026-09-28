@@ -170,7 +170,7 @@ export const KidsDayCampContent: React.FC<KidsDayCampContentProps> = ({
               {data.babysitting.rateText}
             </p>
           </div>
-          {onOpenBabysitting && (
+          {onOpenBabysitting && data.babysitting.showButton !== false && data.programId !== "blue" && (
             <button
               type="button"
               onClick={onOpenBabysitting}

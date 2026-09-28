@@ -8,7 +8,7 @@ interface PageProps {
   params: Promise<{ offeringId: string; programId: string; resortId: string; restaurantId: string }>;
 }
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   return getResortRouteParams().flatMap(({ resort, params }) =>

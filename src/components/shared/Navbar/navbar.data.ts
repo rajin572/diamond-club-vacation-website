@@ -19,7 +19,7 @@ export const PRIMARY_NAV_ITEMS: NavLinkItem[] = [
   {
     id: "casa-nizuc",
     label: "Casa Nizuc",
-    href: "/offerings/casa-nizuc",
+    href: "/offerings/passover-collection-2027/programs/blue/resorts/casa-nizuc",
   },
   {
     id: "weddings-events",

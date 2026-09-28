@@ -15,7 +15,13 @@ interface ResortHeroProps {
   shortName: string;
   tagline: string;
   heroImage: StaticImageData | string;
+  heroCtas?: {
+    primaryText?: string;
+    secondaryText?: string;
+    secondaryAction?: "gallery" | "details";
+  };
   onOpenGallery?: () => void;
+  onOpenDetails?: () => void;
 }
 
 export const ResortHero: React.FC<ResortHeroProps> = ({
@@ -25,7 +31,9 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
   shortName,
   tagline,
   heroImage,
+  heroCtas,
   onOpenGallery,
+  onOpenDetails,
 }) => {
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -81,6 +89,15 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
     }
   };
 
+  const handleSecondaryClick = (e: React.MouseEvent) => {
+    if (heroCtas?.secondaryAction === "details" && onOpenDetails) {
+      e.preventDefault();
+      onOpenDetails();
+      return;
+    }
+    handleGalleryClick(e);
+  };
+
   return (
     <section ref={heroRef} className="w-full pt-4 sm:pt-6 pb-8 md:pb-12" aria-label="Resort Hero">
       <Container>
@@ -120,7 +137,7 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
                 href={inquireUrl}
                 className="group inline-flex items-center gap-3.5 bg-[#00549C] hover:bg-[#00427a] text-white px-5 sm:px-6 py-3 rounded-[4px] font-outfit text-sm sm:text-base font-medium transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                <span>Inquire about this resort</span>
+                <span>{heroCtas?.primaryText || "Inquire about this resort"}</span>
                 <span className="size-6 sm:size-7 rounded-[3px] bg-white flex items-center justify-center text-[#00549C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
                   <ArrowUpRight className="size-3.5 sm:size-4" />
                 </span>
@@ -128,10 +145,10 @@ export const ResortHero: React.FC<ResortHeroProps> = ({
 
               <button
                 type="button"
-                onClick={handleGalleryClick}
+                onClick={handleSecondaryClick}
                 className="group inline-flex items-center gap-3.5 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/60 hover:border-white px-5 sm:px-6 py-3 rounded-[4px] font-outfit text-sm sm:text-base font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer"
               >
-                <span>View gallery</span>
+                <span>{heroCtas?.secondaryText || "View gallery"}</span>
                 <span className="size-6 sm:size-7 rounded-[3px] bg-white/20 group-hover:bg-white flex items-center justify-center text-white group-hover:text-[#131313] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200">
                   <ArrowUpRight className="size-3.5 sm:size-4" />
                 </span>

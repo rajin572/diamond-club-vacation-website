@@ -198,7 +198,7 @@ export const ResortPoolDetailView: React.FC<ResortPoolDetailViewProps> = ({
                   </div>
 
                   <div className="flex flex-col w-full divide-y divide-[rgba(19,19,19,0.12)] pt-1">
-                    {currentPool.schedule.map((item, idx) => (
+                    {(currentPool.schedule || [{ days: "Daily", hours: currentPool.hours || "8:00 AM – 7:00 PM" }]).map((item, idx) => (
                       <div key={idx} className="flex justify-between items-center py-3.5">
                         <span className="font-outfit text-base text-[#131313]">{item.days}</span>
                         <span className="font-outfit text-base text-[#131313]">{item.hours}</span>
@@ -212,7 +212,7 @@ export const ResortPoolDetailView: React.FC<ResortPoolDetailViewProps> = ({
                     <MapPin className="size-6 text-[#00549C] shrink-0" strokeWidth={1.5} />
                     <h3 className="font-cormorant text-2xl sm:text-3xl text-[#131313] font-normal">Location</h3>
                   </div>
-                  <p className="font-outfit text-[17px] text-[#131313] leading-relaxed">{currentPool.location}</p>
+                  <p className="font-outfit text-[17px] text-[#131313] leading-relaxed">{currentPool.location || "Casa Nizuc Oceanfront"}</p>
                 </div>
               </div>
             </div>
@@ -231,7 +231,7 @@ export const ResortPoolDetailView: React.FC<ResortPoolDetailViewProps> = ({
                 <div className="flex justify-between items-center py-3 border-b border-[rgba(19,19,19,0.12)]">
                   <span className="font-outfit text-sm text-[#8C877E]">Hours</span>
                   <span className="font-outfit text-sm sm:text-[15px] font-medium text-[#131313]">
-                    {currentPool.hours ?? currentPool.schedule[0]?.hours}
+                    {currentPool.hours ?? currentPool.schedule?.[0]?.hours ?? "8:00 AM – 7:00 PM"}
                   </span>
                 </div>
 

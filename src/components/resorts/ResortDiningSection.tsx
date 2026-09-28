@@ -13,6 +13,8 @@ interface ResortDiningSectionProps {
   programId: string;
   resortId: string;
   dining: ResortDiningVenue[];
+  sectionTitle?: { lead: string; italic: string } | string;
+  sectionDescription?: string;
 }
 
 export const ResortDiningSection: React.FC<ResortDiningSectionProps> = ({
@@ -20,6 +22,8 @@ export const ResortDiningSection: React.FC<ResortDiningSectionProps> = ({
   programId,
   resortId,
   dining,
+  sectionTitle,
+  sectionDescription,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const sectionRef = useRef<HTMLElement>(null);
@@ -90,6 +94,40 @@ export const ResortDiningSection: React.FC<ResortDiningSectionProps> = ({
   const filteredDining =
     selectedCategory === "all" ? dining : dining.filter((d) => d.category === selectedCategory);
 
+  const renderTitle = () => {
+    if (!sectionTitle) {
+      const count =
+        dining.length === 6
+          ? "Six"
+          : dining.length === 4
+            ? "Four"
+            : dining.length === 9
+              ? "Nine"
+              : dining.length;
+      return (
+        <>
+          {count} kitchens, <span className="font-normal italic">one standard of kashrut</span>
+        </>
+      );
+    }
+    if (typeof sectionTitle === "object") {
+      return (
+        <>
+          {sectionTitle.lead} <span className="font-normal italic">{sectionTitle.italic}</span>
+        </>
+      );
+    }
+    const words = sectionTitle.trim().split(" ");
+    const lastWord = words.pop() || "";
+    return (
+      <>
+        {words.join(" ")} <span className="font-normal italic">{lastWord}</span>
+      </>
+    );
+  };
+
+  const showFilterChips = dining.length > 4 && filters.length > 2;
+
   return (
     <section
       ref={sectionRef}
@@ -110,44 +148,56 @@ export const ResortDiningSection: React.FC<ResortDiningSectionProps> = ({
                 ref={titleRef}
                 className="font-cormorant font-light text-[#131313] text-[clamp(2.25rem,4.5vw,4.25rem)] leading-[1.05] tracking-tight"
               >
-                {dining.length === 6 ? "Six" : dining.length === 4 ? "Four" : dining.length === 9 ? "Nine" : dining.length} kitchens, <span className="font-normal italic">one standard of kashrut</span>
+                {renderTitle()}
               </h2>
             </div>
 
             <p ref={descRef} className="font-outfit text-[#5E6062] text-base leading-relaxed max-w-md">
-              Menus change daily through the holiday. Reservations for dinner venues are handled by your concierge.
+              {sectionDescription ||
+                "Menus change daily through the holiday. Reservations for dinner venues are handled by your concierge."}
             </p>
           </div>
 
-          <div ref={chipsRef} className="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1">
-            {filters.map((filter) => {
-              const isSelected = selectedCategory === filter.id;
+          {showFilterChips && (
+            <div ref={chipsRef} className="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1">
+              {filters.map((filter) => {
+                const isSelected = selectedCategory === filter.id;
 
-              return (
-                <button
-                  key={filter.id}
-                  type="button"
-                  onClick={() => setSelectedCategory(filter.id)}
-                  className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-outfit text-sm transition-all duration-200 shrink-0 cursor-pointer ${isSelected
-                    ? "bg-[#00549C] text-white font-medium shadow-sm"
-                    : "bg-transparent text-[#131313] border border-[rgba(19,19,19,0.18)] hover:border-[#131313]"
-                    }`}
-                >
-                  {filter.label}
-                </button>
-              );
-            })}
-          </div>
+                return (
+                  <button
+                    key={filter.id}
+                    type="button"
+                    onClick={() => setSelectedCategory(filter.id)}
+                    className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-outfit text-sm transition-all duration-200 shrink-0 cursor-pointer ${isSelected
+                        ? "bg-[#00549C] text-white font-medium shadow-sm"
+                        : "bg-transparent text-[#131313] border border-[rgba(19,19,19,0.18)] hover:border-[#131313]"
+                      }`}
+                  >
+                    {filter.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
-          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-6">
+          <div
+            ref={gridRef}
+            className={`grid gap-8 sm:gap-6 ${filteredDining.length === 4
+                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+              }`}
+          >
             {filteredDining.map((venue) => {
               const href = restaurantHref(offeringId, programId, resortId, venue.id);
 
               return (
-                <div key={venue.id} className="group flex flex-col justify-start items-start gap-4 w-full">
-                  <Link
-                    href={href}
-                    className="relative w-full h-[240px] sm:h-[260px] rounded-md overflow-hidden bg-[#E4E0D8] block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
+                <Link
+                  key={venue.id}
+                  href={href}
+                  className="group flex flex-col justify-start items-start gap-4 w-full cursor-pointer focus:outline-none"
+                >
+                  <div
+                    className="relative w-full h-[240px] sm:h-[260px] rounded-md overflow-hidden bg-[#E4E0D8] block focus-visible:ring-2 focus-visible:ring-[#BD9343]"
                   >
                     <Image
                       src={venue.image}
@@ -156,25 +206,22 @@ export const ResortDiningSection: React.FC<ResortDiningSectionProps> = ({
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                  </Link>
+                  </div>
 
                   <div className="flex flex-col items-start gap-1 w-full">
-                    <Link href={href}>
-                      <h3 className="font-cormorant text-2xl sm:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
-                        {venue.title}
-                      </h3>
-                    </Link>
+                    <h3 className="font-cormorant text-2xl sm:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
+                      {venue.title}
+                    </h3>
 
                     <p className="font-outfit text-sm sm:text-base text-[#5E6062]">{venue.categoryLabel}</p>
 
-                    <Link
-                      href={href}
-                      className="font-outfit text-sm font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200 pt-1"
+                    <span
+                      className="font-outfit text-sm font-medium text-[#131313] underline underline-offset-4 group-hover:text-[#00549C] transition-colors duration-200 pt-1"
                     >
                       View details
-                    </Link>
+                    </span>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

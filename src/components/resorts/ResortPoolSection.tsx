@@ -14,6 +14,8 @@ interface ResortPoolSectionProps {
   resortId: string;
   pools: ResortPoolItem[];
   intro?: string;
+  sectionTitle?: { lead: string; italic: string } | string;
+  sectionDescription?: string;
 }
 
 export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
@@ -22,6 +24,8 @@ export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
   resortId,
   pools,
   intro,
+  sectionTitle,
+  sectionDescription,
 }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
@@ -75,6 +79,32 @@ export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
     { scope: sectionRef }
   );
 
+  const renderTitle = () => {
+    if (!sectionTitle) {
+      return (
+        <>
+          Water, shade and <span className="font-normal italic">two miles of sand</span>
+        </>
+      );
+    }
+    if (typeof sectionTitle === "object") {
+      return (
+        <>
+          {sectionTitle.lead} <span className="font-normal italic">{sectionTitle.italic}</span>
+        </>
+      );
+    }
+    const words = sectionTitle.trim().split(" ");
+    const lastWord = words.pop() || "";
+    return (
+      <>
+        {words.join(" ")} <span className="font-normal italic">{lastWord}</span>
+      </>
+    );
+  };
+
+  const descriptionText = sectionDescription || intro;
+
   return (
     <section
       ref={sectionRef}
@@ -95,13 +125,13 @@ export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
                 ref={titleRef}
                 className="font-cormorant font-light text-[#131313] text-[clamp(2.25rem,4.5vw,4.25rem)] leading-[1.05] tracking-tight"
               >
-                Water, shade and <span className="font-normal italic">two miles of sand</span>
+                {renderTitle()}
               </h2>
             </div>
 
-            {intro && (
+            {descriptionText && (
               <p ref={descRef} className="font-outfit text-[#5E6062] text-base leading-relaxed max-w-md">
-                {intro}
+                {descriptionText}
               </p>
             )}
           </div>
@@ -119,10 +149,13 @@ export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
               const href = poolHref(offeringId, programId, resortId, item.id);
 
               return (
-                <div key={item.id} className="group flex flex-col justify-start items-start gap-4 w-full">
-                  <Link
-                    href={href}
-                    className="relative w-full h-[260px] sm:h-[280px] rounded-md overflow-hidden bg-[#E4E0D8] block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
+                <Link
+                  key={item.id}
+                  href={href}
+                  className="group flex flex-col justify-start items-start gap-4 w-full cursor-pointer focus:outline-none"
+                >
+                  <div
+                    className="relative w-full h-[260px] sm:h-[280px] rounded-md overflow-hidden bg-[#E4E0D8] block focus-visible:ring-2 focus-visible:ring-[#BD9343]"
                   >
                     <Image
                       src={item.image}
@@ -131,25 +164,22 @@ export const ResortPoolSection: React.FC<ResortPoolSectionProps> = ({
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                  </Link>
+                  </div>
 
                   <div className="flex flex-col items-start gap-1 w-full">
-                    <Link href={href}>
-                      <h3 className="font-cormorant text-2xl sm:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
-                        {item.title}
-                      </h3>
-                    </Link>
+                    <h3 className="font-cormorant text-2xl sm:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
+                      {item.title}
+                    </h3>
 
                     <p className="font-outfit text-sm sm:text-base text-[#5E6062]">{item.typeLabel}</p>
 
-                    <Link
-                      href={href}
-                      className="font-outfit text-sm font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200 pt-1"
+                    <span
+                      className="font-outfit text-sm font-medium text-[#131313] underline underline-offset-4 group-hover:text-[#00549C] transition-colors duration-200 pt-1"
                     >
                       View details
-                    </Link>
+                    </span>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

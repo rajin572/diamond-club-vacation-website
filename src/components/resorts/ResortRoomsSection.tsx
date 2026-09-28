@@ -13,6 +13,8 @@ interface ResortRoomsSectionProps {
   programId: string;
   resortId: string;
   rooms: ResortRoom[];
+  sectionTitle?: { lead: string; italic: string } | string;
+  sectionDescription?: string;
 }
 
 export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
@@ -20,6 +22,8 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
   programId,
   resortId,
   rooms,
+  sectionTitle,
+  sectionDescription,
 }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
@@ -73,6 +77,32 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
     { scope: sectionRef }
   );
 
+  const renderTitle = () => {
+    if (!sectionTitle) {
+      return (
+        <>
+          Space to gather, <span className="font-normal italic">quiet to rest</span>
+        </>
+      );
+    }
+    if (typeof sectionTitle === "object") {
+      return (
+        <>
+          {sectionTitle.lead} <span className="font-normal italic">{sectionTitle.italic}</span>
+        </>
+      );
+    }
+    const words = sectionTitle.trim().split(" ");
+    const lastWord = words.pop() || "";
+    return (
+      <>
+        {words.join(" ")} <span className="font-normal italic">{lastWord}</span>
+      </>
+    );
+  };
+
+  const isThreeCols = rooms.length % 3 === 0 && rooms.length !== 4 && rooms.length !== 8;
+
   return (
     <section
       ref={sectionRef}
@@ -93,12 +123,12 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
                 ref={titleRef}
                 className="font-cormorant font-light text-[#131313] text-[clamp(2.25rem,4.5vw,4.25rem)] leading-[1.05] tracking-tight"
               >
-                Space to gather, <span className="font-normal italic">quiet to rest</span>
+                {renderTitle()}
               </h2>
             </div>
 
             <p ref={descRef} className="font-outfit text-[#5E6062] text-base leading-relaxed max-w-md">
-              Every room is prepared for the holiday, with connecting rooms and cribs available on request.
+              {sectionDescription || "Every room is prepared for the holiday, with connecting rooms and cribs available on request."}
             </p>
           </div>
 
@@ -120,15 +150,18 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
                       <h3 className="font-cormorant text-2xl sm:text-3xl text-[#131313] font-normal">
                         {catName}
                       </h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                      <div className={`grid grid-cols-1 sm:grid-cols-2 ${isThreeCols ? "lg:grid-cols-3 gap-6 sm:gap-8" : "lg:grid-cols-4 gap-6"}`}>
                         {catRooms.map((room) => {
                           const href = roomHref(offeringId, programId, resortId, room.id);
 
                           return (
-                            <div key={room.id} className="group flex flex-col justify-start items-start gap-4 w-full">
-                              <Link
-                                href={href}
-                                className="relative w-full h-[260px] sm:h-[300px] rounded-md overflow-hidden bg-[#E4E0D8] block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
+                            <Link
+                              key={room.id}
+                              href={href}
+                              className="group flex flex-col justify-start items-start gap-4 w-full cursor-pointer focus:outline-none"
+                            >
+                              <div
+                                className="relative w-full h-[260px] sm:h-[300px] rounded-md overflow-hidden bg-[#E4E0D8] block focus-visible:ring-2 focus-visible:ring-[#BD9343]"
                               >
                                 <Image
                                   src={room.image}
@@ -137,14 +170,12 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
                                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
                                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                                 />
-                              </Link>
+                              </div>
 
                               <div className="flex flex-col items-start gap-2.5 w-full">
-                                <Link href={href}>
-                                  <h4 className="font-cormorant text-2xl sm:text-[26px] lg:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
-                                    {room.title}
-                                  </h4>
-                                </Link>
+                                <h4 className="font-cormorant text-2xl sm:text-[26px] lg:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
+                                  {room.title}
+                                </h4>
 
                                 <div className="flex flex-col gap-0.5 text-sm sm:text-[15px] font-outfit text-[#5E6062]">
                                   <p>
@@ -152,14 +183,13 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
                                   </p>
                                 </div>
 
-                                <Link
-                                  href={href}
-                                  className="font-outfit text-[15px] font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200 pt-1"
+                                <span
+                                  className="font-outfit text-[15px] font-medium text-[#131313] underline underline-offset-4 group-hover:text-[#00549C] transition-colors duration-200 pt-1"
                                 >
                                   View room
-                                </Link>
+                                </span>
                               </div>
-                            </div>
+                            </Link>
                           );
                         })}
                       </div>
@@ -170,15 +200,21 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
             }
 
             return (
-              <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div
+                ref={cardsRef}
+                className={`grid grid-cols-1 sm:grid-cols-2 ${isThreeCols ? "lg:grid-cols-3 gap-6 sm:gap-8" : "lg:grid-cols-4 gap-6"}`}
+              >
                 {rooms.map((room) => {
                   const href = roomHref(offeringId, programId, resortId, room.id);
 
                   return (
-                    <div key={room.id} className="group flex flex-col justify-start items-start gap-4 w-full">
-                      <Link
-                        href={href}
-                        className="relative w-full h-[260px] sm:h-[300px] rounded-md overflow-hidden bg-[#E4E0D8] block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BD9343]"
+                    <Link
+                      key={room.id}
+                      href={href}
+                      className="group flex flex-col justify-start items-start gap-4 w-full cursor-pointer focus:outline-none"
+                    >
+                      <div
+                        className="relative w-full h-[260px] sm:h-[300px] rounded-md overflow-hidden bg-[#E4E0D8] block focus-visible:ring-2 focus-visible:ring-[#BD9343]"
                       >
                         <Image
                           src={room.image}
@@ -187,14 +223,12 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
                           className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                         />
-                      </Link>
+                      </div>
 
                       <div className="flex flex-col items-start gap-2.5 w-full">
-                        <Link href={href}>
-                          <h3 className="font-cormorant text-2xl sm:text-[26px] lg:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
-                            {room.title}
-                          </h3>
-                        </Link>
+                        <h3 className="font-cormorant text-2xl sm:text-[26px] lg:text-[28px] text-[#131313] font-normal leading-tight group-hover:text-[#00549c] transition-colors duration-200">
+                          {room.title}
+                        </h3>
 
                         <div className="flex flex-col gap-0.5 text-sm sm:text-[15px] font-outfit text-[#5E6062]">
                           <p>
@@ -202,14 +236,13 @@ export const ResortRoomsSection: React.FC<ResortRoomsSectionProps> = ({
                           </p>
                         </div>
 
-                        <Link
-                          href={href}
-                          className="font-outfit text-[15px] font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200 pt-1"
+                        <span
+                          className="font-outfit text-[15px] font-medium text-[#131313] underline underline-offset-4 group-hover:text-[#00549C] transition-colors duration-200 pt-1"
                         >
                           View room
-                        </Link>
+                        </span>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>

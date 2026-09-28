@@ -5,6 +5,7 @@ import type { ResortData } from "./resorts.types";
 import ResortBreadcrumb from "./ResortBreadcrumb";
 import ResortHero from "./ResortHero";
 import ResortSectionNav from "./ResortSectionNav";
+import ResortAboutSection from "./ResortAboutSection";
 import ResortRoomsSection from "./ResortRoomsSection";
 import ResortDiningSection from "./ResortDiningSection";
 import ResortPoolSection from "./ResortPoolSection";
@@ -13,6 +14,7 @@ import ResortSpaSection from "./ResortSpaSection";
 import ResortGallerySection from "./ResortGallerySection";
 import ResortInquireBanner from "./ResortInquireBanner";
 import ResortPhotoModal from "./ResortPhotoModal";
+import ResortDetailsModal from "./ResortDetailsModal";
 
 interface ResortMainViewProps {
   offeringId: string;
@@ -22,6 +24,7 @@ interface ResortMainViewProps {
 
 export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, programId, data }) => {
   const [galleryOpen, setGalleryOpen] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
 
   return (
     <main className="w-full min-h-screen bg-[#FCFCFB] pt-24 sm:pt-28 md:pt-32 flex flex-col">
@@ -40,16 +43,28 @@ export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, prog
         shortName={data.shortName}
         tagline={data.tagline}
         heroImage={data.heroImage}
+        heroCtas={data.heroCtas}
         onOpenGallery={() => setGalleryOpen(true)}
+        onOpenDetails={() => setDetailsOpen(true)}
       />
 
       <ResortSectionNav programId={programId} resortId={data.resortId} />
+
+      {data.about && (
+        <ResortAboutSection
+          about={data.about}
+          details={data.details}
+          onOpenDetails={() => setDetailsOpen(true)}
+        />
+      )}
 
       <ResortRoomsSection
         offeringId={offeringId}
         programId={programId}
         resortId={data.resortId}
         rooms={data.rooms}
+        sectionTitle={data.roomsTitle}
+        sectionDescription={data.roomsDescription}
       />
 
       <ResortDiningSection
@@ -57,6 +72,8 @@ export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, prog
         programId={programId}
         resortId={data.resortId}
         dining={data.dining}
+        sectionTitle={data.diningTitle}
+        sectionDescription={data.diningDescription}
       />
 
       <ResortPoolSection
@@ -65,6 +82,8 @@ export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, prog
         resortId={data.resortId}
         pools={data.pools}
         intro={data.poolsIntro}
+        sectionTitle={data.poolsTitle}
+        sectionDescription={data.poolsDescription}
       />
 
       <ResortWellnessSection
@@ -72,6 +91,8 @@ export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, prog
         programId={programId}
         resortId={data.resortId}
         wellness={data.wellnessActivities ?? data.wellness}
+        sectionTitle={data.wellnessTitle}
+        sectionDescription={data.wellnessDescription}
       />
 
       <ResortSpaSection
@@ -96,6 +117,15 @@ export const ResortMainView: React.FC<ResortMainViewProps> = ({ offeringId, prog
         photos={data.gallery}
         title={data.resortName}
       />
+
+      {data.details && (
+        <ResortDetailsModal
+          isOpen={detailsOpen}
+          onClose={() => setDetailsOpen(false)}
+          title={`Resort details`}
+          details={data.details}
+        />
+      )}
     </main>
   );
 };

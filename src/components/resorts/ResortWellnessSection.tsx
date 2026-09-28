@@ -13,6 +13,8 @@ interface ResortWellnessSectionProps {
   programId: string;
   resortId: string;
   wellness: ResortWellnessItem[];
+  sectionTitle?: { lead: string; italic: string } | string;
+  sectionDescription?: string;
 }
 
 const CATEGORY_LABELS: Record<ResortWellnessItem["category"], string> = {
@@ -27,6 +29,8 @@ export const ResortWellnessSection: React.FC<ResortWellnessSectionProps> = ({
   programId,
   resortId,
   wellness,
+  sectionTitle,
+  sectionDescription,
 }) => {
   const categories = useMemo(() => {
     const seen = new Set<ResortWellnessItem["category"]>();
@@ -89,6 +93,30 @@ export const ResortWellnessSection: React.FC<ResortWellnessSectionProps> = ({
 
   const itemsForActiveTab = wellness.filter((item) => item.category === activeTab);
 
+  const renderTitle = () => {
+    if (!sectionTitle) {
+      return (
+        <>
+          Move, stretch and <span className="font-normal italic">switch off</span>
+        </>
+      );
+    }
+    if (typeof sectionTitle === "object") {
+      return (
+        <>
+          {sectionTitle.lead} <span className="font-normal italic">{sectionTitle.italic}</span>
+        </>
+      );
+    }
+    const words = sectionTitle.trim().split(" ");
+    const lastWord = words.pop() || "";
+    return (
+      <>
+        {words.join(" ")} <span className="font-normal italic">{lastWord}</span>
+      </>
+    );
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -109,12 +137,12 @@ export const ResortWellnessSection: React.FC<ResortWellnessSectionProps> = ({
                 ref={titleRef}
                 className="font-cormorant font-light text-[#131313] text-[clamp(2.25rem,4.5vw,4.25rem)] leading-[1.05] tracking-tight"
               >
-                Move, stretch and <span className="font-normal italic">switch off</span>
+                {renderTitle()}
               </h2>
             </div>
 
             <p ref={descRef} className="font-outfit text-[#5E6062] text-base leading-relaxed max-w-md">
-              Classes run daily through the holiday. Times are confirmed on arrival.
+              {sectionDescription || "Classes run daily through the holiday. Times are confirmed on arrival."}
             </p>
           </div>
 
@@ -148,45 +176,53 @@ export const ResortWellnessSection: React.FC<ResortWellnessSectionProps> = ({
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 border-b border-[rgba(19,19,19,0.1)] pb-8">
-              {itemsForActiveTab.map((item) => (
-                <div key={item.id} className="flex items-center gap-5">
-                  <div className="relative w-36 h-24 sm:w-44 sm:h-28 rounded-md overflow-hidden bg-[#E4E0D8] shrink-0">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col items-start gap-1.5">
-                    <h4 className="font-outfit text-lg font-medium text-[#131313]">{item.title}</h4>
-                    <p className="font-outfit text-sm sm:text-base text-[#5E6062] leading-relaxed">
-                      {item.description}
-                    </p>
-                    {item.timing && (
-                      <p className="font-outfit text-xs text-[#8C877E]">{item.timing}</p>
-                    )}
-                    {item.category === "the-spa" ? (
-                      <Link
-                        href={spaHref(offeringId, programId, resortId)}
-                        className="font-outfit text-sm font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200"
-                      >
-                        {item.linkText || "See details"}
-                      </Link>
-                    ) : (
-                      item.linkText && (
-                        <Link
-                          href={inquireHref({ destination: programId, resort: resortId, topic: item.id })}
-                          className="font-outfit text-sm font-medium text-[#131313] underline underline-offset-4 hover:text-[#00549C] transition-colors duration-200"
+              {itemsForActiveTab.map((item) => {
+                const itemHref =
+                  item.category === "the-spa"
+                    ? spaHref(offeringId, programId, resortId)
+                    : item.linkText
+                      ? inquireHref({ destination: programId, resort: resortId, topic: item.id })
+                      : null;
+
+                const CardWrapper = itemHref ? Link : "div";
+
+                return (
+                  <CardWrapper
+                    key={item.id}
+                    href={itemHref || "#"}
+                    className={`flex items-center gap-5 group ${itemHref ? "cursor-pointer focus:outline-none" : ""
+                      }`}
+                  >
+                    <div className="relative w-36 h-24 sm:w-44 sm:h-28 rounded-md overflow-hidden bg-[#E4E0D8] shrink-0">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 100vw"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="flex flex-col items-start gap-1.5">
+                      <h4 className="font-outfit text-lg font-medium text-[#131313] group-hover:text-[#00549c] transition-colors duration-200">
+                        {item.title}
+                      </h4>
+                      <p className="font-outfit text-sm sm:text-base text-[#5E6062] leading-relaxed">
+                        {item.description}
+                      </p>
+                      {item.timing && (
+                        <p className="font-outfit text-xs text-[#8C877E]">{item.timing}</p>
+                      )}
+                      {itemHref && (
+                        <span
+                          className="font-outfit text-sm font-medium text-[#131313] underline underline-offset-4 group-hover:text-[#00549C] transition-colors duration-200"
                         >
-                          {item.linkText}
-                        </Link>
-                      )
-                    )}
-                  </div>
-                </div>
-              ))}
+                          {item.linkText || (item.category === "the-spa" ? "See details" : "Learn more")}
+                        </span>
+                      )}
+                    </div>
+                  </CardWrapper>
+                );
+              })}
             </div>
           </div>
         </div>

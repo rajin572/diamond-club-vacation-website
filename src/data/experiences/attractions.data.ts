@@ -134,4 +134,72 @@ export const ATTRACTIONS_BY_PROGRAM: Record<string, ExperienceCategoryData> = {
       buttonText: "Inquire",
     },
   },
+  blue: {
+    programId: "blue",
+    programTitle: "Diamond Blue by DCV",
+    experienceType: "attractions",
+    variant: "gallery",
+    breadcrumbLabel: "Attractions",
+    badgeStyle: "dot",
+    accentColor: "#171717",
+    gridColumns: 2,
+    header: {
+      badge: "Explore",
+      titlePart1: "Beyond ",
+      titlePart2: "the resort",
+      description:
+        "Explore the ancient Mayan heritage, crystal-clear cenotes, and vibrant eco-parks of Cancun and the Riviera Maya.",
+    },
+    items: [
+      {
+        id: "cancun-underwater-museum",
+        title: "Cancun Underwater Museum",
+        tag: "Snorkel & dive",
+        description:
+          "Dive into an underwater art gallery with over 500 sculptures, promoting coral reef conservation.",
+        image: AllImages.underwaterMuseum,
+        imagePlaceholderText: "Cancun Underwater Museum photo",
+        mapQuery: "Cancun Underwater Museum of Art, Quintana Roo, Mexico",
+        mapUrl: "https://maps.google.com/?q=Cancun+Underwater+Museum+of+Art",
+      },
+      {
+        id: "chichen-itza",
+        title: "Chichen Itza",
+        tag: "Culture & history",
+        description:
+          "Step back in time at this iconic Mayan archaeological site, home to the legendary El Castillo pyramid.",
+        image: AllImages.mayanRuins,
+        imagePlaceholderText: "Chichen Itza photo",
+        mapQuery: "Chichen Itza, Yucatan, Mexico",
+        mapUrl: "https://maps.google.com/?q=Chichen+Itza",
+      },
+      {
+        id: "xplor-park",
+        title: "Xplor Park",
+        tag: "Adventure",
+        description:
+          "An exhilarating adventure park with zip-lines, underground rivers and amphibious vehicles for thrill-seekers.",
+        image: AllImages.ecoAdventureParks,
+        imagePlaceholderText: "Xplor Park photo",
+        mapQuery: "Xplor Park, Playa del Carmen, Mexico",
+        mapUrl: "https://maps.google.com/?q=Xplor+Park+Playa+del+Carmen",
+      },
+      {
+        id: "xcaret-park",
+        title: "Xcaret Park",
+        tag: "Nature & culture",
+        description:
+          "A spectacular eco-archaeological park that celebrates the culture and nature of Mexico.",
+        image: AllImages.beyondDiamondClubResturant,
+        imagePlaceholderText: "Xcaret Park photo",
+        mapQuery: "Xcaret Park, Carretera Chetúmal-Puerto Juárez, Quintana Roo, Mexico",
+        mapUrl: "https://maps.google.com/?q=Xcaret+Park+Mexico",
+      },
+    ],
+    inquireBanner: {
+      headlinePart1: "Explore Cancun & the Riviera Maya for ",
+      headlinePart2: "Passover 2027",
+      buttonText: "Inquire",
+    },
+  },
 };

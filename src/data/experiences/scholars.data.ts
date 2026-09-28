@@ -105,4 +105,54 @@ export const SCHOLARS_BY_PROGRAM: Record<string, ExperienceCategoryData> = {
       buttonText: "Inquire",
     },
   },
+  blue: {
+    programId: "blue",
+    programTitle: "Diamond Blue by DCV",
+    experienceType: "scholars",
+    variant: "bio",
+    breadcrumbLabel: "Scholars",
+    badgeStyle: "pill",
+    gridColumns: 2,
+    header: {
+      badge: "Experiences",
+      titlePart1: "Sch",
+      titlePart2: "olars",
+      description:
+        "Inspiring talks, classes and tefillah led by renowned rabbis and speakers throughout the holiday.",
+    },
+    items: [
+      {
+        id: "rabbi-lawrence-hajioff",
+        name: "Rabbi Lawrence Hajioff",
+        nameHighlight: { first: "Rabbi Lawrence ", last: "Hajioff" },
+        role: "Scholar in residence",
+        shortBio:
+          "Rabbi Lawrence Hajioff is the educational director of Birthright Israel Alumni in Manhattan and a faculty member at Stern College for Women, Yeshiva University.",
+        fullBio:
+          "Rabbi Lawrence Hajioff is the educational director of Birthright Israel Alumni in Manhattan and a faculty member at Stern College for Women, Yeshiva University. He received his rabbinical ordination from Yeshiva Ner Yisrael in Baltimore and has been an inspiring speaker and educator for over two decades.\n\nOriginally from London, England, Rabbi Hajioff is the author of several acclaimed books, including \"Jew Got Questions?\" and \"Will Jew Marry Me?\", and lectures widely across North America and Israel on Jewish philosophy, ethics, and contemporary issues.",
+        image: AllImages.scholars,
+        imageAlt: "Rabbi Lawrence Hajioff photo",
+        ctaText: "Read full bio",
+      },
+      {
+        id: "speaker-to-be-announced",
+        name: "Speaker to be announced",
+        nameHighlight: { first: "Speaker ", last: "to be announced" },
+        role: "Guest Lecturer",
+        shortBio:
+          "A renowned guest speaker and educator will be joining the Diamond Club Blue program. Full biography and topics will be announced shortly.",
+        fullBio:
+          "A renowned guest speaker and educator will be joining the Diamond Club Blue program. Full biography and topics will be announced shortly.",
+        image: AllImages.profile,
+        imageAlt: "Speaker to be announced photo",
+        isTba: true,
+        ctaText: "Coming soon",
+      },
+    ],
+    inquireBanner: {
+      headlinePart1: "Learn and celebrate with us for ",
+      headlinePart2: "Passover 2027",
+      buttonText: "Inquire",
+    },
+  },
 };
