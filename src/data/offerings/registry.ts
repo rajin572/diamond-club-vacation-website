@@ -6,7 +6,6 @@ export const offeringsRegistry = {
 } satisfies Record<string, OfferingData>;
 
 export const comingSoonOfferings = {
-  "casa-nizuc": "Casa Nizuc",
   "weddings-events": "Weddings & Events",
   "private-events": "Private Events",
 } as const;

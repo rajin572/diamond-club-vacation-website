@@ -23,7 +23,7 @@ export const ExperienceCategoryView: React.FC<ExperienceCategoryViewProps> = ({ 
   };
 
   return (
-    <main className="w-full min-h-screen bg-[#FCFCFB] pt-24 sm:pt-28 md:pt-32">
+    <main className="w-full min-h-screen bg-[#FCFCFB] pt-20 sm:pt-20 md:pt-20">
       <ExperienceBreadcrumb
         offeringId={offeringId}
         programId={data.programId}

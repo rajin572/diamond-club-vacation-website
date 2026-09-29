@@ -91,7 +91,7 @@ export const OfferingHero: React.FC<OfferingHeroProps> = ({ data }) => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-24 sm:pt-28 md:pt-32 pb-8 md:pb-12 overflow-hidden"
+      className="relative w-full pt-20 sm:pt-20 md:pt-20 pb-8 md:pb-12 overflow-hidden"
       aria-label="Offering Hero"
     >
       <Container>

@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 import { AllImages } from "../../../../public/images/AllImages";
+import { resortHref } from "@/lib/routes";
 
 export interface OfferingItem {
   id: string;
@@ -23,7 +24,7 @@ export const OFFERING_ITEMS: OfferingItem[] = [
     id: "casa-nizuc",
     title: "Casa Nizuc",
     description: "Year-round luxury kosher hospitality in the heart of the Riviera Maya.",
-    href: "/offerings/casa-nizuc",
+    href: resortHref("passover-collection-2027", "blue", "casa-nizuc"),
     image: AllImages.offeringImg2,
     logo: AllImages.offeringLogo2,
   },

@@ -29,7 +29,7 @@ export const KidsDayCampView: React.FC<KidsDayCampViewProps> = ({ offeringId, pr
   };
 
   return (
-    <main className="w-full min-h-screen bg-[#FCFCFB] pt-24 sm:pt-28 md:pt-32">
+    <main className="w-full min-h-screen bg-[#FCFCFB] pt-20 sm:pt-20 md:pt-20">
       <KidsDayCampBreadcrumb offeringId={offeringId} programId={programId} programName={data.programName} />
 
       <KidsDayCampGallery gallery={data.gallery} />

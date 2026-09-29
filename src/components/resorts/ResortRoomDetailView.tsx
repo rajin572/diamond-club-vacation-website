@@ -82,7 +82,7 @@ export const ResortRoomDetailView: React.FC<ResortRoomDetailViewProps> = ({
   const inquireUrl = inquireHref({ destination: programId, resort: data.resortId, room: currentRoom.id });
 
   return (
-    <main ref={viewRef} className="w-full min-h-screen bg-[#FCFCFB] pt-24 sm:pt-28 md:pt-32 flex flex-col">
+    <main ref={viewRef} className="w-full min-h-screen bg-[#FCFCFB] pt-20 sm:pt-20 md:pt-20 flex flex-col">
       <ResortBreadcrumb
         offeringId={offeringId}
         programId={programId}

@@ -32,7 +32,7 @@ export const KidsProgramView: React.FC<KidsProgramViewProps> = ({
   };
 
   return (
-    <main className="w-full min-h-screen bg-[#FCFCFB] pt-24 sm:pt-28 md:pt-32">
+    <main className="w-full min-h-screen bg-[#FCFCFB] pt-20 sm:pt-20 md:pt-20">
       <KidsProgramBreadcrumb offeringId={offeringId} programId={programId} programTitle={programTitle} />
 
       <KidsProgramHeader badge={data.badge} headline={data.headline} description={data.description} />

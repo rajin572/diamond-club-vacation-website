@@ -1,4 +1,5 @@
 import { AllImages } from "../../../public/images/AllImages";
+import { resortHref } from "@/lib/routes";
 import type { NotFoundData } from "./notFound.types";
 
 /**
@@ -33,7 +34,7 @@ export const NOT_FOUND_DATA: NotFoundData = {
       id: "casa-nizuc",
       title: "Casa Nizuc",
       subtitle: "Year-round luxury kosher hospitality",
-      href: "/offerings/casa-nizuc",
+      href: resortHref("passover-collection-2027", "blue", "casa-nizuc"),
     },
     {
       id: "weddings-events",
