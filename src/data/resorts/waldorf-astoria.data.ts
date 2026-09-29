@@ -632,14 +632,14 @@ export const WALDORF_ASTORIA_RESORT_DATA: ResortData = {
     summary:
       "Hydrotherapy pools, hammam and steam rooms, massages, facials and a full salon, with treatments bookable through your concierge.",
     description:
-      "Hydrotherapy pools, hammam and steam rooms, massages, facials and a full salon, with treatments bookable through your concierge.",
+      "Facials using prestige skincare and technology, massages from head to toe, a steam room and body rituals drawn from time-honoured techniques.",
     treatmentsAndFacilities: [
-      "Hydrotherapy pools",
-      "Hammam and steam rooms",
-      "Tailored facial revitalizations",
-      "Restorative full-body massages",
-      "Full hair and beauty salon",
-      "Private wellness suites",
+      "Facials",
+      "Body treatments",
+      "Massages",
+      "Spa rituals",
+      "Steam room",
+      "Wellness deck",
     ],
     schedule: [{ days: "Monday to Sunday", hours: "8:00 AM - 11:00 PM" }],
     location: "Lower level, main building",
