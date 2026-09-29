@@ -230,16 +230,16 @@ export const ENTERTAINMENT_BY_PROGRAM: Record<string, ExperienceCategoryData> = 
         title: "The After Party",
         tag: "Nightly",
         description:
-          "As night falls, the beach club comes alive with DJ parties, hookah, disco and casino nights.",
+          "As night falls, SO’OL beach club comes alive with DJ parties, hookah, disco and casino nights.",
         image: AllImages.entertainment,
         imagePlaceholderText: "The After Party photo",
         modal: {
           title: "The After Party",
           tag: "Nightly",
           longDescription:
-            "When the main event ends, the night is just beginning. DJ parties, hookah, disco, casino nights and more await under the stars.",
+            "When the main event ends, the night is just beginning. DJ parties, hookah, disco, casino nights and more await.",
           when: "Nightly, after the evening program",
-          where: "Beach Club",
+          where: "SO’OL beach club",
           mainPhotoPlaceholder: "The After Party — main photo",
           thumbnails: [
             { id: "t1", label: "DJ photo", placeholderText: "DJ photo" },
@@ -252,7 +252,7 @@ export const ENTERTAINMENT_BY_PROGRAM: Record<string, ExperienceCategoryData> = 
         id: "fire-shows",
         title: "Fire Shows",
         tag: "Evenings",
-        description: "An incredible lineup of nightly entertainment under the Cancun sky.",
+        description: "An incredible lineup of nightly entertainment.",
         image: AllImages.entertainment,
         imagePlaceholderText: "Fire Shows photo",
         modal: {
@@ -273,9 +273,8 @@ export const ENTERTAINMENT_BY_PROGRAM: Record<string, ExperienceCategoryData> = 
       {
         id: "dj-pinny-yiddi",
         title: "DJ Pinny & Yiddi",
-        tag: "Music & Beats",
-        description:
-          "High-energy sets bringing the best Jewish, Israeli, and electronic beats to the dance floor.",
+        tag: "Featured",
+        description: "DJ Pinny and DJ Yiddi are set to ignite the party and keep the celebration going.",
         image: AllImages.entertainment,
         imagePlaceholderText: "DJ Pinny & Yiddi photo",
         modal: {
@@ -296,9 +295,8 @@ export const ENTERTAINMENT_BY_PROGRAM: Record<string, ExperienceCategoryData> = 
       {
         id: "kumzits-nussi-benyomin",
         title: "Kumzits with Nussi and Benyomin",
-        tag: "Soulful Kumzits",
-        description:
-          "Intimate acoustic sessions, heartfelt melodies, and soulful singing around the campfire.",
+        tag: "Featured",
+        description: "Kumzits together with Nussi Liberman and Benjamin Lerner.",
         image: AllImages.entertainment,
         imagePlaceholderText: "Kumzits photo",
         modal: {
@@ -319,9 +317,9 @@ export const ENTERTAINMENT_BY_PROGRAM: Record<string, ExperienceCategoryData> = 
       {
         id: "comedian-dovi-neuburger",
         title: "Comedian Dovi Neuburger",
-        tag: "Comedy Night",
+        tag: "Featured",
         description:
-          "Laugh out loud with one of Jewish entertainment's most sought-after standup comedians.",
+          "From his Orthodox upbringing to being an NYU dropout, comedian Dovi Neuburger brings his stand-up.",
         image: AllImages.entertainment,
         imagePlaceholderText: "Comedian Dovi Neuburger photo",
         modal: {

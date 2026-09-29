@@ -148,7 +148,7 @@ export const ATTRACTIONS_BY_PROGRAM: Record<string, ExperienceCategoryData> = {
       titlePart1: "Beyond ",
       titlePart2: "the resort",
       description:
-        "Explore the ancient Mayan heritage, crystal-clear cenotes, and vibrant eco-parks of Cancun and the Riviera Maya.",
+        "Cenotes, Mayan ruins, eco parks and the second-largest coral reef in the world, all within reach of the resort.",
     },
     items: [
       {
@@ -197,7 +197,7 @@ export const ATTRACTIONS_BY_PROGRAM: Record<string, ExperienceCategoryData> = {
       },
     ],
     inquireBanner: {
-      headlinePart1: "Explore Cancun & the Riviera Maya for ",
+      headlinePart1: "Explore the Riviera Maya for ",
       headlinePart2: "Passover 2027",
       buttonText: "Inquire",
     },

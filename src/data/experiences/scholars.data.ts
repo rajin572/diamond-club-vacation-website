@@ -69,9 +69,9 @@ export const SCHOLARS_BY_PROGRAM: Record<string, ExperienceCategoryData> = {
         nameHighlight: { first: "Rabbi Lawrence ", last: "Hajioff" },
         role: "Scholar in residence",
         shortBio:
-          "Rabbi Lawrence Hajioff is the educational director of Birthright Israel Alumni in Manhattan and a faculty member at Stern College for Women, Yeshiva University.",
+          "Rabbi Lawrence Hajioff grew up in London, England. After graduating with honors in political science from the University of Manchester, he worked for MTV in news production and won a national competition to become \"Jewish Stand-Up Comedian of the Year.\" After deciding to pursue a career as a rabbi, Hajioff studied in Israel and then Monsey, New York, where he received his rabbinical smicha ordination.",
         fullBio:
-          "Rabbi Lawrence Hajioff is the educational director of Birthright Israel Alumni in Manhattan and a faculty member at Stern College for Women, Yeshiva University. He received his rabbinical ordination from Yeshiva Ner Yisrael in Baltimore and has been an inspiring speaker and educator for over two decades.\n\nOriginally from London, England, Rabbi Hajioff is the author of several acclaimed books, including \"Jew Got Questions?\" and \"Will Jew Marry Me?\", and lectures widely across North America and Israel on Jewish philosophy, ethics, and contemporary issues.",
+          "Rabbi Lawrence Hajioff grew up in London, England. After graduating with honors in political science from the University of Manchester, he worked for MTV in news production and won a national competition to become \"Jewish Stand-Up Comedian of the Year.\" After deciding to pursue a career as a rabbi, Hajioff studied in Israel and then Monsey, New York, where he received his rabbinical smicha ordination.",
         image: AllImages.scholars,
         imageAlt: "Rabbi Lawrence Hajioff photo",
         ctaText: "Read full bio",
@@ -127,9 +127,9 @@ export const SCHOLARS_BY_PROGRAM: Record<string, ExperienceCategoryData> = {
         nameHighlight: { first: "Rabbi Lawrence ", last: "Hajioff" },
         role: "Scholar in residence",
         shortBio:
-          "Rabbi Lawrence Hajioff is the educational director of Birthright Israel Alumni in Manhattan and a faculty member at Stern College for Women, Yeshiva University.",
+          "Rabbi Lawrence Hajioff grew up in London, England. After graduating with honors in political science from the University of Manchester, he worked for MTV in news production and won a national competition to become \"Jewish Stand-Up Comedian of the Year.\" After deciding to pursue a career as a rabbi, Hajioff studied in Israel and then Monsey, New York, where he received his rabbinical smicha ordination.",
         fullBio:
-          "Rabbi Lawrence Hajioff is the educational director of Birthright Israel Alumni in Manhattan and a faculty member at Stern College for Women, Yeshiva University. He received his rabbinical ordination from Yeshiva Ner Yisrael in Baltimore and has been an inspiring speaker and educator for over two decades.\n\nOriginally from London, England, Rabbi Hajioff is the author of several acclaimed books, including \"Jew Got Questions?\" and \"Will Jew Marry Me?\", and lectures widely across North America and Israel on Jewish philosophy, ethics, and contemporary issues.",
+          "Rabbi Lawrence Hajioff grew up in London, England. After graduating with honors in political science from the University of Manchester, he worked for MTV in news production and won a national competition to become \"Jewish Stand-Up Comedian of the Year.\" After deciding to pursue a career as a rabbi, Hajioff studied in Israel and then Monsey, New York, where he received his rabbinical smicha ordination.",
         image: AllImages.scholars,
         imageAlt: "Rabbi Lawrence Hajioff photo",
         ctaText: "Read full bio",
@@ -138,11 +138,9 @@ export const SCHOLARS_BY_PROGRAM: Record<string, ExperienceCategoryData> = {
         id: "speaker-to-be-announced",
         name: "Speaker to be announced",
         nameHighlight: { first: "Speaker ", last: "to be announced" },
-        role: "Guest Lecturer",
-        shortBio:
-          "A renowned guest speaker and educator will be joining the Diamond Club Blue program. Full biography and topics will be announced shortly.",
-        fullBio:
-          "A renowned guest speaker and educator will be joining the Diamond Club Blue program. Full biography and topics will be announced shortly.",
+        role: "Scholar in residence",
+        shortBio: "Details coming soon.",
+        fullBio: "Details coming soon.",
         image: AllImages.profile,
         imageAlt: "Speaker to be announced photo",
         isTba: true,

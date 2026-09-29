@@ -7,24 +7,23 @@ export const CASA_NIZUC_DATA: ResortData = {
   resortId: "casa-nizuc",
   resortName: "Casa Nizuc",
   shortName: "Casa Nizuc",
-  tagline:
-    "A tranquil retreat perched above pristine sands, offering timeless luxury, world-class dining, and deeply restorative wellness.",
+  tagline: "A Tribute Portfolio Resort · Aldea Nizuc, Cancún",
   heroImage: AllImages.diamondClubBlue1,
   heroCtas: {
-    primaryText: "Inquire about this resort",
+    primaryText: "Inquire about Casa Nizuc",
     secondaryText: "Resort details",
     secondaryAction: "details",
   },
 
   about: {
     headline: {
-      lead: "Where Mexican warmth meets",
-      italic: "timeless coastal luxury",
+      lead: "Cancún as you have",
+      italic: "never seen it",
     },
     paragraphs: [
-      "Casa Nizuc is a sanctuary where timeless Mexican warmth meets contemporary coastal luxury. Nestled between mangrove-lined lagoons and the turquoise Caribbean, every detail has been thoughtfully orchestrated to inspire relaxation and wonder.",
-      "Our world-renowned culinary program features four distinct kosher-certified venues curated by international master chefs, offering fresh ocean catch, traditional wood-fired flavors, and delicate Mediterranean interpretations.",
-      "Whether lounging in a private beachfront cabana, surrendering to custom treatments at The Spa, or watching the sunset melt into the sea, Casa Nizuc delivers an unforgettable Passover retreat.",
+      "Casa Nizuc invites you to rediscover Cancún in a way you have never imagined. Tucked within the mystical Aldea Nizuc, this serene hideaway rises between turquoise waters and lush mangroves, a sanctuary where nature and design converge to redefine paradise.",
+      "More than a destination, Casa Nizuc is an experience: a wild-forest-meets-beach Eden, alive with birdsong and framed by sunsets that seem endless. Here, architecture and nature dance in harmony, and every detail whispers elegance and sophistication.",
+      "To truly understand it, you must feel it. Blue skies, poetic landscapes and a spirit that flows effortlessly with nature. Your next escape begins here.",
     ],
   },
 
@@ -32,27 +31,27 @@ export const CASA_NIZUC_DATA: ResortData = {
     checkIn: "03:00 PM",
     checkOut: "12:00 PM",
     facilities: [
-      "Private Beach",
-      "3 Oceanfront Pools",
-      "The Spa",
-      "4 Kosher Restaurants",
-      "Fitness Studio",
-      "Kids Club",
-      "Concierge",
-      "Water Sports",
+      "Breakfast",
+      "Restaurants",
+      "Beach area",
+      "Swimming pool",
+      "Fitness centre",
+      "Spa",
+      "No-smoking area",
+      "Parking",
     ],
-    address: "Blvd. Kukulcan Km 21.25, Nizuc, 77500 Cancún, Q.R., Mexico",
+    address: "Blvd. Kukulcán, Km 23.5, Aldea Nizuc, Cancún, 77500, Quintana Roo, México",
     description:
-      "Perched on the secluded tip of Punta Nizuc, Casa Nizuc merges modern architectural elegance with the natural splendour of the Mexican Caribbean. Designed with locally sourced stone, handcrafted woodwork, and extensive private water features, it offers an exclusive haven for your Passover holiday.",
-    mapNote: "Map — Blvd. Kukulcan Km 21.25, Nizuc, Cancún",
+      "Casa Nizuc invites you to rediscover Cancún in a way you have never imagined. Tucked within the mystical Aldea Nizuc, this serene hideaway rises between turquoise waters and lush mangroves, a sanctuary where nature and design converge to redefine paradise. More than a destination, Casa Nizuc is an experience: a wild-forest-meets-beach Eden, alive with birdsong and framed by sunsets that seem endless.",
+    mapNote: "Map — Blvd. Kukulcán, Km 23.5, Aldea Nizuc",
   },
 
   roomsTitle: {
-    lead: "Luxury rooms and",
-    italic: "suites",
+    lead: "Luxury rooms",
+    italic: "and suites",
   },
   roomsDescription:
-    "Each space is meticulously designed with local stone, warm woods, and floor-to-ceiling vistas of the Caribbean Sea.",
+    "Every room is prepared for the holiday, with connecting rooms and cribs available on request.",
 
   rooms: [
     {
@@ -60,9 +59,9 @@ export const CASA_NIZUC_DATA: ResortData = {
       title: "Classic",
       titlePrefix: "Classic",
       titleItalic: "Room",
-      bedConfig: "1 King or 2 Queen beds",
+      bedConfig: "1 Queen bed",
       size: "450 sq ft",
-      view: "Garden View",
+      view: "",
       description:
         "A serene haven featuring refined contemporary décor, private terrace, and lush garden outlooks.",
       image: AllImages.diamondClubBlue2,
@@ -93,12 +92,12 @@ export const CASA_NIZUC_DATA: ResortData = {
     },
     {
       id: "deluxe-1-queen",
-      title: "Deluxe 1 Queen",
+      title: "Deluxe",
       titlePrefix: "Deluxe",
       titleItalic: "1 Queen",
-      bedConfig: "1 Queen Bed",
+      bedConfig: "1 Queen bed",
       size: "480 sq ft",
-      view: "Resort View",
+      view: "Partial ocean view",
       description:
         "Gracefully appointed with a plush queen bed, artisanal furnishings, and a comfortable reading nook.",
       image: AllImages.diamondClubBlue1,
@@ -129,12 +128,12 @@ export const CASA_NIZUC_DATA: ResortData = {
     },
     {
       id: "deluxe-1-king",
-      title: "Deluxe 1 King",
+      title: "Deluxe",
       titlePrefix: "Deluxe",
       titleItalic: "1 King",
-      bedConfig: "1 King Bed",
+      bedConfig: "1 King bed",
       size: "520 sq ft",
-      view: "Partial Ocean",
+      view: "Ocean view",
       description:
         "Generous layout with a king-sized bed, floor-to-ceiling sliding glass doors, and glimpses of the Caribbean Sea.",
       image: AllImages.editionResortHero,
@@ -165,12 +164,12 @@ export const CASA_NIZUC_DATA: ResortData = {
     },
     {
       id: "deluxe-double-partial-ocean",
-      title: "Deluxe Double Partial Ocean",
+      title: "Deluxe Double",
       titlePrefix: "Deluxe Double",
       titleItalic: "Partial Ocean",
-      bedConfig: "2 Queen Beds",
+      bedConfig: "2 Full beds",
       size: "560 sq ft",
-      view: "Partial Ocean",
+      view: "Partial ocean view",
       description:
         "Ideal for families or friends traveling together, featuring two queen beds and partial sea views.",
       image: AllImages.stRegisResortMain,
@@ -201,12 +200,12 @@ export const CASA_NIZUC_DATA: ResortData = {
     },
     {
       id: "deluxe-double-ocean-view",
-      title: "Deluxe Double Ocean View",
+      title: "Deluxe Double",
       titlePrefix: "Deluxe Double",
       titleItalic: "Ocean View",
-      bedConfig: "2 Queen Beds",
+      bedConfig: "2 Full beds",
       size: "580 sq ft",
-      view: "Ocean View",
+      view: "Ocean view",
       description:
         "Breathtaking panoramic views of the turquoise sea paired with generous two-queen accommodation.",
       image: AllImages.editionResortPool1,
@@ -240,9 +239,9 @@ export const CASA_NIZUC_DATA: ResortData = {
       title: "Junior Suite",
       titlePrefix: "Junior",
       titleItalic: "Suite",
-      bedConfig: "1 King Bed",
+      bedConfig: "1 King bed, sofa bed",
       size: "650 sq ft",
-      view: "Ocean View",
+      view: "Partial ocean view",
       description:
         "An open-plan sanctuary featuring an integrated lounge, king bedroom, and expansive ocean vista.",
       image: AllImages.editionResortPool2,
@@ -273,12 +272,12 @@ export const CASA_NIZUC_DATA: ResortData = {
     },
     {
       id: "master-suite-partial-ocean",
-      title: "Master Suite Partial Ocean",
+      title: "Master Suite",
       titlePrefix: "Master Suite",
       titleItalic: "Partial Ocean",
-      bedConfig: "1 King Bed",
+      bedConfig: "1 King bed, sofa bed",
       size: "820 sq ft",
-      view: "Partial Ocean",
+      view: "Partial ocean view",
       description:
         "Spacious master suite featuring a separate parlor living room, dining space, and ocean-view terrace.",
       image: AllImages.editionResortPool3,
@@ -309,12 +308,12 @@ export const CASA_NIZUC_DATA: ResortData = {
     },
     {
       id: "master-suite-ocean-front",
-      title: "Master Suite Ocean Front",
+      title: "Master Suite",
       titlePrefix: "Master Suite",
       titleItalic: "Ocean Front",
-      bedConfig: "1 King Bed",
+      bedConfig: "1 King bed, sofa bed",
       size: "950 sq ft",
-      view: "Ocean Front",
+      view: "Ocean front",
       description:
         "Unrivaled oceanfront positioning with panoramic vistas, plunge pool, and expansive terrace living.",
       image: AllImages.stRegisFamilyPool,
@@ -348,11 +347,11 @@ export const CASA_NIZUC_DATA: ResortData = {
       title: "Nizuc Suite",
       titlePrefix: "Nizuc",
       titleItalic: "Suite",
-      bedConfig: "1 King Bed",
+      bedConfig: "1 King, 2 Double, sofa bed",
       size: "1,200 sq ft",
-      view: "Ocean Front",
+      view: "Ocean view",
       description:
-        "The crown jewel of Casa Nizuc. An extraordinary private haven featuring a master bedroom, grand living pavilion, oceanfront plunge pool, and unobstructed Caribbean panoramas.",
+        "The largest of our suites, with a king bed, two double beds and a sofa bed, and an ocean view across the Aldea Nizuc.",
       image: AllImages.stRegisMainPoolBeach,
       gallery: {
         main: { src: AllImages.stRegisMainPoolBeach, label: "Nizuc Suite — oceanfront terrace and plunge pool" },
@@ -363,36 +362,29 @@ export const CASA_NIZUC_DATA: ResortData = {
         totalPhotos: 32,
       },
       bedsAndBedding: {
-        items: [
-          "1 King Bed with custom Egyptian cotton linens",
-          "Cribs permitted on request",
-          "Down duvets and selection of pillows",
-        ],
+        items: ["1 King or 2 Queen beds", "Duvet and Frette luxury linens", "Cribs permitted"],
         note: "*Rollaway bed available upon request",
       },
       roomFeatures: [
-        "Private oceanfront terrace with infinity plunge pool",
-        "Grand living room with custom furnishings",
-        "Separate formal dining area",
-        "Personal butler service throughout the holiday",
-        "High-speed Wi-Fi and smart lighting",
+        "Air-conditioned",
+        "Private furnished terrace",
+        "Connecting rooms available (for some rooms)",
       ],
       bathFeatures: [
-        "Oversized free-standing soaking tub with ocean view",
-        "Walk-in double rainfall shower",
-        "Separate water closet and bidet",
-        "Dual marble vanities",
-        "Custom organic bath products and plush robes",
+        "Marble bathroom",
+        "Whirlpool fits 1",
+        "Separate bathtub and shower",
+        "Lighted makeup mirror",
+        "Double vanities",
       ],
     },
   ],
 
   diningTitle: {
-    lead: "Restaurants and",
-    italic: "bars",
+    lead: "Restaurants",
+    italic: "and bars",
   },
-  diningDescription:
-    "Four distinct kosher dining venues curated by master chefs, celebrating Mexican coastal ingredients and global culinary traditions.",
+  diningDescription: "Four venues, from international plates to a coffee house by the lobby.",
 
   dining: [
     {
@@ -401,8 +393,8 @@ export const CASA_NIZUC_DATA: ResortData = {
       titlePrefix: "Mayim",
       titleItalic: "Signature",
       cuisine: "Signature Kosher Mexican & Seafood",
-      category: "seafood",
-      categoryLabel: "Signature Kosher Mexican & Seafood",
+      category: "international",
+      categoryLabel: "International",
       mealPeriod: "Dinner",
       schedule: [{ days: "Monday – Sunday", hours: "6:00 PM – 10:30 PM" }],
       hours: "Dinner: 6:00 PM – 10:30 PM",
@@ -434,7 +426,7 @@ export const CASA_NIZUC_DATA: ResortData = {
       titleItalic: "Grill",
       cuisine: "Wood-Fired Grill & Steakhouse",
       category: "steakhouse",
-      categoryLabel: "Wood-Fired Grill & Steakhouse",
+      categoryLabel: "Steakhouse",
       mealPeriod: "Lunch & Dinner",
       schedule: [
         { days: "Lunch", hours: "12:30 PM – 3:30 PM" },
@@ -469,7 +461,7 @@ export const CASA_NIZUC_DATA: ResortData = {
       titleItalic: "Levant",
       cuisine: "Mediterranean & Levant Bites",
       category: "mediterranean",
-      categoryLabel: "Mediterranean & Levant Bites",
+      categoryLabel: "Mediterranean",
       mealPeriod: "Lunch & Afternoon",
       schedule: [{ days: "Monday – Sunday", hours: "11:30 AM – 5:00 PM" }],
       hours: "Lunch & Afternoon: 11:30 AM – 5:00 PM",
@@ -501,7 +493,7 @@ export const CASA_NIZUC_DATA: ResortData = {
       titleItalic: "Café",
       cuisine: "Artisanal Bakery & Café",
       category: "cafe",
-      categoryLabel: "Artisanal Bakery & Café",
+      categoryLabel: "Coffee house",
       mealPeriod: "Daily Breakfast & Afternoon",
       schedule: [{ days: "Monday – Sunday", hours: "7:00 AM – 4:00 PM" }],
       hours: "Daily: 7:00 AM – 4:00 PM",
@@ -529,13 +521,11 @@ export const CASA_NIZUC_DATA: ResortData = {
   ],
 
   poolsTitle: {
-    lead: "Pools & beach",
-    italic: "venues",
+    lead: "Water, shade and",
+    italic: "two miles of sand",
   },
-  poolsDescription:
-    "Four distinct aquatic retreats designed for serene relaxation, vibrant family gatherings, and uninterrupted ocean views.",
-  poolsIntro:
-    "Four distinct aquatic retreats designed for serene relaxation, vibrant family gatherings, and uninterrupted ocean views.",
+  poolsDescription: "Infinity pool, private cabanas and the Diamond Exclusive beaches.",
+  poolsIntro: "Infinity pool, private cabanas and the Diamond Exclusive beaches.",
 
   pools: [
     {
@@ -544,12 +534,12 @@ export const CASA_NIZUC_DATA: ResortData = {
       titlePrefix: "Ocean Front",
       titleItalic: "Infinity Pool",
       type: "infinity-pool",
-      typeLabel: "Main Infinity Pool",
+      typeLabel: "Beach",
       description:
         "A stunning freshwater infinity pool that appears to merge seamlessly with the turquoise waters of the Caribbean Sea, flanked by sun loungers and full butler service.",
       image: AllImages.stRegisSerenityPool,
       hours: "Daily: 8:00 AM – 7:00 PM",
-      location: "Main Oceanfront Terrace",
+      location: "Beach",
       schedule: [{ days: "Daily", hours: "8:00 AM – 7:00 PM" }],
       gallery: {
         main: { src: AllImages.stRegisSerenityPool, label: "Ocean Front Infinity Pool" },
@@ -572,7 +562,7 @@ export const CASA_NIZUC_DATA: ResortData = {
       titlePrefix: "Diamond Exclusive",
       titleItalic: "Beaches",
       type: "beach",
-      typeLabel: "Private Beach Sanctuary",
+      typeLabel: "Beach",
       description:
         "Pristine white-sand beaches exclusively reserved for Diamond Club guests, featuring calm swimming waters, plush beach beds, and shade umbrellas.",
       image: AllImages.stRegisMainPoolBeach,
@@ -600,7 +590,7 @@ export const CASA_NIZUC_DATA: ResortData = {
       titlePrefix: "Pool",
       titleItalic: "Bar",
       type: "bar",
-      typeLabel: "Swim-Up & Lounge Bar",
+      typeLabel: "Pool",
       description:
         "Sip refreshing kosher tropical mocktails, artisanal chilled drinks, and light midday snacks without ever having to leave the water.",
       image: AllImages.editionResortPool2,
@@ -628,7 +618,7 @@ export const CASA_NIZUC_DATA: ResortData = {
       titlePrefix: "Private",
       titleItalic: "Cabanas",
       type: "cabana",
-      typeLabel: "VIP Beach & Pool Cabanas",
+      typeLabel: "Beach",
       description:
         "Secluded luxury cabanas furnished with daybeds, ceiling fans, Wi-Fi, and a dedicated butler tending to your every holiday comfort.",
       image: AllImages.editionResortPool3,
@@ -661,7 +651,7 @@ export const CASA_NIZUC_DATA: ResortData = {
         "The vibrant heart of daytime social life at Casa Nizuc, offering oceanfront cabanas, acoustic sessions, and sunset gatherings.",
       image: AllImages.diamondClubBlue1,
       hours: "Daily: 10:00 AM – 8:00 PM",
-      location: "Casa Nizuc South Beach",
+      location: "Aldea Nizuc beach",
       schedule: [{ days: "Daily", hours: "10:00 AM – 8:00 PM" }],
       gallery: {
         main: { src: AllImages.diamondClubBlue1, label: "Beach Club — ocean deck" },
@@ -689,7 +679,7 @@ export const CASA_NIZUC_DATA: ResortData = {
         "A cultural and outdoor gathering sanctuary immersed in the Mayan jungle, hosting workshops, traditional artisan demonstrations, and evening fireside storytelling.",
       image: AllImages.diamondClubBlue2,
       hours: "Open Daily with Scheduled Events",
-      location: "Jungle Canopy Sanctuary",
+      location: "Aldea Nizuc",
       schedule: [{ days: "Daily", hours: "9:00 AM – 10:00 PM" }],
       gallery: {
         main: { src: AllImages.diamondClubBlue2, label: "La Aldea — jungle clearing" },
@@ -709,60 +699,101 @@ export const CASA_NIZUC_DATA: ResortData = {
   ],
 
   wellnessTitle: {
-    lead: "Wellness &",
-    italic: "fitness",
+    lead: "Move, stretch and",
+    italic: "switch off",
   },
-  wellnessDescription:
-    "Rejuvenate mind, body, and soul through holistic spa therapies, ocean-breeze yoga, and state-of-the-art movement spaces.",
+  wellnessDescription: "Classes run daily through the holiday. Times are confirmed on arrival.",
 
   wellness: [
     {
-      id: "the-spa",
+      id: "facials",
       category: "the-spa",
-      title: "The Spa",
-      description:
-        "Holistic Mayan hydrotherapy rituals, herbal compresses, and restorative European treatments designed for deep renewal.",
+      title: "Facials",
+      description: "Curated, prestige skincare and technology for a tailored facial.",
       image: AllImages.editionResortHero,
-      timing: "Daily: 9:00 AM – 8:00 PM",
       linkText: "See details",
     },
     {
-      id: "wellness-deck",
-      category: "wellness-deck",
-      title: "Wellness Deck",
-      description:
-        "Open-air oceanfront pavilion for sunrise yoga, breathwork sessions, and guided meditation overlooking the waves.",
+      id: "massages",
+      category: "the-spa",
+      title: "Massages",
+      description: "Deeply relaxing from head to toe, for every kind of tension.",
       image: AllImages.editionResortPool1,
-      timing: "Classes at 7:30 AM & 5:00 PM",
-      linkText: "View schedule",
+      linkText: "See details",
     },
     {
-      id: "fitness-center",
-      category: "fitness-center",
-      title: "Fitness Center",
-      description:
-        "State-of-the-art facility outfitted with Technogym equipment, free weights, and on-site certified personal trainers.",
+      id: "steam-room",
+      category: "the-spa",
+      title: "Steam Room",
+      description: "Detoxify, relax and rejuvenate as the soothing steam restores you.",
       image: AllImages.editionResortPool2,
-      timing: "24/7 Keycard Access",
-      linkText: "Explore facility",
+      linkText: "See details",
+    },
+    {
+      id: "body-treatments",
+      category: "the-spa",
+      title: "Body treatments",
+      description: "Body rituals that offer a journey of renewal through time-honoured techniques.",
+      image: AllImages.editionResortPool3,
+      linkText: "See details",
+    },
+    {
+      id: "salt-soul-yoga",
+      category: "wellness-deck",
+      title: "Salt & Soul Yoga",
+      description: "Yoga classes, meditation and wellness workshops.",
+      image: AllImages.editionResortHero,
+      linkText: "See details",
+    },
+    {
+      id: "rituals",
+      category: "wellness-deck",
+      title: "Rituals",
+      description: "Drawn from ancient traditions, our spa rituals restore balance.",
+      image: AllImages.editionResortPool1,
+      linkText: "See details",
+    },
+    {
+      id: "meditation",
+      category: "wellness-deck",
+      title: "Meditation",
+      description: "Guided sessions to start or close the day.",
+      image: AllImages.editionResortPool2,
+      linkText: "See details",
+    },
+    {
+      id: "fitness-with-haya",
+      category: "fitness-center",
+      title: "Fitness with Haya",
+      description: "Daily fitness classes to challenge your body with the resort team.",
+      image: AllImages.editionResortPool3,
+      linkText: "See details",
+    },
+    {
+      id: "floating-core-workout",
+      category: "fitness-center",
+      title: "Floating Core Workout",
+      description: "A pool-based workout with stunning views over the ocean.",
+      image: AllImages.editionResortHero,
+      linkText: "See details",
     },
   ],
 
   spa: {
-    title: "The Spa at Casa Nizuc",
-    titlePrefix: "The Spa at",
-    titleItalic: "Casa Nizuc",
+    title: "The Spa",
+    titlePrefix: "The",
+    titleItalic: "Spa",
     headline: "An ancient sanctuary for body, mind, and spirit.",
     meta: ["Hydrotherapy Circuit", "Thermal Experience", "Botanical Therapies", "Private Suites"],
     description:
-      "Drawing inspiration from sacred Mayan healing traditions, The Spa at Casa Nizuc features an extensive hydrotherapy circuit, temperature-controlled plunge pools, aromatic steam rooms, and private treatment villas secluded within lush jungle greenery.",
+      "Facials using prestige skincare and technology, massages from head to toe, a steam room and body rituals drawn from time-honoured techniques.",
     treatmentsAndFacilities: [
-      "Thermal hydrotherapy circuit with vitality pool",
-      "Aromatic eucalyptus steam room",
-      "Cedar dry sauna and ice fountain",
-      "Outdoor jungle relaxation deck with herbal tea bar",
-      "Private couples treatment suites with soaking tubs",
-      "Facial and skincare therapy sanctuary",
+      "Facials",
+      "Body treatments",
+      "Massages",
+      "Spa rituals",
+      "Steam room",
+      "Wellness deck",
     ],
     schedule: [{ days: "Monday – Sunday", hours: "9:00 AM – 8:00 PM" }],
     hours: "Daily: 9:00 AM – 8:00 PM",

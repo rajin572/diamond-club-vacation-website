@@ -3,13 +3,13 @@ import type { ProgramData, ProgramWhereYouStayData } from "@/components/programs
 
 const WHERE_YOU_STAY: ProgramWhereYouStayData = {
   badge: "Where you'll stay",
-  headline: "A private oceanfront sanctuary at Punta Nizuc",
+  headline: "One resort, the whole experience",
   resorts: [
     {
       id: "casa-nizuc",
       title: "Casa Nizuc",
       description:
-        "A tranquil retreat perched above pristine sands, offering timeless luxury, world-class dining, and restorative wellness.",
+        "A Tribute Portfolio Resort in the Aldea Nizuc, between turquoise water and mangrove forest.",
       image: AllImages.diamondClubBlue1,
       linkText: "View resort",
     },
@@ -51,8 +51,8 @@ export const BLUE_DATA: ProgramData = {
   ],
 
   hero: {
-    badge: "Passover 2027 · Cancun Mexico",
-    headline: { primary: "Diamond Club Blue", secondary: "by DCV" },
+    badge: "Passover 2027 · Cancun, Mexico",
+    headline: { primary: "Diamond Blue", secondary: "by DCV" },
     subtitle:
       "The hospitality, cuisine and programming you expect from Diamond Club, at the brand-new Casa Nizuc and at exceptional value.",
     ctas: {
@@ -60,7 +60,7 @@ export const BLUE_DATA: ProgramData = {
         label: "Inquire about this program",
         href: "/inquire?holiday=passover-2027&destination=blue",
       },
-      secondary: { label: "Explore resort", href: "#where-youll-stay" },
+      secondary: { label: "Where you'll stay", href: "#where-youll-stay" },
     },
     backgroundImage: AllImages.diamondClubBlue1,
   },
@@ -74,29 +74,26 @@ export const BLUE_DATA: ProgramData = {
 
   about: {
     badge: "About this event",
-    headline: "The full Diamond Club Passover experience, at exceptional value",
+    headline: "An exceptional Passover, made accessible",
     paragraphs: [
-      "Diamond Club Blue is designed for families who want the warmth, community, and impeccable standards of a DCV Passover, set in the breathtaking beauty of Cancun. Hosted at the brand-new Casa Nizuc, the program combines contemporary luxury with effortless convenience.",
-      "From Glatt Kosher master chef dining to world-class entertainment, dynamic day camps, and thought-provoking scholars, every detail has been thoughtfully crafted to provide an extraordinary holiday retreat at our most accessible offering.",
-      "Enjoy private beachfront cabanas, pristine coral waters, curated evening shows, and the comprehensive care of Diamond Club hospitality all through Passover 2027.",
+      "Diamond Blue by DCV was created to make an exceptional Passover experience more accessible. Enjoy the hospitality, outstanding cuisine, attentive service and thoughtful programming you expect from Diamond Club Vacations, all at an exceptional value.",
+      "Set at the brand-new Casa Nizuc Resort, Diamond Blue brings together great food, entertainment and warm hospitality for a memorable Passover in the Riviera Maya.",
     ],
     glance: {
       title: "At a glance",
       location: { label: "Location", value: "Cancun, Mexico" },
       resorts: {
-        label: "Featured resort",
-        value: WHERE_YOU_STAY.resorts.map((r) => r.title),
+        label: "Where you stay",
+        value: ["Casa Nizuc Resort"],
       },
       highlights: [
-        "The full Diamond Club Passover experience",
-        "Brand-new beachfront resort at Casa Nizuc",
-        "Four kosher dining venues & round-the-clock tea room",
-        "Full-day camp & dedicated teen lounge",
-        "Nightly headline concerts and entertainment",
-        "Our most accessible luxury price point",
+        "Full Diamond Club Passover experience",
+        "Beautiful resort and excellent dining",
+        "Family-friendly atmosphere",
+        "Most accessible price point",
       ],
       cta: {
-        label: "Inquire about Diamond Club Blue",
+        label: "Inquire about Diamond Blue",
         href: "/inquire?holiday=passover-2027&destination=blue",
       },
     },
@@ -111,73 +108,52 @@ export const BLUE_DATA: ProgramData = {
       {
         id: "entertainment",
         title: "Entertainment",
-        description: "Nightly shows, afterparties, concerts and comedic performances.",
+        description: "Nightly shows, DJ parties, kumzitz and comedy.",
         image: AllImages.entertainment,
         row: 1,
         linkTo: "entertainment",
       },
       {
-        id: "scholars",
-        title: "Scholars & Speakers",
-        description: "Inspiring shiurim, lectures and panel discussions with prominent educators.",
-        image: AllImages.scholars,
-        row: 1,
-        linkTo: "scholars",
-      },
-      {
         id: "kids-program",
         title: "Kids Program",
-        description: "Comprehensive day camp, teen outings and evening programming.",
+        description: "Day camp, teen program and babysitting.",
         image: AllImages.kidsProgram,
         row: 1,
         linkTo: "kids-program",
       },
       {
-        id: "kids-day-camp",
-        title: "Day Camp & Teen Lounge",
-        description: "Daily games, sports, crafts, excursions and babysitting services.",
-        image: AllImages.experience1,
-        row: 2,
-        linkTo: "kids-day-camp",
-      },
-      {
-        id: "kosher-supervision",
-        title: "Kosher Supervision",
-        description: "Every kitchen and meal under strict Mehadrin Glatt Kosher certification.",
-        image: AllImages.koshaSupervision,
-        row: 2,
-      },
-      {
-        id: "chefs",
-        title: "Master Chefs",
-        description: "Four distinctive culinary venues curated by international master chefs.",
-        image: AllImages.ourChefs,
-        row: 2,
+        id: "scholars",
+        title: "Scholars",
+        description: "Talks and classes with renowned speakers.",
+        image: AllImages.scholars,
+        row: 1,
+        linkTo: "scholars",
       },
     ],
   },
 
   explore: {
     banner: {
-      badge: "Explore",
+      badge:
+        "Cenotes, Mayan ruins and eco parks, plus the Aldea Nizuc beach club and La Aldea, right on the property.",
       headline: "Beyond the resort",
       description:
-        "Explore the ancient Mayan heritage, crystal-clear cenotes, and vibrant eco-parks of Cancun and the Riviera Maya.",
+        "Cenotes, Mayan ruins, eco parks and the second-largest coral reef in the world, all within reach of the resort.",
       linkText: "View all attractions",
       backgroundImage: AllImages.beyondDiamondClubResturant,
     },
     attractions: [
-      { id: "attractions", title: "Local Attractions", image: AllImages.underwaterMuseum },
+      { id: "attractions", title: "Attractions", image: AllImages.underwaterMuseum },
       { id: "beach-club", title: "Beach Club", image: AllImages.diamondClubBlue1 },
       { id: "la-aldea", title: "La Aldea", image: AllImages.diamondClubBlue2 },
     ],
   },
 
   inquiry: {
-    headline: { part1: "Join Diamond Club Blue for ", part2: "Passover 2027" },
-    subtitle: "Availability is limited at Casa Nizuc. Tell us about your group and our team will be in touch.",
+    headline: { part1: "Join Diamond Blue for ", part2: "Passover 2027" },
+    subtitle: "Availability is limited. Tell us about your group and our team will be in touch.",
     cta: {
-      label: "Inquire about Diamond Club Blue",
+      label: "Inquire about Diamond Blue",
       href: "/inquire?holiday=passover-2027&destination=blue",
     },
     backgroundImage: AllImages.passoverInquireBanner,
